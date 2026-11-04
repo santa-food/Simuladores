@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Widget Ga.IA</title>
+  <style>
+    /* Botão Flutuante (Balaozinho no Canto Inferior Direito) */
+    .gaia-widget-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #2e7d32;
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      z-index: 9999;
+      transition: transform 0.2s ease;
+    }
+
+    .gaia-widget-button:hover {
+      transform: scale(1.08);
+    }
+
+    /* Janela do Chat (Inicia Escondida) */
+    .chat-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 360px;
+      height: 520px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      display: none; 
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 9998;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Mostra a janela quando o botão é clicado */
+    .chat-container.open {
+      display: flex;
+    }
+
+    .chat-header {
+      background-color: #2e7d32;
+      color: #ffffff;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header-info h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .chat-header-info p {
+      margin: 2px 0 0 0;
+      font-size: 11px;
+      opacity: 0.9;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 14px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #f9f9f9;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .bot-message {
+      background-color: #e8f5e9;
+      color: #1b5e20;
+      align-self: flex-start;
+      border-bottom-left-radius: 2px;
+    }
+
+    .user-message {
+      background-color: #2e7d32;
+      color: #ffffff;
+      align-self: flex-end;
+      border-bottom-right-radius: 2px;
+    }
+
+    /* Links clicáveis dentro das respostas da Ga.IA */
+    .bot-message a {
+      color: #1b5e20;
+      font-weight: 600;
+      text-decoration: underline;
+      overflow-wrap: anywhere;
+    }
+
+    .bot-message a:hover {
+      color: #2e7d32;
+    }
+
+    /* Chips / Botões de Atalho */
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .chip-btn {
+      background-color: #ffffff;
+      color: #2e7d32;
+      border: 1px solid #a5d6a7;
+      border-radius: 14px;
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .chip-btn:hover {
+      background-color: #2e7d32;
+      color: #ffffff;
+      border-color: #2e7d32;
+    }
+
+    /* Indicador "digitando..." */
+    .typing {
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .typing span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #2e7d32;
+      opacity: 0.4;
+      animation: gaia-blink 1.2s infinite ease-in-out;
+    }
+
+    .typing span:nth-child(2) { animation-delay: 0.2s; }
+    .typing span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes gaia-blink {
+      0%, 80%, 100% { opacity: 0.4; transform: translateY(0); }
+      40% { opacity: 1; transform: translateY(-3px); }
+    }
+
+    .chat-input-area {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #e0e0e0;
+      gap: 6px;
+      background: #fff;
+    }
+
+    .chat-input-area input {
+      flex: 1;
+      border: 1px solid #ccc;
+      border-radius: 18px;
+      padding: 8px 14px;
+      outline: none;
+      font-size: 13px;
+    }
+
+    .chat-input-area button {
+      background-color: #2e7d32;
+      color: #ffffff;
+      border: none;
+      border-radius: 18px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    /* Bloqueado enquanto a Ga.IA responde */
+    .chat-input-area input:disabled {
+      background-color: #f1f1f1;
+      cursor: not-allowed;
+    }
+
+    .chat-input-area button:disabled,
+    .chip-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .chip-btn:disabled:hover {
+      background-color: #ffffff;
+      color: #2e7d32;
+      border-color: #a5d6a7;
+    }
+
+    /* Contador de caracteres */
+    .char-counter {
+      font-size: 10px;
+      color: #888;
+      text-align: right;
+      padding: 0 16px 6px;
+      background: #fff;
+      display: none;
+    }
+
+    .char-counter.visible { display: block; }
+    .char-counter.limit { color: #c62828; }
+
+    /* ---------- Celular ---------- */
+    @media (max-width: 480px) {
+      .chat-container {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        height: 100dvh;
+        border-radius: 0;
+      }
+
+      /* Com o chat aberto em tela cheia, o botão flutuante sai da frente
+         (o X do cabeçalho fecha o chat). */
+      body.gaia-open .gaia-widget-button {
+        display: none;
+      }
+
+      .chat-header {
+        padding: 16px;
+        padding-top: max(16px, env(safe-area-inset-top));
+      }
+
+      .close-btn {
+        font-size: 24px;
+        padding: 4px 8px;
+      }
+
+      .message {
+        font-size: 15px;
+        max-width: 88%;
+      }
+
+      .chip-btn {
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+
+      .chat-input-area {
+        padding: 10px;
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
+      }
+
+      /* 16px evita o zoom automático do iPhone ao tocar no campo */
+      .chat-input-area input {
+        font-size: 16px;
+        padding: 10px 14px;
+      }
+
+      .chat-input-area button {
+        font-size: 15px;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botão Flutuante (Balaozinho no canto) -->
+  <button class="gaia-widget-button" onclick="toggleChat()" id="widget-toggle-btn">
+    🌱
+  </button>
+
+  <!-- Janela do Chat -->
+  <div class="chat-container" id="chat-container">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <h3>Ga.IA | Guiadora Virtual 🌱</h3>
+        <p>Santa Food & Smart EcoVila</p>
+      </div>
+      <button class="close-btn" onclick="toggleChat()">✕</button>
+    </div>
+
+    <div class="chat-messages" id="chat-messages">
+      <!-- Mensagem Inicial -->
+      <div class="message bot-message">
+        Olá! 🌱 Eu sou a Ga.IA, sua guiadora na Trilha da Jornada 100% Consciência Tranquila da Santa Food e da Smart EcoVila. Como posso te inspirar ou ajudar hoje?
+
+        <div class="quick-replies">
+          <button class="chip-btn" onclick="sendQuickReply('O que é a Smart EcoVila?')">🌐 Smart EcoVila</button>
+          <button class="chip-btn" onclick="sendQuickReply('Como funcionam as 6 etapas?')">🌿 As 6 Etapas</button>
+          <button class="chip-btn" onclick="sendQuickReply('O que é a base IDG?')">💡 O que é o IDG?</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="char-counter" id="char-counter"></div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" placeholder="Digite sua mensagem..." maxlength="500" onkeypress="handleKeyPress(event)" oninput="updateCounter()">
+      <button id="send-btn" onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    let sessionId = null;
+    try {
+      sessionId = localStorage.getItem('gaia_session_id');
+    } catch (e) { /* alguns navegadores bloqueiam localStorage em arquivo local */ }
+    if (!sessionId) {
+      sessionId = 'sessao_' + Math.random().toString(36).substring(2, 11);
+      try { localStorage.setItem('gaia_session_id', sessionId); } catch (e) {}
+    }
+
+    // URL do seu backend no Render
+    const RENDER_URL = 'https://ga-ia-santafood.onrender.com/chat';
+
+    // WhatsApp oficial (+55 11 91282-1391). Usado para transformar o número
+    // que a Ga.IA cita nas respostas em um link que abre a conversa.
+    const WHATSAPP_LINK = 'https://wa.me/5511912821391';
+
+    // Nomes que aparecem no chat no lugar do endereço comprido dos simuladores.
+    // Reconhece pelo nome do arquivo/pasta, então continua valendo se o endereço
+    // mudar (ex.: migração para a conta da Santa Food).
+    const ROTULOS_LINKS = [
+      { teste: /\/condominios\.html(?:[?#].*)?$/i, rotulo: 'Simulador para condomínios' },
+      { teste: /\/diagnostico-esg\.html(?:[?#].*)?$/i, rotulo: 'Diagnóstico ESG' },
+      { teste: /\/eventos\.html(?:[?#].*)?$/i, rotulo: 'Calculadora de eventos' },
+      { teste: /\/receitas\/?(?:[?#].*)?$/i, rotulo: 'Receitas da Smart EcoVila' },
+      { teste: /\/olho(?:%20|-|\+)na(?:%20|-|\+)copa\/?(?:[?#].*)?$/i, rotulo: 'Olho na Copa' },
+    ];
+
+    // Mesmo limite do backend (MAX_CARACTERES_MENSAGEM no main.py)
+    const MAX_CARACTERES = 500;
+
+    let aguardandoResposta = false;
+
+    function toggleChat() {
+      const chatContainer = document.getElementById('chat-container');
+      const toggleBtn = document.getElementById('widget-toggle-btn');
+
+      chatContainer.classList.toggle('open');
+      const aberto = chatContainer.classList.contains('open');
+
+      document.body.classList.toggle('gaia-open', aberto);
+      toggleBtn.innerText = aberto ? '✕' : '🌱';
+
+      // No computador já deixa o cursor no campo; no celular não, para o
+      // teclado não cobrir a mensagem de boas-vindas.
+      if (aberto && window.innerWidth > 480 && !aguardandoResposta) {
+        document.getElementById('chat-input').focus();
+      }
+    }
+
+    function setBloqueado(bloqueado) {
+      aguardandoResposta = bloqueado;
+      const inputEl = document.getElementById('chat-input');
+      inputEl.disabled = bloqueado;
+      inputEl.placeholder = bloqueado ? 'Ga.IA está respondendo...' : 'Digite sua mensagem...';
+      document.getElementById('send-btn').disabled = bloqueado;
+      document.querySelectorAll('.chip-btn').forEach(b => b.disabled = bloqueado);
+    }
+
+    function updateCounter() {
+      const inputEl = document.getElementById('chat-input');
+      const counter = document.getElementById('char-counter');
+      const tamanho = inputEl.value.length;
+
+      // Só aparece quando a pessoa está chegando perto do limite
+      if (tamanho >= MAX_CARACTERES * 0.8) {
+        counter.classList.add('visible');
+        counter.classList.toggle('limit', tamanho >= MAX_CARACTERES);
+        counter.innerText = `${tamanho}/${MAX_CARACTERES}`;
+      } else {
+        counter.classList.remove('visible', 'limit');
+      }
+    }
+
+    async function sendMessage(textOverride = null) {
+      if (aguardandoResposta) return;
+
+      const inputEl = document.getElementById('chat-input');
+      const messageText = (textOverride || inputEl.value).trim();
+
+      if (!messageText) return;
+
+      appendMessage(messageText, 'user-message');
+      if (!textOverride) {
+        inputEl.value = '';
+        updateCounter();
+      }
+
+      setBloqueado(true);
+      const typingEl = showTyping();
+
+      try {
+        const response = await fetch(RENDER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: messageText.slice(0, MAX_CARACTERES),
+            session_id: sessionId
+          })
+        });
+
+        let data = {};
+        try {
+          data = await response.json();
+        } catch (e) {
+          data = {};
+        }
+
+        typingEl.remove();
+
+        if (response.ok && data.reply) {
+          appendMessage(data.reply, 'bot-message');
+        } else {
+          console.error('Erro do servidor:', response.status, data);
+          if (response.status === 502) {
+            appendMessage('Estou com muita procura agora 🌱 Pode tentar de novo em alguns instantes?', 'bot-message');
+          } else if (response.status === 413) {
+            appendMessage(`Sua mensagem ficou um pouco longa 😅 Pode resumir em até ${MAX_CARACTERES} caracteres?`, 'bot-message');
+          } else {
+            appendMessage('Ops, tive um problema ao responder. Tente novamente!', 'bot-message');
+          }
+        }
+      } catch (err) {
+        typingEl.remove();
+        console.error(err);
+        appendMessage('Serviço temporariamente indisponível. Tente novamente mais tarde.', 'bot-message');
+      } finally {
+        setBloqueado(false);
+        if (window.innerWidth > 480) inputEl.focus();
+      }
+    }
+
+    function showTyping() {
+      const messagesContainer = document.getElementById('chat-messages');
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'message bot-message';
+      msgDiv.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+      messagesContainer.appendChild(msgDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      return msgDiv;
+    }
+
+    function sendQuickReply(text) {
+      sendMessage(text);
+    }
+
+    // Adiciona texto preservando as quebras de linha (igual ao antigo innerText).
+    function appendText(container, text) {
+      const partes = text.split('\n');
+      partes.forEach((parte, i) => {
+        if (i > 0) container.appendChild(document.createElement('br'));
+        if (parte) container.appendChild(document.createTextNode(parte));
+      });
+    }
+
+    // Transforma links, e-mails, o WhatsApp oficial, o @ do Instagram e o site
+    // da Smart EcoVila em links clicáveis. Não usa innerHTML: nada que venha da
+    // resposta é interpretado como HTML.
+    function appendWithLinks(container, text) {
+      const pattern = /(https?:\/\/[^\s<>"']+)|([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})|((?:\+?55\s?)?\(?11\)?\s?9\s?1282[-\s]?1391)|(@[A-Za-z0-9._]{3,30})|((?:www\.)?smartecovila\.com\.br(?:\/[^\s<>"']*)?)/g;
+      let ultimo = 0;
+      let m;
+      while ((m = pattern.exec(text)) !== null) {
+        let achado = m[0];
+        // Tira pontuação colada no fim (ex.: "acesse https://site.com.")
+        if (m[1] || m[4] || m[5]) {
+          achado = achado.replace(/[.,;:!?)\]]+$/, '');
+        }
+        pattern.lastIndex = m.index + achado.length;
+
+        if (m.index > ultimo) appendText(container, text.slice(ultimo, m.index));
+
+        let href;
+        if (m[1]) href = achado;
+        else if (m[2]) href = 'mailto:' + achado;
+        else if (m[3]) href = WHATSAPP_LINK;
+        else if (m[4]) href = 'https://instagram.com/' + achado.slice(1);
+        else href = 'https://' + achado;
+
+        const a = document.createElement('a');
+        a.href = href;
+        let textoVisivel = achado;
+        if (m[1]) {
+          const conhecido = ROTULOS_LINKS.find(r => r.teste.test(achado));
+          if (conhecido) textoVisivel = conhecido.rotulo;
+        }
+        a.textContent = textoVisivel;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        container.appendChild(a);
+        ultimo = m.index + achado.length;
+      }
+      if (ultimo < text.length) appendText(container, text.slice(ultimo));
+    }
+
+    function appendMessage(text, className) {
+      const messagesContainer = document.getElementById('chat-messages');
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `message ${className}`;
+      if (className === 'bot-message') {
+        appendWithLinks(msgDiv, text);
+      } else {
+        msgDiv.innerText = text;
+      }
+      messagesContainer.appendChild(msgDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === 'Enter') {
+        sendMessage();
+      }
+    }
+  </script>
+</body>
+</html>
