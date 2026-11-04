@@ -1,0 +1,4283 @@
+{
+ "versao": "2026-10-16",
+ "lote": "Fichas técnicas – Voluntariado 2025",
+ "receitas": [
+  {
+   "id": "almondegas-veganas-com-arroz-negro-e-abobrinha-com-cenoura",
+   "nome": "Almôndegas veganas com arroz negro e abobrinha com cenoura",
+   "categoria": "Refeições",
+   "dieta": [
+    "Vegano",
+    "Sem lactose"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Almôndegas vegana assada 100g",
+     "ingredientes": [
+      {
+       "nome": "Grão de bico",
+       "qtd": 60.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 4.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cenoura",
+       "qtd": 30.0,
+       "un": "g"
+      },
+      {
+       "nome": "Limão Tahiti",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fubá",
+       "qtd": 30.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Páprica defumada",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Salsinha",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de linhaça dourada",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.5,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Abobrinha com cenoura 70g",
+     "ingredientes": [
+      {
+       "nome": "Abobrinha Italiana",
+       "qtd": 45.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite extra virgem",
+       "qtd": 1.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.25,
+       "un": "g"
+      },
+      {
+       "nome": "Pimenta do reino preta",
+       "qtd": 0.25,
+       "un": "g"
+      },
+      {
+       "nome": "Cenoura",
+       "qtd": 45.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Arroz negro cozido 80g",
+     "ingredientes": [
+      {
+       "nome": "Arroz negro",
+       "qtd": 22.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 1.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 115.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.5,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de Soja",
+       "qtd": 1.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Almôndegas",
+     "passos": [
+      "Coloque o grão de bico na panela de pressão e cubra com água e uma pitada de sal. Até que fique bem cozido, mais ou menos 40min",
+      "Adicionar em um copo metade da farinha de linhaça e a água e reserve. Levar ao processador (ou liquidificador) de alimentos o grão-de-bico, cebola, limão espremido, salsinha e sal. Bater até que misture os ingredientes.",
+      "Pré-aqueça o forno a 180 graus C. Rale a cenoura na parte mais fina do ralador. Misture na massa com uma colher. Adicione a mistura de farinha de linhaça com água na massa e mexa até incorporar bem. Acrescente o restante de farinha de linhaça.",
+      "Unte uma forma com óleo ou azeite e faça bolinhas de aproximadamente 25g. Empane no fubá temperado com sal. Leve ao forno por aproximadamente 30 minutos, virando quando completar 20 minutos"
+     ]
+    },
+    {
+     "titulo": "Arroz negro cozido",
+     "passos": [
+      "Esquentar óleo em uma panela, adicionar a cebola e o alho. Refogar até que fique transparente.",
+      "Coloque o arroz e o sal e frite até que fique brilhante.",
+      "Adicione a água fervente, coloque em fogo baixo, tampe a panela deixando um espaço e espere secar toda a água."
+     ]
+    },
+    {
+     "titulo": "Abobrinha com cenoura",
+     "passos": [
+      "Lavar e higienizar a abobrinha e a cenoura em água clorada. Descascar a cenoura e cortar em meias rodelas. A abobrinha apenas corte em meias rodelas",
+      "Em uma panela frite a cebola, quando ficar bem dourada coloque os legumes, a pimenta e o sal, refogue por alguns minutos (deixar al dente)"
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Em cada uma das embalagens, pese 100g de almondegas (5 unidades 20g cada), 80g do arroz negro e 70g da abobrinha. Quando tudo estiver bem frio, tampe a embalagem, coloque o lacre de segurança e o rótulo. Congele"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "Na montagem, a ficha cita \"arroz de couve-flor\"; corrigido para arroz negro, que é o ingrediente listado."
+   ],
+   "fonte": "Ficha Tecnica_Almondegas veganas acompanhada de arroz negro e abobrinha com cenoura.xlsx"
+  },
+  {
+   "id": "bolinho-de-aipim-com-arroz-integral-feijao-carioca-e-legumes",
+   "nome": "Bolinho de aipim com arroz integral, feijão carioca e legumes",
+   "categoria": "Refeições",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Arroz",
+     "ingredientes": [
+      {
+       "nome": "Arroz",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 9.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água fervente",
+       "qtd": 230.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de soja",
+       "qtd": 3.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Feijão",
+     "ingredientes": [
+      {
+       "nome": "Feijão",
+       "qtd": 28.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água",
+       "qtd": 212.0,
+       "un": "g"
+      },
+      {
+       "nome": "Dentes de alho",
+       "qtd": 9.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de soja",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 5.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Bolinho",
+     "ingredientes": [
+      {
+       "nome": "Aipim",
+       "qtd": 75.0,
+       "un": "g"
+      },
+      {
+       "nome": "Margarina",
+       "qtd": 12.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo branca",
+       "qtd": 16.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de rosca",
+       "qtd": 15.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 9.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovo",
+       "qtd": 1.0,
+       "un": "un"
+      }
+     ]
+    },
+    {
+     "nome": "Mix de legumes",
+     "ingredientes": [
+      {
+       "nome": "Berinjela",
+       "qtd": 18.0,
+       "un": "g"
+      },
+      {
+       "nome": "Abobrinha",
+       "qtd": 18.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cenoura",
+       "qtd": 18.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 9.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho",
+       "qtd": 6.0,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite extra virgem",
+       "qtd": 4.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 2.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Arroz",
+     "passos": [
+      "Esquentar óleo em uma panela, adicionar a cebola e o alho. Refogar até que fique transparente",
+      "Coloque o arroz e o sal e frite até que fique brilhante.",
+      "Adicione a água fervente, coloque em fogo baixo, tampe a panela deixando um espaço e espere secar toda a água."
+     ]
+    },
+    {
+     "titulo": "Feijão",
+     "passos": [
+      "Coloque o feijão numa peneira e lave sob água corrente. Transfira os grãos para uma tigela e cubra com a água – se algum boiar, descarte. Cubra a tigela com um prato e deixe o feijão de molho por 6 horas",
+      "Descarte a água do remolho. Transfira os grãos para a panela de pressão, cubra com a água",
+      "Tampe a panela e leve ao fogo alto. Assim que começar a apitar, abaixe o fogo e deixe cozinhar por mais 10 minutos. Desligue o fogo e deixe todo o vapor sair antes de abrir a panela.",
+      "Enquanto o feijão cozinha, descasque e pique fino os dentes de alho.",
+      "Leve uma frigideira ao fogo baixo. Quando aquecer, regue com o azeite, junte a cebola e tempere com uma pitada de sal. Refogue por cerca de 5 minutos, até começar a dourar adicione o alho",
+      "Acrescente 2 conchas do feijão cozido, com um pouco do caldo, misture e amasse os grãos com a espátula.",
+      "Transfira o refogado com os grãos amassados para a panela com o feijão cozido. Tempere com sal, misture e deixe cozinhar em fogo baixo, sem tampa, por mais 10 minutos ou até o caldo engrossar."
+     ]
+    },
+    {
+     "titulo": "Bolinho",
+     "passos": [
+      "Higienizar o aipim com detergente e água corrente. Colocar em solucao clorada (seguir as instruções do rotulo do cloro)",
+      "Retirar a casca fina (marrom) do aipim e desprezá-la. Cortar o aipim em rodelas de aproximadamente 2cm",
+      "Colocar as rodelas para cozinhar. Depois de cozida, passá-la no liquidificador.",
+      "Numa vasilha, juntar a manteiga, a farinha de trigo e os ovos as rodelas batidas, até que forme uma massa consistente.",
+      "Enrolar e pesar os bolinhos sendo 30g para cada um , passar na farinha de rosca e colocar para assar em forno à 180°C, até que a superfície fique dourada"
+     ]
+    },
+    {
+     "titulo": "Mix de legumes",
+     "passos": [
+      "Higienizar com água clorada a berinjela, a abobrinha e a cenoura.",
+      "Corte a berinjela em cubos e coloque de molho em água (temperatura ambiente). Deixe por pelo menos 30min. Escorra e amasse para retirar a água",
+      "Descasque e corte em rodelas a cenoura. Corte a abobrinha em rodelas. Descasque e corte a cebola em cubos bem pequenos. Descasque e amasse o alho",
+      "Esquente o azeite em uma panela junto com o alho e a cebola frite até que fiquem dourados, adicione a cenoura, a berinjela, abobrinha e o sal. Refogue até que fique al dente"
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Espere tudo esfriar muito bem, coloque 120g dos bolinhos (4 unidades), 60g de arroz, 40g de feijão e 30g do mix de legumes em cada uma das embalagens. Tampe, coloque o rotulo e o lacre de segurança, congele."
+     ]
+    }
+   ],
+   "notas": [
+    "120g/unidade de bolinho (4 unidades de bolinhos, sendo que cada um tem 30g)",
+    "60g/uni de arroz 40g/uni de feijão",
+    "10g/uni de berinjela + 10g/uni de abobrinha + 10g/uni de cenoura"
+   ],
+   "ajustes": [
+    "O preparo cita manteiga; a lista de ingredientes traz margarina."
+   ],
+   "fonte": "Ficha Tecnica_Bolinho de aipim acompanhado de arroz integral feijão carioca e mix de legumes refogados.xlsx"
+  },
+  {
+   "id": "bolinho-vegano-de-brocolis-com-abobora-assada-e-arroz-negro",
+   "nome": "Bolinho vegano de brócolis com abóbora assada e arroz negro",
+   "categoria": "Refeições",
+   "dieta": [
+    "Vegano",
+    "Sem lactose"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Bolinho vegano de brócolis 110g",
+     "ingredientes": [
+      {
+       "nome": "Brócolis Ninja",
+       "qtd": 80.0,
+       "un": "g"
+      },
+      {
+       "nome": "Batata inglesa",
+       "qtd": 80.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de rosca",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Pimenta do reino preta",
+       "qtd": 0.13,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de Soja",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.5,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Abóbora assada 70g",
+     "ingredientes": [
+      {
+       "nome": "Azeite extra virgem",
+       "qtd": 1.0,
+       "un": "g"
+      },
+      {
+       "nome": "Abóbora cabotia",
+       "qtd": 85.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alecrim",
+       "qtd": 0.25,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.25,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Arroz negro cozido 70g",
+     "ingredientes": [
+      {
+       "nome": "Arroz negro",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 80.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.25,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite extra virgem",
+       "qtd": 0.5,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Bolinho vegano de brócolis",
+     "passos": [
+      "Higienizar o brócolis e a batata. Descascar a batata. Tirar apenas o excesso de talos do brócolis, pode deixar um pouco",
+      "Rale bem os brócolis crus ou bata rapidamente no liquidificador",
+      "Rale as batatas crua finamente e misture bem com os brócolis e a farinha de rosca. Polvilhe com sal e pimenta",
+      "Forme uma colher de sopa cheia da mistura em pedaços como você pode ver na foto. Certifique-se de pressionar um pouco a massa e moldar bem. Pese em média 30g de cada bolinho",
+      "Coloque os pedaços em uma assadeira forrada com papel manteiga e pincele com óleo.",
+      "Asse no forno a 200 graus por cerca de 40-45 minutos até dourar e ficar crocante."
+     ]
+    },
+    {
+     "titulo": "Arroz cozido",
+     "passos": [
+      "Esquentar óleo em uma panela, adicionar a cebola e o alho. Refogar até que fique transparente.",
+      "Coloque o arroz e o sal e frite até que fique brilhante.",
+      "Adicione a água fervente, coloque em fogo baixo, tampe a panela deixando um espaço e espere secar toda a água."
+     ]
+    },
+    {
+     "titulo": "Abóbora assada",
+     "passos": [
+      "Lavar e higienizar a abóbora em água clorada. Descasque e corte em cubos.",
+      "Em uma forma, coloque os cubos de abóbora e regue com o azeite e o sal. Leve para o forno à 180ºC e deixe por aproximadamente 30min ou até que os cubos estejam bem macios. Depois que retirar do forno, polvilhe o alecrim."
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Espere tudo esfriar muito bem, em cada uma das embalagens já identificadas pese 110g de bolinho, 60g de abóbora assada e 70g de arroz negro. Tampe, coloque o lacre de segurança e congele"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "A seção do arroz estava rotulada \"arroz vermelho\" e a montagem citava \"croquete\"; padronizado para arroz negro e bolinho, conforme o nome e os ingredientes.",
+    "Ficha duplicada (\"Bolinho vegano assado, arroz integral e feijão preto\") com \"queijo mussarela\" no lugar do arroz: descartada."
+   ],
+   "fonte": "Ficha Tecnica_Bolinho vegano de brócolis assado acompanhado de abóbora assada e arroz negro.xlsx"
+  },
+  {
+   "id": "bolo-vegano-e-sem-gluten-de-maca-com-canela",
+   "nome": "Bolo vegano e sem glúten de maçã com canela",
+   "categoria": "Bolos",
+   "dieta": [
+    "Vegano",
+    "Sem glúten",
+    "Sem lactose"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 9,
+    "unidade": "porções",
+    "peso_g": 90
+   },
+   "tempo_min": null,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Massa",
+     "ingredientes": [
+      {
+       "nome": "Óleo de soja",
+       "qtd": 45.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Bicarbonato de sódio",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar mascavo",
+       "qtd": 125.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento químico em pó",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de arroz",
+       "qtd": 200.0,
+       "un": "g"
+      },
+      {
+       "nome": "Amido de milho",
+       "qtd": 30.0,
+       "un": "g"
+      },
+      {
+       "nome": "Canela em pó",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Extrato vegetal de soja",
+       "qtd": 190.0,
+       "un": "g"
+      },
+      {
+       "nome": "Goma",
+       "qtd": 4.8,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Fruta",
+     "ingredientes": [
+      {
+       "nome": "Maçã Fuji",
+       "qtd": 340.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Lavar e higienizar as maçã em água clorada (seguindo orientações do rotulo para quantidade e tempo). Reserve, corte só quando for adicionar na massa",
+      "Coloque todos os secos em uma vasilha e reserve.",
+      "No liquidificador, bater o óleo, o leite de soja e as cascas da maçã. Incorpore o líquido aos secos, juntamente com a maçã cortada em pequenos pedaços.",
+      "Leve ao forno pré-aquecido a 180-200°C por aproximadamente 50 minutos . Rende uma fôrma retangular de pão estilo alemã (9 pedaços de 90g)"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "O campo \"Nome de apresentação\" da ficha dizia \"Bolo de cacau\"; usado o nome do arquivo, que corresponde aos ingredientes e ao preparo.",
+    "A seção \"Linhaça\" continha apenas a maçã; renomeada."
+   ],
+   "fonte": "Ficha Tecnica_Bolo Vegano e Sem Glúten de Maçã com canela.xlsx",
+   "organico": {
+    "tipo": "percentual",
+    "pct": 56.3,
+    "itens": [
+     "Farinha de arroz",
+     "Maçã Fuji"
+    ]
+   }
+  },
+  {
+   "id": "bolo-de-cacau-acucar-mascavo-e-canela",
+   "nome": "Bolo de cacau, açúcar mascavo e canela",
+   "categoria": "Bolos",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 10,
+    "unidade": "porções",
+    "peso_g": 90
+   },
+   "tempo_min": null,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Massa",
+     "ingredientes": [
+      {
+       "nome": "Óleo de soja",
+       "qtd": 130.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Bicarbonato de sódio",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar mascavo",
+       "qtd": 200.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento químico em pó",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo branca",
+       "qtd": 200.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cacau em pó 50%",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Canela em pó",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovo",
+       "qtd": 120.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cenoura",
+       "qtd": 230.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Lavar e higienizar as cenouras em água clorada (seguindo orientações do rotulo para quantidade e tempo). Descasque e rale no mais fino",
+      "Coloque todos os secos em uma vasilha e reserve.",
+      "Bata o óleo e os ovos(peneirado e sem pelicula) no liquidificador e incorpore o líquido suavemente aos secos.Por último, misture a cenoura.",
+      "Leve ao forno pré-aquecido a 180-200°C por aproximadamente 45 minutos . Rende uma fôrma retangular de pão estilo alemã (9 fatias de 90g)"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "Ficha Tecnica_Bolo de Cacau, açúcar mascavo e canela.xlsx",
+   "organico": {
+    "tipo": "percentual",
+    "pct": 59.8,
+    "itens": [
+     "Cenoura",
+     "Farinha de trigo branca",
+     "Ovo"
+    ]
+   }
+  },
+  {
+   "id": "croquete-vegano-assado-com-pure-de-abobora-e-arroz-vermelho",
+   "nome": "Croquete vegano assado com purê de abóbora e arroz vermelho",
+   "categoria": "Refeições",
+   "dieta": [
+    "Vegano",
+    "Sem lactose"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Croquete vegano 95g",
+     "ingredientes": [
+      {
+       "nome": "Abobrinha Italiana",
+       "qtd": 110.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 1.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento químico em pó",
+       "qtd": 1.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de rosca",
+       "qtd": 50.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de Aveia",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Leite Vegetal",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Pimenta do reino preta",
+       "qtd": 0.13,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de Trigo branca",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.25,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Purê de abóbora 85g",
+     "ingredientes": [
+      {
+       "nome": "Azeite extra virgem",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Abóbora cabotia",
+       "qtd": 90.0,
+       "un": "g"
+      },
+      {
+       "nome": "Gengibre in natura",
+       "qtd": 1.0,
+       "un": "g"
+      },
+      {
+       "nome": "Leite Vegetal",
+       "qtd": 15.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 0.5,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.25,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Arroz vermelho cozido 70g",
+     "ingredientes": [
+      {
+       "nome": "Arroz vermelho",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 90.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.25,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite extra virgem",
+       "qtd": 0.5,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Croquete vegetal",
+     "passos": [
+      "Com um ralador grosso, rale a abobrinha com a casca, já lavada e higienizada.",
+      "Em uma tigela adicione a abobrinha ralada, a cebola, o alho e tempere. Misture a farinha de rosca (350g da quantidade indicada na receita, o restanta para empanar), a aveia e o fermento, aos poucos, adicione o leite de vegetal até ficar uma massa mole, mas consistente",
+      "Pegue por colheradas de aproximadamente 20g, empane na farinha de trigo, na água e na farinha de rosca",
+      "Em uma assadeira untada com azeite, coloque os croquetes ajeitados para não grudarem. Coloque em forno pré-aquecido à 180ºC, e deixe assar até que fiquem bem dourados e cozidos. Retire do forno e deixe esfriar"
+     ]
+    },
+    {
+     "titulo": "Arroz cozido",
+     "passos": [
+      "Esquentar óleo em uma panela, adicionar a cebola e o alho. Refogar até que fique transparente.",
+      "Coloque o arroz e o sal e frite até que fique brilhante.",
+      "Adicione a água fervente, coloque em fogo baixo, tampe a panela deixando um espaço e espere secar toda a água."
+     ]
+    },
+    {
+     "titulo": "Purê de abóbora",
+     "passos": [
+      "Lave e higienize a abóbora e o gengibre com água clorada. Descasque e corte em pedaços grandes.",
+      "Cozinhe na água junto com o gengibre. Quando a abóbora estiver bem mole mole, desligue o fogo e escorra água.",
+      "No liquidificador, bata muito bem toda a abóbora, o gengibre (antes de bater rale na parte prquena) e metade do leite até virar um creme. Por último misture o sal. Verifique se ficou grumos de abóbora, se sim bata por mais tempo",
+      "Em uma panela, coloque o alho e a manteiga e frite o alho, quando estiver dourado adicione o conteudo do liquidificador e o restante do leite. Mexer e deixar apurar por mais alguns minutos."
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Espere tudo esfriar muito bem, em cada uma das embalagens já identificadas pese 100g de croquete, 75g de purê de abóbora e 75g de arroz vermelho. Tampe, coloque o lacre de segurança e congele"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "O preparo do purê cita manteiga; a lista traz azeite e leite vegetal (mantido como na ficha)."
+   ],
+   "fonte": "Ficha Tecnica_Croquete vegano assado acompanhado de purê de abóbora e arroz vermelho.xlsx"
+  },
+  {
+   "id": "kibe-assado-com-arroz-integral-brocolis-e-pimentao-refogado",
+   "nome": "Kibe assado com arroz integral, brócolis e pimentão refogado",
+   "categoria": "Refeições",
+   "dieta": [
+    "Contém carne"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Arroz integral com brócolis",
+     "ingredientes": [
+      {
+       "nome": "Arroz agulhinha integral",
+       "qtd": 22.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 8.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho",
+       "qtd": 9.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água fervente",
+       "qtd": 115.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de soja",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Brócolis ninja",
+       "qtd": 25.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Kibe",
+     "ingredientes": [
+      {
+       "nome": "Carne moída",
+       "qtd": 50.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de kibe",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 15.0,
+       "un": "g"
+      },
+      {
+       "nome": "Hortelã",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Margarina",
+       "qtd": 5.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Pimentão refogado",
+     "ingredientes": [
+      {
+       "nome": "Pimentão vermelho",
+       "qtd": 35.0,
+       "un": "g"
+      },
+      {
+       "nome": "Pimentão verde",
+       "qtd": 35.0,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite",
+       "qtd": 6.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 6.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Arroz integral com brócolis",
+     "passos": [
+      "Esquentar óleo em uma panela, adicionar a cebola e o alho. Refogar até que fique transparente",
+      "Coloque o arroz e o sal e frite até que fique brilhante.",
+      "Adicione a água fervente, coloque em fogo baixo, tampe a panela deixando um espaço e espere secar toda a água.",
+      "Higienizar o brócolis, retirar os talos e cozinhar em água fervente e sal",
+      "Quando o arroz estiver pronto misture o brócolis e cozinhe por alguns minutos, deixando ambos al dente"
+     ]
+    },
+    {
+     "titulo": "Kibe",
+     "passos": [
+      "Lavar o trigo para kibe e deixá-lo de molho na água por no mínimo 2 horas.",
+      "Depois disso coloque o trigo em outra vasilha maior, espremendo-o não muito (deixe-o bem úmido).",
+      "Junte a carne moída, a cebola, o alho picado, a hortelã, o sal, a pimenta síria.",
+      "Agora trabalhe, ou amasse bem essa mistura, pois dizem os libaneses, que o grande segredo do kibe é trabalhar bem essa massa, para que o kibe fique mais gostoso e dê certo.",
+      "Experimente para ver o sal e a pimenta que são temperos importantes.",
+      "Junte a margarina e amasse mais um pouco.",
+      "Coloque metade dessa mistura de kibe numa forma média que vá ao forno, espalhe o recheio de cebola com o azeite, cubra com o restante do kibe.",
+      "Por cima coloque uns pedacinhos de margarina bem distribuidos.",
+      "Cubra a forma com papel alumínio e leve ao forno para assar em fogo médio por uma hora.",
+      "Não tire o papel alumínio, para que o kibe não resseque."
+     ]
+    },
+    {
+     "titulo": "Pimentão refogado",
+     "passos": [
+      "Higienizar com água clorada os pimentões, retirar as sementes e corta-los em tiras",
+      "Em uma panela colocar o azeite, adicionar os pimentões e o sal e refogar até que fique al dente"
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Espere tudo esfriar muito bem, coloque 120g do kibe, 60g dos pimentões e 70g de arroz em cada uma das embalagens, tampe, coloque o rotulo e o lacre de segurança, congele"
+     ]
+    }
+   ],
+   "notas": [
+    "120g do kibe para cada refeição",
+    "30g do pimentão para cada refeição",
+    "100g de arroz para cada refeição"
+   ],
+   "ajustes": [
+    "Ficha duplicada \"(1)\" descartada."
+   ],
+   "fonte": "Ficha Tecnica_Kibe assado acompanhado de arroz integral com brócolis e primentão refogado.xlsx"
+  },
+  {
+   "id": "kibe-assado-com-pure-de-mandioca-e-mix-de-legumes",
+   "nome": "Kibe assado com purê de mandioca e mix de legumes",
+   "categoria": "Refeições",
+   "dieta": [
+    "Contém carne"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Kibe assado 90g",
+     "ingredientes": [
+      {
+       "nome": "Carne moída (paleta)",
+       "qtd": 60.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.5,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha para kibe",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Hortelã fresca",
+       "qtd": 6.0,
+       "un": "g"
+      },
+      {
+       "nome": "Margarina",
+       "qtd": 5.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Purê de mandioca 90g",
+     "ingredientes": [
+      {
+       "nome": "Margarina",
+       "qtd": 4.0,
+       "un": "g"
+      },
+      {
+       "nome": "Mandioca",
+       "qtd": 95.0,
+       "un": "g"
+      },
+      {
+       "nome": "Leite Integral",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 1.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.25,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Mix de legumes (brócolis e cenoura) 70g",
+     "ingredientes": [
+      {
+       "nome": "Cenoura",
+       "qtd": 40.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Brócolis Ninja",
+       "qtd": 45.0,
+       "un": "g"
+      },
+      {
+       "nome": "Margarina",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.25,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Kibe",
+     "passos": [
+      "Lavar o trigo para kibe e deixá-lo de molho na água por no mínimo 2 horas.",
+      "Depois disso coloque o trigo em outra vasilha maior, espremendo-o não muito (deixe-o bem úmido).",
+      "Junte a carne moída, a cebola, o alho picado, a hortelã, o sal, a pimenta síria.",
+      "Agora trabalhe, ou amasse bem essa mistura, pois dizem os libaneses, que o grande segredo do kibe é trabalhar bem essa massa, para que o kibe fique mais gostoso e dê certo.",
+      "Experimente para ver o sal e a pimenta que são temperos importantes.",
+      "Junte a margarina e amasse mais um pouco.",
+      "Coloque a mistura de kibe numa (ou distribua em 2) forma média que vá ao forno. Por cima coloque uns pedacinhos de margarina bem distribuidos.",
+      "Cubra a forma com papel alumínio e leve ao forno para assar em fogo médio por uma hora, ou até que fique bem assado. (Não tire o papel alumínio, para que o kibe não resseque)"
+     ]
+    },
+    {
+     "titulo": "Mix de legumes",
+     "passos": [
+      "Lavar e higienizar com água clorada a cenoura e o brócolis. Tire o excesso de talos do brócolis e a casca da cenoura. Corte em pedaços grandes",
+      "Em duas panelas com água fervente, divida a cenoura e o brócolis e cozinhe por algus minutos. Deixe bem durinho",
+      "Em uma panela, coloque o alho e a manteiga e frite, quando estiverem dourados adicione adicione a cenoura e o brócolis e o sal, e refogue até que fique al dente. Não deixar ficar mole."
+     ]
+    },
+    {
+     "titulo": "Purê de mandioca",
+     "passos": [
+      "Lave e higienize a mandioca com água clorada. Descasque e corte em pedaços grandes.",
+      "Cozinhe a mandioca em água fervente. Quando a mandioca estiver bem mole mole, desligue o fogo e escorra água.",
+      "Com um espremedor, coloque toda a mandioca e esprema muito bem. Verifique se ficou grumos de mandioca, se sim amasse com uma garfo",
+      "Em uma panela, coloque o alho e a manteiga e frite o alho, quando estiver dourado adicione a mandioca espremida e o leite e o sal. Mexer e deixar apurar por mais alguns minutos."
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Espere tudo esfriar muito bem, coloque 90g do kibe e 90g de purê e 70g do mix de legumes em cada uma das embalagens já identificadas. Tampe, coloque o lacre de segurança, congele"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "Ficha Tecnica_Kibe assado, purê de mandioca e mix de legumes.xlsx",
+   "organico": {
+    "tipo": "rotulo",
+    "texto": "*Mandioca, *carne bovina (paleta), *brócolis ninja, *trigo para quibe, gordura vegetal hidrogenada, *leite integral de vaca, *hortelã, *cebola, *alho, sal refinado e pimenta do reino preta"
+   }
+  },
+  {
+   "id": "mini-pao-de-batata-doce-recheado-com-frango-e-iogurte",
+   "nome": "Mini pão de batata-doce recheado com frango e iogurte",
+   "categoria": "Pães",
+   "dieta": [
+    "Contém carne"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 10,
+    "unidade": "pães",
+    "peso_g": 80
+   },
+   "tempo_min": null,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Massa",
+     "ingredientes": [
+      {
+       "nome": "Batata doce cozida amassada",
+       "qtd": 240.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 360.0,
+       "un": "g"
+      },
+      {
+       "nome": "Leite integral morno",
+       "qtd": 180.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Fermento biológico",
+       "qtd": 7.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar demerara",
+       "qtd": 7.0,
+       "un": "g"
+      },
+      {
+       "nome": "Margarina",
+       "qtd": 14.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovos",
+       "qtd": 2.0,
+       "un": "un"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 3.5,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Recheio (30 g por pão)",
+     "ingredientes": [
+      {
+       "nome": "Iogurte natural",
+       "qtd": 200.0,
+       "un": "g"
+      },
+      {
+       "nome": "Peito de frango desfiado",
+       "qtd": 600.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cenoura",
+       "qtd": 90.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovos",
+       "qtd": 2,
+       "un": "un"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Massa",
+     "passos": [
+      "Numa tigela pequena misture o fermento e o açúcar com ¼ de xícara (chá) do leite morno até dissolver. Deixe descansar por cerca de 5 minutos, até começar a espumar.",
+      "Numa tigela grande, misture a farinha com o sal. Acrescente a batata-doce e misture bem. Abra um buraco no centro e junte o fermento dissolvido. Numa tigela pequena quebre 1 ovo e então junte aos ingredientes – se ele estiver estragado você não perde a receita. Misture com uma espátula, do centro para a borda, para incorporar. Acrescente o restante do leite morno aos poucos, misturando bem com a mão.",
+      "Assim que a farinha tiver absorvido os líquidos, junte a manteiga e amasse bem – parece que não vai dar certo, a manteiga demora para ser absorvida pela massa, mas é assim mesmo, continue amassando. Aperte, amasse, estique e amasse novamente até ficar com a textura macia e úmida – marque 10 minutos no relógio! Se preferir, sove a massa na bancada ou na batedeira com o gancho.",
+      "Modele uma bola, volte a massa para a tigela e cubra com um pano de prato. Deixe descansar por 1 hora em temperatura ambiente, ou até dobrar de tamanho.",
+      "Unte com manteiga uma assadeira grande de cerca de 30 cm x 40 cm (se preferir, utilize uma assadeira antiaderente).",
+      "Assim que tiver crescido, transfira a massa para a bancada e modele os pães: corte a massa em 10 porções e enrole cada uma no tamanho de bolas de tênis; transfira para a assadeira untada, deixando espaço entre cada um para crescer e achate levemente a superfície – isso serve para que os pães cresçam de maneira mais uniforme. Cubra com o pano de prato e deixe crescer por mais 40 minutos",
+      "Quando faltar 20 minutos para dar o tempo de crescimento do pão, preaqueça o forno a 200 °C (temperatura média).",
+      "Numa tigela pequena, quebre o outro ovo. Junte 2 colheres (chá) de água e misture bem com um garfo. Com um pincel, passe a mistura de ovo batido sobre os pães.",
+      "Leve os pães ao forno para assar por cerca de 30 minutos, até crescer e dourar. Retire do forno e, com cuidado, desenforme sobre uma grelha – se permanecerem na fôrma ou sobre uma superfície lisa podem acumular vapor e amolecer. Deixe esfriar antes de servir."
+     ]
+    },
+    {
+     "titulo": "Recheio",
+     "passos": [
+      "Cozinhe os ovos e o frango, desfie o frango e descasque as cenouras já higienizadas.",
+      "Bata os ovos já cozidos com o iogurte, no liquidificador. Logo depois misture a cenoura crua, e o frango desfiado.",
+      "Recheie os pãezinhos"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "O campo \"Nome de apresentação\" da ficha dizia \"Pão vegano de mandioca com pasta de amendoim\"; usado o nome do arquivo, que corresponde aos ingredientes.",
+    "Rendimento de 10 pães tirado do modo de preparo.",
+    "\"Ovos 2 g\" no recheio interpretado como 2 ovos."
+   ],
+   "fonte": "Ficha Tecnica_Mini pão de batata doce recheado com frango_iogurte.xlsx",
+   "organico": {
+    "tipo": "percentual",
+    "pct": 48.6,
+    "itens": [
+     "batata doce cozida amassada",
+     "farinha de trigo",
+     "açúcar demerara",
+     "ovos",
+     "Cenoura",
+     "Ovos"
+    ]
+   }
+  },
+  {
+   "id": "muffin-de-abobrinha-com-arroz-negro-e-couve-refogada",
+   "nome": "Muffin de abobrinha com arroz negro e couve refogada",
+   "categoria": "Refeições",
+   "dieta": [
+    "Vegetariano",
+    "Sem glúten"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Arroz negro cozido",
+     "ingredientes": [
+      {
+       "nome": "Arroz negro",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 6.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.5,
+       "un": "g"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 300.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de Soja",
+       "qtd": 1.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Muffin de abobrinha",
+     "ingredientes": [
+      {
+       "nome": "Ovo",
+       "qtd": 1,
+       "un": "un"
+      },
+      {
+       "nome": "Abobrinha Italiana",
+       "qtd": 80.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cenoura",
+       "qtd": 15.0,
+       "un": "g"
+      },
+      {
+       "nome": "Creme de leite",
+       "qtd": 15.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de Arroz",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento químico em pó",
+       "qtd": 4.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.5,
+       "un": "g"
+      },
+      {
+       "nome": "Salsinha",
+       "qtd": 3.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Couve manteiga refogada",
+     "ingredientes": [
+      {
+       "nome": "Couve-manteiga",
+       "qtd": 100.0,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite extra virgem",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.25,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Arroz negro",
+     "passos": [
+      "Esquentar óleo em uma panela, adicionar a cebola e o alho. Refogar até que fique transparente.",
+      "Coloque o arroz e o sal e frite até que fique brilhante.",
+      "Adicione a água fervente, coloque em fogo baixo, tampe a panela deixando um espaço e espere secar toda a água."
+     ]
+    },
+    {
+     "titulo": "Muffin de abobrinha",
+     "passos": [
+      "Lavar e higienizar a abobrinha e a cenour com água clorada. Ralar a abobrinha e a cenoura.",
+      "Bata os ovos e misture os demais ingredientes Disponha em forminhas para cupcake. Asse em forno pré-aquecido a 180ºC por 20 minutos ou até dourar"
+     ]
+    },
+    {
+     "titulo": "Couve manteiga refogada",
+     "passos": [
+      "Lavar e higienizar a couve. Corte e tiras não muito grossas. (pode juntar os talos picados)",
+      "Em uma panela ou frigideira, esquente o azeite e o alho, quando estiver bem frito adicione a couve e o sal, refogue por alguns minutos. Até que fique al dente (não deixe por muito tempo para não amargar)"
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Espere tudo esfriar muito bem, pese em cada uma das embalagens 75g de arroz negro, 88g de muffin e 88g de couve refogada. Tampe, coloque o lacre de segurança e o rotulo na parte superior e congele."
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "Ficha Tecnica_Muffim de abobrinha acompanhado de arroz negro e couve manteiga refogada.xlsx"
+  },
+  {
+   "id": "pao-de-forma-de-mandioca-recheado-com-escarola-e-creme-de-ricota",
+   "nome": "Pão de forma de mandioca recheado com escarola e creme de ricota",
+   "categoria": "Pães",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 4,
+    "unidade": "pães",
+    "peso_g": 400
+   },
+   "tempo_min": null,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Massa",
+     "ingredientes": [
+      {
+       "nome": "Óleo de soja",
+       "qtd": 60.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar demerara",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento biológico",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Mandioca",
+       "qtd": 250.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo branca",
+       "qtd": 250.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo integral",
+       "qtd": 250.0,
+       "un": "g"
+      },
+      {
+       "nome": "Margarina",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 100.0,
+       "un": "mL"
+      }
+     ]
+    },
+    {
+     "nome": "Recheio",
+     "ingredientes": [
+      {
+       "nome": "Alho",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite",
+       "qtd": 15.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cúrcuma",
+       "qtd": 4.0,
+       "un": "g"
+      },
+      {
+       "nome": "Margarina",
+       "qtd": 15.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ricota",
+       "qtd": 200.0,
+       "un": "g"
+      },
+      {
+       "nome": "Escarola",
+       "qtd": 400.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 1.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Pese todos os ingredientes em balança semi-análitica, higienize a mandioca e descasque e cozinhe na panela de pressão até que fique bem mole (apróximadamente 20min). Reserve",
+      "Bata no liquidificador o óleo, a água do cozimento da mandioca (não pode estar muito quente), o açúcar o sal e o fermento.",
+      "Adicione a mandioca cozida aos poucos e bata na velocidade máxima do liquidificador",
+      "Em uma tigela, coloque o conteúdo do liquidificador e acrescente a farinha de trigo aos poucos, mexendo sempre com uma colher. Quando ficar difícil de mexer, transfira para uma bancada polvilhada com farinha trigo e continue acrescentando e incorporando a farinha no sentido das laterais para o centro, até que fique lisa e homogênea e não grude mais nas mãos. Pode ser necessário acrescentar mais água ou mais farinha no processo.",
+      "Faça uma bola com toda a massa, coloque numa vasilha polvilhada com farinha de trigo, cubra com um pano seco e deixe crescer por 1h. Depois de sovada ponho a descansar. Antes retiro e faço uma bolinha com a massa e coloco no copo com água qdo a bolinha sobe já está pronta p abrir e rechear.",
+      "Amasse a massa novamente para retirar o ar.",
+      "Abra a massa recheie com 50gr de escarola em seguida 25gr de creme de ricota, enrole meia volta em seguida recheie novamente com 50gr de escarola e 25gr de creme de ricota dobre as pontas e termine de enrolar. Como um rocambole. Polvilhe de farinha e coloque na forma craft numa assadeira com o fundo forrado com papelão. E deixe descansar por mais 40 min. Para crescer novamente",
+      "Modele a massa no formato forma e coloque na forma, deixando cada pão com 440g, pincele a gema com café e deixe crescer por 5 min.",
+      "Leve p assar em forno bem quente de 180a 200gr nós primeiros 15min. A 25 min. Conforme o forno. Depois abaixe para 180/170° retire pincele manteiga derretida por cima e volte ao forno por mais 15/25min.",
+      "Quando estiver bem dourado, retire do forno e espere esfriar muito bem antes de embalar (se não o pão murcha)",
+      "Quando estiver bem frio, retire da forma e passe o papel em volta (a parte do papel que não tem desenho vai por dentro) e sele com a etiqueta, coloque o rótulo na parte superior do pão. Pese o pão para conferir se ficou com 400g"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "Ficha Tecnica_Pão de forma de mandioca recheado de escarola e creme de ricota.xlsx"
+  },
+  {
+   "id": "pao-de-forma-de-mandioca-recheado-sabor-pizza",
+   "nome": "Pão de forma de mandioca recheado sabor pizza",
+   "categoria": "Pães",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 1,
+    "unidade": "pão",
+    "peso_g": 400
+   },
+   "tempo_min": null,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Massa",
+     "ingredientes": [
+      {
+       "nome": "Óleo de soja",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar demerara",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento biológico",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Mandioca",
+       "qtd": 150.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo branca",
+       "qtd": 70.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo integral",
+       "qtd": 70.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovo para pincelar",
+       "qtd": 1.0,
+       "un": "un"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 35.0,
+       "un": "mL"
+      }
+     ]
+    },
+    {
+     "nome": "Recheio",
+     "ingredientes": [
+      {
+       "nome": "Tomate",
+       "qtd": 80.0,
+       "un": "g"
+      },
+      {
+       "nome": "Queijo muçarela",
+       "qtd": 30.0,
+       "un": "g"
+      },
+      {
+       "nome": "Azeitona verde sem caroço",
+       "qtd": 30.0,
+       "un": "g"
+      },
+      {
+       "nome": "Orégano",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 40.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Pese todos os ingredientes em balança semi-análitica, higienize a mandioca e descasque e cozinhe na panela de pressão até que fique bem mole (apróximadamente 20min). Reserve",
+      "Bata no liquidificador os ovos, o óleo, a água do cozimento da mandioca (não pode estar muito quente), o açúcar o sal e o fermento.",
+      "Adicione a mandioca cozida aos poucos e bata na velocidade máxima do liquidificador",
+      "Em uma tigela, coloque o conteúdo do liquidificador e adicione as azeitonas picadas e acrescente a farinha de trigo aos poucos, mexendo sempre com uma colher. Quando ficar difícil de mexer, transfira para uma bancada polvilhada com farinha trigo e continue acrescentando e incorporando a farinha no sentido das laterais para o centro, até que fique lisa e homogênea e não grude mais nas mãos.",
+      "Faça uma bola com toda a massa, coloque numa vasilha polvilhada com farinha de trigo, cubra com um pano seco e deixe crescer por 1h.",
+      "Amasse a massa novamente para retirar o ar.",
+      "Modele a massa no formato forma e coloque na forma, deixando cada pão com 440g, pincele a gema com café e deixe crescer por 5 min.",
+      "Leve ao forno pré-aquecido à 160ºC e aumente para 180ºC somente pouco antes de começar a dourar.",
+      "Quando estiver bem dourado, retire do forno e espere esfriar muito bem antes de embalar (se não o pão murcha)",
+      "Quando estiver bem frio, retire da forma e passe o papel em volta (a parte do papel que não tem desenho vai por dentro) e sele com a etiqueta, coloque o rótulo na parte superior do pão. Pese o pão para conferir se ficou com 400g"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "Ficha Tecnica_Pão de forma de mandioca recheado sabor pizza.xlsx"
+  },
+  {
+   "id": "pao-de-forma-de-mandioca-recheado-com-tomate-e-creme-de-ricota",
+   "nome": "Pão de forma de mandioca recheado com tomate e creme de ricota",
+   "categoria": "Pães",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 1,
+    "unidade": "pão",
+    "peso_g": 400
+   },
+   "tempo_min": null,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Massa",
+     "ingredientes": [
+      {
+       "nome": "Óleo de soja",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar demerara",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento biológico",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Mandioca",
+       "qtd": 150.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo branca",
+       "qtd": 70.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo integral",
+       "qtd": 70.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovo para pincelar",
+       "qtd": 1.0,
+       "un": "un"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 35.0,
+       "un": "mL"
+      }
+     ]
+    },
+    {
+     "nome": "Recheio",
+     "ingredientes": [
+      {
+       "nome": "Alho",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Creme de ricota",
+       "qtd": 60.0,
+       "un": "g"
+      },
+      {
+       "nome": "Tomate italiano",
+       "qtd": 130.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.5,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 3.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Pese todos os ingredientes em balança semi-análitica, higienize a mandioca e descasque e cozinhe na panela de pressão até que fique bem mole (apróximadamente 20min). Reserve",
+      "Bata no liquidificador os ovos, o óleo, a água do cozimento da mandioca (não pode estar muito quente), o açúcar o sal e o fermento.",
+      "Adicione a mandioca cozida aos poucos e bata na velocidade máxima do liquidificador",
+      "Em uma tigela, coloque o conteúdo do liquidificador e acrescente a farinha de trigo aos poucos, mexendo sempre com uma colher. Quando ficar difícil de mexer, transfira para uma bancada polvilhada com farinha trigo e continue acrescentando e incorporando a farinha no sentido das laterais para o centro, até que fique lisa e homogênea e não grude mais nas mãos.",
+      "Faça uma bola com toda a massa, coloque numa vasilha polvilhada com farinha de trigo, cubra com um pano seco e deixe crescer por 1h.",
+      "Amasse a massa novamente para retirar o ar.",
+      "Modele a massa no formato forma e coloque na forma, deixando cada pão com 440g, pincele a gema com café e deixe crescer por 5 min.",
+      "Leve ao forno pré-aquecido à 160ºC e aumente para 180ºC somente pouco antes de começar a dourar.",
+      "Quando estiver bem dourado, retire do forno e espere esfriar muito bem antes de embalar (se não o pão murcha)",
+      "Quando estiver bem frio, retire da forma e passe o papel em volta (a parte do papel que não tem desenho vai por dentro) e sele com a etiqueta, coloque o rótulo na parte superior do pão. Pese o pão para conferir se ficou com 400g"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "O campo \"Nome de apresentação\" dizia \"escarola e creme de ricota\"; usado o nome do arquivo, que corresponde aos ingredientes.",
+    "O preparo foi copiado do pão sabor pizza e citava azeitonas, que não estão na lista; trecho removido.",
+    "A ficha não descreve como preparar e aplicar o recheio."
+   ],
+   "fonte": "Ficha Tecnica_Pão de forma de mandioca recheado tomate e creme de ricota.xlsx"
+  },
+  {
+   "id": "rolinhos-de-berinjela-com-carne-moida-pure-de-mandioca-e-abobrinha",
+   "nome": "Rolinhos de berinjela com carne moída, purê de mandioca e abobrinha",
+   "categoria": "Refeições",
+   "dieta": [
+    "Contém carne"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Rolinho de berinjela recheado com carne moída 120g",
+     "ingredientes": [
+      {
+       "nome": "Berinjela",
+       "qtd": 60.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.5,
+       "un": "g"
+      },
+      {
+       "nome": "Carne moída (cx mole)",
+       "qtd": 45.0,
+       "un": "g"
+      },
+      {
+       "nome": "Manjericão fresco",
+       "qtd": 1.0,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite extra virgem",
+       "qtd": 1.0,
+       "un": "g"
+      },
+      {
+       "nome": "Tomate Italiano",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Queijo muçarela",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Salsinha",
+       "qtd": 1.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar Demerara",
+       "qtd": 0.5,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Purê de mandioca 70g",
+     "ingredientes": [
+      {
+       "nome": "Mandioca",
+       "qtd": 75.0,
+       "un": "g"
+      },
+      {
+       "nome": "Leite Integral",
+       "qtd": 15.0,
+       "un": "g"
+      },
+      {
+       "nome": "Margarina",
+       "qtd": 4.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.25,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Abobrinha refogada 60g",
+     "ingredientes": [
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.13,
+       "un": "g"
+      },
+      {
+       "nome": "Abobrinha Italiana",
+       "qtd": 70.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite extra virgem",
+       "qtd": 0.25,
+       "un": "g"
+      },
+      {
+       "nome": "Pimenta do reino preta",
+       "qtd": 0.13,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Rolinhos de berinjela",
+     "passos": [
+      "Lavar e higienizar a berinjela, os tomates, a salsinha e o manjericão em água clorada. Corte a berinjela em fatias finas, de aproximadamente 35g cada. Corte os tomates em cubos grandes. O manjericão e a salsinha pique em pedaços pequenos.",
+      "Em uma frigideira, coloque o azeite, aqueça e doure as fatias de berinjela aos poucos. Repita até dourar todas as fatias de berinjela. Reserve.",
+      "Pré-aqueça o forna a 180 graus.",
+      "Para cada fatia de berinjela coloque 10g de muçarela e 20g de carne moída. Enrole e coloque um palito de dente no meio, para segurar o rolinho. Repita os passos para todos os rolinhos. Cada um deve pesar no final 55g.",
+      "Coloque os rolinhos prontos em uma assadeira, regue com o azeite e cubra com papel alumínio. Coloque no forno à 180ºC e deixe até que o queijo esteja derretido (média 15min)",
+      "Para o molho (será colocado apenas no momento de montar a marmita): No liquidificador, coloque os cubos de tomate e 20mL de água mineral. Bater deixando alguns pedaços. Em uma panela frite a cebola e quandoe estivre dourada, coloque o conteudo do liquidificador, misture o sal e o açúcar e deixe apurar por alguns minutos. Em seguida, adicione o manjericão, tampe a panela e deixar mais alguns minutos. Desligue o fogo."
+     ]
+    },
+    {
+     "titulo": "Purê de mandioca",
+     "passos": [
+      "Lavar e higienizar a mandioca em água clorada. Descacar a mandioca e cozinhe em água fervente até que fique bem macia.",
+      "Amasse a mandioca usando um espremedor de batatas ou uma peneira não muito grossa.",
+      "Numa panela, aqueça o azeite, junte a margarina e a mandioca espremida e mexa sem parar .",
+      "Aos poucos adicione o leite até que a massa fique na consistência desejada. Adicione sal e pimenta."
+     ]
+    },
+    {
+     "titulo": "Abobrinha refogada",
+     "passos": [
+      "Lavar e higienizar as abobrinhas com água clorada. Cortar em meias rodelas grossas.",
+      "Em uma panela, refogue a cebola no azeite, quando estiver dourada adicione a abobrinha o sal e a pimenta, mexer por alguns minutos e deixar al dente."
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Espere tudo esfriar muito bem, pese em cada uma das embalagens 110g de rolinhos (2 unidades), 5g de molho por cima de cada um dos rolinhos (10g de molho), 70g de purê de mandioca e 60g de abobrinha. Tampe e coloque o rótulo e o lacre de segurança, congele"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "Ficha Tecnica_Rolinhos de berinjela recheado com carne moída acompanhado de purê de mandioca e abobrinha refogada.xlsx"
+  },
+  {
+   "id": "tipo-kibe-de-abobora-com-arroz-e-lentilha",
+   "nome": "Tipo kibe de abóbora com arroz e lentilha",
+   "categoria": "Refeições",
+   "dieta": [
+    "Vegano",
+    "Sem lactose"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Tipo kibe de abóbora 150g",
+     "ingredientes": [
+      {
+       "nome": "Limão Tahiti",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Abóbora Japonesa",
+       "qtd": 75.0,
+       "un": "g"
+      },
+      {
+       "nome": "Hortelã fresca",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Pimenta do reino preta",
+       "qtd": 0.25,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Amido de Milho",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha para kibe",
+       "qtd": 30.0,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite extra virgem",
+       "qtd": 3.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Arroz com lentilha 100g",
+     "ingredientes": [
+      {
+       "nome": "Lentilha",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Arroz agulhinha branco",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 4.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 85.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.5,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de Soja",
+       "qtd": 0.5,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Arroz com lentilha",
+     "passos": [
+      "Esquentar óleo em uma panela, adicionar a cebola e o alho. Refogar até que fique transparente.",
+      "Coloque o arroz cru junto com a lentilha crua, por ultimo o sal e frite até que fique brilhante.",
+      "Adicione a água fervente, coloque em fogo baixo, tampe a panela deixando um espaço e espere secar toda a água. Deixe o arroz bem soltinho"
+     ]
+    },
+    {
+     "titulo": "Kibe",
+     "passos": [
+      "Coloque a farinha para kibe em uma tigela e cubra com água morna até cobrir. Deixar o trigo no molho por pelo menos 1 hora. Depois escorra a água e reserve",
+      "Em uma panela coloque abóbora picada em cubos e já descascada, e 100mL de água. Deixe cozinhar por aproximadamente 20 minutos ou até que não haja mais água.",
+      "Em uma panela, frite a cebola e reserve. Amasse a abóbra até que fique parecendo um purê",
+      "Nesse tigela, acrescente o amido, a hortelã picada, o sal, o limão, a pimenta do reino e farinha para kibe. Misture tudo muito bem até que fique bem incorporado.",
+      "Coloque a massa em uma forma untada com azeite e coloque no forno pré aquecido à 180ºC, deixe assar por pelo menos 30 minutos ou até que fique dourado",
+      "Porcionar em 150g para cada uma das refeições"
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Em uma das embalagens pese 150g do kibe, 100g do arroz com lentilha. Espere esfriar muito bem e tampe, coloque o lacre de segurança e o rótulo. Congele"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "Ficha Tecnica_Tipo kibe de abóbora acompanhado de arroz com lentilha.xlsx"
+  },
+  {
+   "id": "tipo-kibe-de-berinjela-com-arroz-vermelho-e-lentilha",
+   "nome": "Tipo kibe de berinjela com arroz vermelho e lentilha",
+   "categoria": "Refeições",
+   "dieta": [
+    "Vegano",
+    "Sem lactose"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Tipo kibe de berinjela 130g",
+     "ingredientes": [
+      {
+       "nome": "Cenoura",
+       "qtd": 45.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Berinjela",
+       "qtd": 65.0,
+       "un": "g"
+      },
+      {
+       "nome": "Hortelã fresca",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Pimenta do reino preta",
+       "qtd": 0.5,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Amido de Milho",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha para kibe",
+       "qtd": 60.0,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite extra virgem",
+       "qtd": 3.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Lentilha cozida 60g",
+     "ingredientes": [
+      {
+       "nome": "Lentilha",
+       "qtd": 40.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de Soja",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 200.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Arroz vermelho cozido 60g",
+     "ingredientes": [
+      {
+       "nome": "Arroz vermelho",
+       "qtd": 24.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 6.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho branco",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 300.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal refinado",
+       "qtd": 0.5,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de Soja",
+       "qtd": 0.5,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Arroz vermelho cozido",
+     "passos": [
+      "Esquentar óleo em uma panela, adicionar a cebola e o alho. Refogar até que fique transparente.",
+      "Coloque o arroz e o sal e frite até que fique brilhante.",
+      "Adicione a água fervente, coloque em fogo baixo, tampe a panela deixando um espaço e espere secar toda a água."
+     ]
+    },
+    {
+     "titulo": "Lentilha cozida",
+     "passos": [
+      "Pese a letilha e coloque o dobro de água na panela de pressão junto com sal. Depois que pegar pressão deixe por aproximadamente 30 minutos. Deixar a lentilha al dente e escorrer a água.",
+      "Em uma panela, frite o alho no óleo e quando ficar dourado adicione a lentilha e água, acerte o sal. Misture bem e amasse algumas para engrossar o caldo."
+     ]
+    },
+    {
+     "titulo": "Bolinho tipo kibe",
+     "passos": [
+      "Coloque a farinha para kibe em uma tigela e cubra com água morna até cobrir. Deixar o trigo no molho por pelo menos 1 hora. Depois escorra a água e reserve",
+      "Em uma panela coloque a berinjela picada em cubos e 100mL de água. Deixe cozinhar por aproximadamente 20 minutos ou até que não haja mais água",
+      "No liquidificador, coloque a berinjela e a cebola (picada em pequenos cubos). Bater muito bem.",
+      "Em uma tigela, despeje o conteudo do liquidificador, acrescente o amido, a hortelã picada, o sal, a cenoura ralada, a pimenta do reino e farinha para kibe. Misture tudo muito bem até que fique bem incorporado.",
+      "Coloque a massa em uma forma untada com azeite e coloque no forno pré aquecido à 180ºC, deixe assar por pelo menos 30 minutos ou até que fique dourado",
+      "Porcionar em 130g para cada uma das refeições"
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Em uma das embalagens pese 130g do kibe, 60g da lentilha e 60g de arroz vermelho. Espere esfriar muito bem e tampe, coloque o lacre de segurança e o rótulo. Congele"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "Ficha Tecnica_Tipo kibe de berinjela acompanhado de arroz vermelho e lentilha.xlsx"
+  },
+  {
+   "id": "bolinho-de-chuchu-com-arroz-integral-feijao-carioca-e-berinjela",
+   "nome": "Bolinho de chuchu com arroz integral, feijão carioca e berinjela",
+   "categoria": "Refeições",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Arroz",
+     "ingredientes": [
+      {
+       "nome": "Arroz",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 8.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho",
+       "qtd": 6.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água fervente",
+       "qtd": 115.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de soja",
+       "qtd": 2.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Feijão",
+     "ingredientes": [
+      {
+       "nome": "Feijão",
+       "qtd": 28.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água",
+       "qtd": 215.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Alho",
+       "qtd": 8.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de soja",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 3.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Bolinho",
+     "ingredientes": [
+      {
+       "nome": "Chuchu",
+       "qtd": 45.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovo",
+       "qtd": 1.0,
+       "un": "un"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 55.0,
+       "un": "g"
+      },
+      {
+       "nome": "Queijo parmesão ralado",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de soja",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Salsinha",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento químico em pó",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 3.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Legumes",
+     "ingredientes": [
+      {
+       "nome": "Berinjela",
+       "qtd": 35.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 3.0,
+       "un": "g"
+      },
+      {
+       "nome": "Azeite",
+       "qtd": 2.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Bolinho",
+     "passos": [
+      "Higienizar o chuchu com água clorada (seguindo as orientações do rótulo), enxaguar e descascar. Reservar",
+      "Rale o chuchu,coloque os ovos, misture a farinha de trigo, até da o ponto da massa.",
+      "Coloque o queijo parmesão, a margarina, o fermento em pó, o sal e o cheiro verde.",
+      "Modele e pese bolinhas de 30g.",
+      "Regue uma assadeira com azeite e asse em forno pré-aquecido à 180°C até que fiquem firmes e dourados"
+     ]
+    },
+    {
+     "titulo": "Arroz",
+     "passos": [
+      "Esquentar óleo em uma panela, adicionar a cebola e o alho. Refogar até que fique transparente",
+      "Coloque o arroz e o sal e frite até que fique brilhante.",
+      "Adicione a água fervente, coloque em fogo baixo, tampe a panela deixando um espaço e espere secar toda a água."
+     ]
+    },
+    {
+     "titulo": "Feijão",
+     "passos": [
+      "Coloque o feijão numa peneira e lave sob água corrente. Transfira os grãos para uma tigela e cubra com a água – se algum boiar, descarte. Cubra a tigela com um prato e deixe o feijão de molho por 6 horas",
+      "Descarte a água do remolho. Transfira os grãos para a panela de pressão, cubra com a água",
+      "Tampe a panela e leve ao fogo alto. Assim que começar a apitar, abaixe o fogo e deixe cozinhar por mais 10 minutos. Desligue o fogo e deixe todo o vapor sair antes de abrir a panela.",
+      "Enquanto o feijão cozinha, descasque e pique fino os dentes de alho.",
+      "Leve uma frigideira ao fogo baixo. Quando aquecer, regue com o azeite, junte a cebola e tempere com uma pitada de sal. Refogue por cerca de 5 minutos, até começar a dourar adicione o alho",
+      "Acrescente 2 conchas do feijão cozido, com um pouco do caldo, misture e amasse os grãos com a espátula.",
+      "Transfira o refogado com os grãos amassados para a panela com o feijão cozido. Tempere com sal, misture e deixe cozinhar em fogo baixo, sem tampa, por mais 10 minutos ou até o caldo engrossar."
+     ]
+    },
+    {
+     "titulo": "Legumes",
+     "passos": [
+      "Esquente o azeite em uma panela, adicione a berinjela e o sal. Refogue até que fique al dente"
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Espere tudo esfriar muito bem, em cada uma das embalagens pese 120g de bolinho (4 unidades), 60g de arroz, 40g de feijão e 30g de berinjela. Tampe, coloque o rótulo e o lacre de segurança, congele"
+     ]
+    }
+   ],
+   "notas": [
+    "120g/unidade de bolinho (4 unidades)",
+    "60g/uni de arroz",
+    "40g/uni de feijão",
+    "30g/uni de berinjela"
+   ],
+   "ajustes": [
+    "O preparo cita margarina e cheiro-verde; a lista traz óleo e salsinha."
+   ],
+   "fonte": "Ficha técnica_ Bolinho de chuchu acompanhado de arroz integral feijão carioca e legumes.xlsx"
+  },
+  {
+   "id": "bolinho-de-milho-assado-com-arroz-integral-feijao-carioca-e-legumes",
+   "nome": "Bolinho de milho assado com arroz integral, feijão carioca e legumes",
+   "categoria": "Refeições",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "porcao",
+    "qtd": 1,
+    "unidade": "porção",
+    "peso_g": 250
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Arroz",
+     "ingredientes": [
+      {
+       "nome": "Arroz agulhinha integral",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 8.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho",
+       "qtd": 6.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água fervente",
+       "qtd": 115.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 4.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de soja",
+       "qtd": 2.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Feijão",
+     "ingredientes": [
+      {
+       "nome": "Feijão carioca",
+       "qtd": 28.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água",
+       "qtd": 215.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Alho",
+       "qtd": 8.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de soja",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 4.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Bolinho de milho",
+     "ingredientes": [
+      {
+       "nome": "Milho verde (lata)",
+       "qtd": 60.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Alho amassado",
+       "qtd": 4.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 4.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água mineral",
+       "qtd": 40.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 34.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovos",
+       "qtd": 1.0,
+       "un": "un"
+      },
+      {
+       "nome": "Aveia em flocos",
+       "qtd": 15.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Mix de legumes",
+     "ingredientes": [
+      {
+       "nome": "Cenoura",
+       "qtd": 30.0,
+       "un": "g"
+      },
+      {
+       "nome": "Berinjela",
+       "qtd": 30.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo de soja",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 4.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Bolinho",
+     "passos": [
+      "Faça um refogado com a cebola e o alho amassado . Quando dourar, adicione o milho escorrido e misture bem.",
+      "Adicione um copo de água e bata no liquidificador.",
+      "Devolva à panela e adicione a farinha de trigo e deixe apurar em fogo baixo, mexendo as vezes para não grudar. Quando começar a desgrudar da panela, desligue e espere esfriar.",
+      "Despeje essa mistura em uma tigela e incorpore com a aveia até formar uma massa consistente, se precisar adicione mais aveia até dar liga.",
+      "Faça as bolinhas com as mãos e coloque em uma assadeira anti-aderente ou uma assadeira untada com manteiga",
+      "Coloque para assar em forno pré-aquecido à 180°C até dourar."
+     ]
+    },
+    {
+     "titulo": "Arroz",
+     "passos": [
+      "Esquentar óleo em uma panela, adicionar a cebola e o alho. Refogar até que fique transparente.",
+      "Coloque o arroz e o sal e frite até que fique brilhante.",
+      "Adicione a água fervente, coloque em fogo baixo, tampe a panela deixando um espaço e espere secar toda a água."
+     ]
+    },
+    {
+     "titulo": "Feijão",
+     "passos": [
+      "Coloque o feijão numa peneira e lave sob água corrente. Transfira os grãos para uma tigela e cubra com a água, se algum boiar, descarte. Cubra a tigela com um prato e deixe o feijão de molho por 6 horas",
+      "Descarte a água do remolho. Transfira os grãos para a panela de pressão, cubra com a água",
+      "Tampe a panela e leve ao fogo alto. Assim que começar a apitar, abaixe o fogo e deixe cozinhar por mais 10 minutos. Desligue o fogo e deixe todo o vapor sair antes de abrir a panela.",
+      "Enquanto o feijão cozinha, descasque e pique fino os dentes de alho.",
+      "Leve uma frigideira ao fogo baixo. Quando aquecer, regue com o azeite, junte a cebola e tempere com uma pitada de sal. Refogue por cerca de 5 minutos, até começar a dourar adicione o alho",
+      "Acrescente 2 conchas do feijão cozido, com um pouco do caldo, misture e amasse os grãos com a espátula.",
+      "Transfira o refogado com os grãos amassados para a panela com o feijão cozido. Tempere com sal, misture e deixe cozinhar em fogo baixo, sem tampa, por mais 10 minutos ou até o caldo engrossar."
+     ]
+    },
+    {
+     "titulo": "Mix de legumes",
+     "passos": [
+      "Esquente 5g do óleo em uma panela, adicione a cenoura e o sal. Refogue até que a cenoura fique al dente",
+      "Seguir o mesmo processo para a berinjela."
+     ]
+    },
+    {
+     "titulo": "Montagem",
+     "passos": [
+      "Espere tudo esfriar muito bem, pese em cada uma das embalagens 110g de bolinho (2 unidades de 55g), 60g de arroz, 40g de feijão, 20g de berinjela e 20g de cenoura. Tampe, coloque o lacre de segurança e o rotulo, congele"
+     ]
+    }
+   ],
+   "notas": [
+    "110g/unidade de bolinho (2 bolinhos de 55g cada)",
+    "60g/uni de arroz",
+    "40g/uni de feijão",
+    "20g/uni de berinjela",
+    "20g/uni de cenoura"
+   ],
+   "ajustes": [],
+   "fonte": "Ficha técnica_ Bolinho de milho assado acompanhado de arroz integral, feijão carioca e legumes.xlsx"
+  },
+  {
+   "id": "bolo-de-tangerina",
+   "nome": "Bolo de tangerina",
+   "categoria": "Bolos",
+   "dieta": [
+    "Vegetariano",
+    "Sem glúten"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 1,
+    "unidade": "bolo",
+    "peso_g": null
+   },
+   "tempo_min": 40,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Manteiga",
+       "qtd": 225.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar de confeiteiro",
+       "qtd": 125.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovos(2)",
+       "qtd": 80.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fubá",
+       "qtd": 180.0,
+       "un": "g"
+      },
+      {
+       "nome": "Amêndoas moídas",
+       "qtd": 90.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento em pó",
+       "qtd": 15.0,
+       "un": "g"
+      },
+      {
+       "nome": "Tangerinas(3)",
+       "qtd": 252.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Raspe as raspinhas das tangerinas.",
+      "Corte as no meio e esprema como se fossem laranjas as 3 tangerinas junte as raspas com o suco e reserve",
+      "Bata o açúcar e a manteiga muito bem até ficar bem branquinho",
+      "Acrescente os ovos 1 a 1 e continue a bater",
+      "Depois junte os secos numa travessa e coloque esse creme nele e por ultimo o suco de tangerina",
+      "Mexa bem devagar e poe pra assar",
+      "Forno medio a 40 minutos em media"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "Rendimento não informado na ficha."
+   ],
+   "fonte": "FichaTecnica_Bolo de tangerina.xlsx"
+  },
+  {
+   "id": "massa-de-bolo-para-naked-cake",
+   "nome": "Massa de bolo para naked cake",
+   "categoria": "Bolos",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 1,
+    "unidade": "bolo de 2 andares",
+    "peso_g": null
+   },
+   "tempo_min": null,
+   "situacao": "Não informada",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Ovos",
+       "qtd": 4.0,
+       "un": "un"
+      },
+      {
+       "nome": "Creme de leite",
+       "qtd": 200.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar",
+       "qtd": 400.0,
+       "un": "g"
+      },
+      {
+       "nome": "Amido de milho (maisena)",
+       "qtd": 75,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 240.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento em pó",
+       "qtd": 10.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Bater as claras em neve e depois vai acrescentando as gemas uma auma ,",
+      "Depois o acucar e o creme de leite continue batendo acrescente a farinha junto com a maizena e bata devagar.",
+      "Agora coloque o fermento em pó e coloque para assar .",
+      "Forno medio por aproximadamente 30 a 40 minutos"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "\"75gramas\" de maizena convertido para 75 g."
+   ],
+   "fonte": "FichaTecnica_Bolo naked (sem recheio).xlsx"
+  },
+  {
+   "id": "ketchup-caseiro",
+   "nome": "Ketchup caseiro",
+   "categoria": "Molhos e acompanhamentos",
+   "dieta": [
+    "Vegano",
+    "Sem glúten",
+    "Sem lactose"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 400,
+    "unidade": "g",
+    "peso_g": null
+   },
+   "tempo_min": 35,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Tomates grandes, bem maduros",
+       "qtd": 800.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cebola roxa ralada",
+       "qtd": 90.0,
+       "un": "g"
+      },
+      {
+       "nome": "Vinagre de maçã",
+       "qtd": 100.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Açúcar Mascavo",
+       "qtd": 90.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Pimenta reino",
+       "qtd": 2.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Lavar e higienizar os tomates, retirar as peles e as sementes, corte em pedaços",
+      "Cozinhe todos os ingredientes em fogo baixo, durante 35 minutos, ou até obter um molho bem grosso",
+      "Retire do fogo e bata em um mixer ou liquidificador. Deixe esfriar na panela antes de colocar em outro recipiente e colocar na geladeira."
+     ]
+    }
+   ],
+   "notas": [
+    "Precisa descansar por pelo menos 24h na geladeira para apurar e desenvolver sabor.",
+    "Não consumir quente"
+   ],
+   "ajustes": [
+    "Rendimento \"400 kg\" lido como 400 g."
+   ],
+   "fonte": "FichaTecnica_Ketchup Caseiro.xlsx"
+  },
+  {
+   "id": "muffin-de-milho",
+   "nome": "Muffin de milho",
+   "categoria": "Muffins e lanches",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 12,
+    "unidade": "muffins",
+    "peso_g": null
+   },
+   "tempo_min": 45,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 60.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fubá",
+       "qtd": 60.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar",
+       "qtd": 12.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento químico",
+       "qtd": 2.5,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 2.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovo",
+       "qtd": 1.0,
+       "un": "un"
+      },
+      {
+       "nome": "Manteiga derretida",
+       "qtd": 36.0,
+       "un": "g"
+      },
+      {
+       "nome": "Iogurte natural",
+       "qtd": 180.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Milho debulhado e cozido",
+       "qtd": 40.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Pré-aqueça o forno a 200C. Unte uma forma para muffins de 12 cavidades com manteiga derretida ou use uma forma de silicone",
+      "Em uma tigela, misture a farinha, o fubá, o açúcar, o fermento e o sal. Faça um furo no centro e adicione a manteiga, o ovo, o iogurte e o milho",
+      "Divida a massa entre as forminhas e leve para assar de 10 a 15 minutos ou até que o palito saia seco",
+      "Espere amornar de 5 a 10 minutos para desenformar"
+     ]
+    }
+   ],
+   "notas": [
+    "Congelamento permitido",
+    "Tijela, forma de muffin (12 unidades)"
+   ],
+   "ajustes": [],
+   "fonte": "FichaTecnica_Muffin de Milho.xlsx"
+  },
+  {
+   "id": "muffin-de-banana-e-aveia",
+   "nome": "Muffin de banana e aveia",
+   "categoria": "Muffins e lanches",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": null,
+    "unidade": "muffins",
+    "peso_g": 55
+   },
+   "tempo_min": null,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Bananas nanicas (3 uni)",
+       "qtd": 258.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar mascavo",
+       "qtd": 180.0,
+       "un": "g"
+      },
+      {
+       "nome": "Leite desnatado",
+       "qtd": 75.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Margarina",
+       "qtd": 25.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de aveia",
+       "qtd": 200.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 83.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento em pó",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Uva passa preta",
+       "qtd": 60.0,
+       "un": "g"
+      },
+      {
+       "nome": "Claras em neve",
+       "qtd": 4,
+       "un": "un"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "No liquidificador bata as bananas o acucar e o leite e a margarina até formar um creme.Reserve.",
+      "A parte misture as farinhas de aveia e de trigo o fermento e a uva passa.",
+      "Acrescente o creme de banana de banana e mexa bem.",
+      "Por ultimo acrescente as claras e mexa delicadamente.Coloque a mistura em forminhas proprias para muffins.",
+      "Asse em forno pré-aquecido 180 c por 30 minutos ou até dourar."
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "\"Claras em neve 4 g\" interpretado como 4 claras.",
+    "Quantidade de muffins não informada (55 g cada)."
+   ],
+   "fonte": "FichaTecnica_Muffin de banana e aveia.xlsx"
+  },
+  {
+   "id": "muffin-de-cookies",
+   "nome": "Muffin de cookies",
+   "categoria": "Muffins e lanches",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 40,
+    "unidade": "muffins",
+    "peso_g": 30
+   },
+   "tempo_min": null,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Ovos",
+       "qtd": 4.0,
+       "un": "un"
+      },
+      {
+       "nome": "Açúcar",
+       "qtd": 200.0,
+       "un": "g"
+      },
+      {
+       "nome": "Leite",
+       "qtd": 240.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 240.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento em pó",
+       "qtd": 30.0,
+       "un": "g"
+      },
+      {
+       "nome": "Gotas de chocolate forneável",
+       "qtd": 130.0,
+       "un": "g"
+      },
+      {
+       "nome": "Manteiga",
+       "qtd": 40.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Bater as claras em neve.",
+      "Bater as gemas com o açúcar e a manteiga acrescente o leite e a farinha de trigo aos poucos.",
+      "Desligue a batedeira e coloque as claras em neve devagar e as gotas e o fermento em pó.",
+      "Leve pra assar em forno pré-aquecido a 180C"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "FichaTecnica_Muffin de cookies..xlsx"
+  },
+  {
+   "id": "muffin-de-salaminho",
+   "nome": "Muffin de salaminho",
+   "categoria": "Muffins e lanches",
+   "dieta": [
+    "Contém carne"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 20,
+    "unidade": "muffins",
+    "peso_g": 43
+   },
+   "tempo_min": 40,
+   "situacao": "Não informada",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Leite desnatado",
+       "qtd": 240.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Óleo de soja",
+       "qtd": 240.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Ovos",
+       "qtd": 4.0,
+       "un": "un"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 360.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento em pó",
+       "qtd": 28.0,
+       "un": "g"
+      },
+      {
+       "nome": "Salame",
+       "qtd": 300.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 4.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Coloque o leite,óleo e ovos no liquidificador e bata por 1 minuto.",
+      "Coloque a farinha e o fermento numa vasilha e junte a mistura do liquidificador e misture bem.",
+      "Acrescente o samale picado e o sal,misture e pese 43g em cada uma das forminhas.",
+      "Asse em forno medio por 40 min",
+      "Retire e espere esfriar"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "FichaTecnica_Muffin de salaminho.xlsx"
+  },
+  {
+   "id": "pao-de-batata-com-cream-cheese",
+   "nome": "Pão de batata com cream cheese",
+   "categoria": "Pães",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 100,
+    "unidade": "mini pães",
+    "peso_g": null
+   },
+   "tempo_min": null,
+   "situacao": "Não informada",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Ovos(260g)",
+       "qtd": 7.0,
+       "un": "un"
+      },
+      {
+       "nome": "Óleo",
+       "qtd": 400.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Água morna do cozimento da batata",
+       "qtd": 400.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Açúcar",
+       "qtd": 167.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 24.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento biológico",
+       "qtd": 20.0,
+       "un": "g"
+      },
+      {
+       "nome": "Batatas cozidas",
+       "qtd": 1000.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 2000.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cream cheese",
+       "qtd": 625.0,
+       "un": "g"
+      },
+      {
+       "nome": "Gergelim para polvilhar",
+       "qtd": 33.0,
+       "un": "g"
+      },
+      {
+       "nome": "Gemas para pincelar",
+       "qtd": 2,
+       "un": "un"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Bata no liquidificador os ovos, o óleo, a água do cozimento da batata, o açúcar, o sal e o fermento.",
+      "Com o liquidificador ligado, acrescente aos poucos a batata cozida.",
+      "Coloque a mistura formado numa tigela e acrescente aos poucos a farinha de trigo, mexendo sempre com um fouet. Quando ficar difícil de mexer transferir para uma bancada/mesa polvilhada com farinha de trigo e continue acrescentando e incorporando a farinha no sentido das laterais para o centro, até que fique lisa e homogênea e não grude mais nas mãos.",
+      "Faça uma bola com toda a massa, coloque em uma vasilha e cubra. Deixe crescer até dobrar de volume (1h).",
+      "Amasse novamente a massa para retirar o ar.",
+      "Divida a massa em tamanhos regulares e modele os pães em formato de bolinhas, abra cada uma e recheie com o catupiry. Coloque em uma forma untada com margarina, pincele a gema com o café.",
+      "Asse em forno em temperatura baixa, aumentando para média somente pouco antes de dourar."
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "O preparo cita catupiry; a lista traz cream cheese.",
+    "\"2000 kilos\" de farinha lido como 2.000 g.",
+    "Ficha \"Mini pão de batata com cream cheese\" tinha quantidades incompletas: substituída por esta."
+   ],
+   "fonte": "FichaTecnica_Pão de batata.xlsx"
+  },
+  {
+   "id": "pao-de-forma-integral-caseiro",
+   "nome": "Pão de forma integral caseiro",
+   "categoria": "Pães",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": null,
+    "unidade": "pães",
+    "peso_g": null
+   },
+   "tempo_min": null,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Água morna",
+       "qtd": 480.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Óleo",
+       "qtd": 240.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 12.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovos 195 gramas",
+       "qtd": 3.0,
+       "un": "un"
+      },
+      {
+       "nome": "Açúcar",
+       "qtd": 100.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento biológico fresco ou 1 sache seco",
+       "qtd": 45.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo integral",
+       "qtd": 150.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farelo de trigo(eu usei farinha de aveia)",
+       "qtd": 75.0,
+       "un": "g"
+      },
+      {
+       "nome": "De grãos diversos.chia,semente de linhaça dourada",
+       "qtd": 90.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo branca",
+       "qtd": 600.0,
+       "un": "g"
+      },
+      {
+       "nome": "Gema para pincelar",
+       "qtd": 1.0,
+       "un": "un"
+      },
+      {
+       "nome": "Semente de gergelim para polvilhar",
+       "qtd": 20.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Misturar os ingredientes secos",
+      "Adicionar os ovos, e o óleo.",
+      "Adicionar a água aos poucos até atingir o ponto onde a massa coemçe a soltar da tigela.",
+      "Sove a massa até atingir o ponto de vel.",
+      "Separar a massa em porçoes e deixar fermentar por 20 minutos ou até dobrar de tamanho",
+      "Pincelar com gema e polvilhar sementes de gergelim.",
+      "Assar em forno medio até dourar."
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "Rendimento não informado na ficha."
+   ],
+   "fonte": "FichaTecnica_Pão de forma integral caseiro.xlsx"
+  },
+  {
+   "id": "pao-trancado-de-peito-de-peru-e-mucarela",
+   "nome": "Pão trançado de peito de peru e muçarela",
+   "categoria": "Pães",
+   "dieta": [
+    "Contém carne"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 4,
+    "unidade": "pães trançados",
+    "peso_g": 76
+   },
+   "tempo_min": null,
+   "situacao": "Aprovada",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Ovos",
+       "qtd": 2.0,
+       "un": "un"
+      },
+      {
+       "nome": "Açúcar (2 colheres sopa)",
+       "qtd": 28.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo(1\\2 copo)",
+       "qtd": 120.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Sal(1colher de sopa)",
+       "qtd": 14.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água morna (2 copos)",
+       "qtd": 480.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Fermento biológico fresco",
+       "qtd": 45.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 1000,
+       "un": "g"
+      },
+      {
+       "nome": "Peito de peru (recheio) 24 fatias",
+       "qtd": 500.0,
+       "un": "g"
+      },
+      {
+       "nome": "Muçarela (recheio) 24 fatias",
+       "qtd": 500.0,
+       "un": "g"
+      },
+      {
+       "nome": "Gemas para pincelar os paes",
+       "qtd": 2.0,
+       "un": "un"
+      },
+      {
+       "nome": "Orégano para polvilhar",
+       "qtd": 10.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Bata no liquidificador os ovos, o açúcar, o óleo, o sal, a água e o fermento.",
+      "Coloque essa mistura numa tigela e acrescente farinha de trigo aos poucos, mexendo sempre com uma colher",
+      "Quando ficar dificil de mexer transfira a massa para uma mesa polvilhadacom farinha de trigo e continue acrescentando e incorporando farinha nos sentidos das laterais para o centro, até que fique lisa e homogenea e não grude mais nas mãos, tendo se o cuidado de não colocar farinha demais,pois poderá deixar a massa dura",
+      "Faça uma bola com toda a massa, coloque em uma vasilha polvilhada com farinha de trigo, tampe e deixe crescer por uma hora ou até dobrar de volume.",
+      "Amasse novamente a massa para retirar o ar",
+      "Divida a massa em 4 partes iguais com a ajuda de um rolo,abra em formato de retangulos",
+      "Rechei com peito de peru e queijo e enrole como rocambole.",
+      "Corte ao meio no sentido do comprimento cada rocambole e faça uma trança, mantendo o recheio para cima.",
+      "Pincele as gemas e polvilhe orégano por cima, gergelim ou salsinha e deixe os crescendo na assadeira por cerca de 5 minutos",
+      "Depois leve ao forno frio,asse em forno baixo,e aumente para a média pouco ante de começar a dourar."
+     ]
+    }
+   ],
+   "notas": [
+    "Pode se substituir a água por leite em temperatura ambiente"
+   ],
+   "ajustes": [
+    "A ficha indica \"5 unidades\"; o preparo divide a massa em 4 tranças."
+   ],
+   "fonte": "FichaTecnica_Pão recheado com peito de perú e mussarela.xlsx"
+  },
+  {
+   "id": "pao-de-queijo",
+   "nome": "Pão de queijo",
+   "categoria": "Pães",
+   "dieta": [
+    "Vegetariano",
+    "Sem glúten"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 80,
+    "unidade": "unidades",
+    "peso_g": null
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Polvilho azedo",
+       "qtd": 800.0,
+       "un": "g"
+      },
+      {
+       "nome": "Leite (1 xicara)",
+       "qtd": 200.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Ovos",
+       "qtd": 2.0,
+       "un": "un"
+      },
+      {
+       "nome": "Água (1 xicara)",
+       "qtd": 200.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Óleo (1/2 xicara)",
+       "qtd": 190.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Parmesão Ralado",
+       "qtd": 100.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal a gosto",
+       "qtd": 5.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Ferva a água ou suco e escalde o polvilho.",
+      "Adicione o azeite e deixe esfriar. Coloque os queijos e vá adicionando os ovos até dar o ponto de enrolar (pode usar menos ovos)",
+      "Está pronto para modelar. Para fazer carinhas, misture com cacau e faça os olhos, nariz etc.",
+      "Assar ou congelar."
+     ]
+    }
+   ],
+   "notas": [
+    "Congelamento permitido antes de assar. Descongelamento temperatura ambiente",
+    "Panelas, potes plasticos, assadeiras"
+   ],
+   "ajustes": [],
+   "fonte": "FichaTecnica_Pao de queijo nutritivo.xlsx"
+  },
+  {
+   "id": "muffin-de-framboesa-e-muesli",
+   "nome": "Muffin de framboesa e muesli",
+   "categoria": "Muffins e lanches",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 12,
+    "unidade": "muffins",
+    "peso_g": null
+   },
+   "tempo_min": 40,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Farinha de trigo com fermento",
+       "qtd": 225.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 150.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cereais sem frutas secas",
+       "qtd": 100.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar mascavo",
+       "qtd": 115.0,
+       "un": "g"
+      },
+      {
+       "nome": "Framboesa",
+       "qtd": 150.0,
+       "un": "g"
+      },
+      {
+       "nome": "Ovos",
+       "qtd": 2.0,
+       "un": "un"
+      },
+      {
+       "nome": "Manteiga derretida",
+       "qtd": 125.0,
+       "un": "g"
+      },
+      {
+       "nome": "Leite",
+       "qtd": 200.0,
+       "un": "mL"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Pré-aqueça o forno a 210C. Unte uma forma para muffins de 12 cavidades com manteiga derretida ou use uma forma de silicone",
+      "Misture farinhas com açúcar mascavo e framboesas.Mexa cuidado para não despedaçar framboesas, mas devem ficar cobertas",
+      "Faça uma cova no centro",
+      "Bata os ovos e o leite em outra tigela e misture aos ingredientes secos com a manteiga derretida. A massa deve ser grumosa",
+      "Despeje colheradas da massa até preencher 3/4 de cada cavidade da forma de muffins",
+      "Polvilhe o cereal, pressione levemente para baixo e leve ao forno por 20 minutos ou até que um palito saia seco",
+      "Retire os muffins do forno e reserve por 5 minutos antes de desenformar para que esfriem completamente"
+     ]
+    }
+   ],
+   "notas": [
+    "Congelamento não permitido. Pode ser mantido na geladeira por até 3 dias, no máximo.",
+    "Para evitar que as framboesas se despedacem durante a preparação, deixe-as por 1 hora no freezer antes de incorpora-las a massa.",
+    "Essa receita prova que prazer e saúde não são incompatíveis. Todos adoram o muesli acrescentado aos muffins. E a framboesa, a frutinha mais rica em fibras, ideal para a saúde",
+    "Dos intestinos",
+    "Tijela, forma de muffin (12 unidades)"
+   ],
+   "ajustes": [],
+   "fonte": "FichaTecnica_Primavera_Muffin de Framboesa e Muesli.xlsx"
+  },
+  {
+   "id": "muffin-de-muesli",
+   "nome": "Muffin de muesli",
+   "categoria": "Muffins e lanches",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 12,
+    "unidade": "muffins",
+    "peso_g": null
+   },
+   "tempo_min": 32,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Farinha de trigo com fermento",
+       "qtd": 150.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo integral",
+       "qtd": 75.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento químico (1/2 envelope)",
+       "qtd": 5.0,
+       "un": "g"
+      },
+      {
+       "nome": "Muesli",
+       "qtd": 175.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar mascavo",
+       "qtd": 115.0,
+       "un": "g"
+      },
+      {
+       "nome": "Uvas passas",
+       "qtd": 85.0,
+       "un": "g"
+      },
+      {
+       "nome": "Leite",
+       "qtd": 250.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Ovos",
+       "qtd": 2.0,
+       "un": "un"
+      },
+      {
+       "nome": "Manteiga derretida",
+       "qtd": 100.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Pré-aqueça o forno a 210C. Unte uma forma para muffins de 12 cavidades com manteiga derretida ou use uma forma de silicone",
+      "Misture duas farinhas, fermento, 100 gr muesli, açúcar mascavo e as uvas passas em uma tigela",
+      "Bata o leite e os ovos e despeje sobre os ingredientes secos com a manteiga derretida. Atenção, a massa deve ficar granulosa",
+      "Com uma colher, despeje a mistura, preenchendo 3/4 de cada cavidade da forma para muffins. Espalhe o mueli restante por cima e pressione levemente",
+      "Leve ao forno e deixe assar por 20 minutos, ou até que um palito inserido no centro do muffin saia seco",
+      "Retire do fogo, espere esfriar por 5 minutos antes de desenformar, depois deixe os muffins esfriarem por completo sobre um aramado",
+      "Sirva no café da manha ou no lanche com uma fruta e um copo de leite ou iogurte"
+     ]
+    }
+   ],
+   "notas": [
+    "Congelamento nao permitido",
+    "Massa deve ser granulosa. Se misturar demais, pode ficar compacta e esponjosa.",
+    "Bolo bem dosado pode dar energia até a refeicao seguinte, sem sobrecarregar o organismos com açúcar e gordura. Esse é o segredo desta receita, todos adoram o toque de uvas",
+    "Passas que da sabor, energia e magnesio, indispensavel para o sistema nervoso",
+    "Tijela, forma de muffin (12 unidades)"
+   ],
+   "ajustes": [],
+   "fonte": "FichaTecnica_Primavera_Muffin de Muesli.xlsx"
+  },
+  {
+   "id": "rosquinhas-de-erva-doce",
+   "nome": "Rosquinhas de erva-doce",
+   "categoria": "Muffins e lanches",
+   "dieta": [
+    "Vegano",
+    "Sem lactose"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 58,
+    "unidade": "rosquinhas",
+    "peso_g": null
+   },
+   "tempo_min": null,
+   "situacao": "Em análise",
+   "componentes": [
+    {
+     "nome": "Massa",
+     "ingredientes": [
+      {
+       "nome": "Farinha de trigo branca (2 xic)",
+       "qtd": 240.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo integral (2 xic)",
+       "qtd": 240.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento granulado para paes(1 envelope e 1/2)",
+       "qtd": 15.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar demerara (3 colheres sopa)",
+       "qtd": 40.0,
+       "un": "g"
+      },
+      {
+       "nome": "Óleo",
+       "qtd": 90.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Sementes de erva doce (1 colher sopa)",
+       "qtd": 15.0,
+       "un": "g"
+      },
+      {
+       "nome": "Água (1 xic)",
+       "qtd": 240.0,
+       "un": "mL"
+      }
+     ]
+    },
+    {
+     "nome": "Cobertura",
+     "ingredientes": [
+      {
+       "nome": "Água (1 xic)",
+       "qtd": 240.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Sementes de erva doce",
+       "qtd": 30.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar demerara para polvilhar",
+       "qtd": null,
+       "un": "a gosto"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "Massa",
+     "passos": [
+      "Em uma tigela misture os dois tipos de farinhas com o fermento o açúcar o óleo e o erva doce",
+      "Adicione aos poucos a água até soltar das maos,cubra a massa com filme de plastico e deixe dobrar de volume",
+      "Abra a massa entre duas folhas de plastico grosso e recorte com um cortador de biscoito em forma de rosca transfira para duas assadeiras, forradas com papel manteiga",
+      "Asse por 20 minutos"
+     ]
+    },
+    {
+     "titulo": "Cobertura",
+     "passos": [
+      "Ferva a água com o erva doce como se fosse chá e coe",
+      "Reserve o chá até esfriar",
+      "Passe rapidamente cada rosquinha no chá e polvilhe com açúcar e deixe secar bem"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "FichaTecnica_Rosquinha de Erva doce.xlsx"
+  },
+  {
+   "id": "trouxinha-de-panqueca-colorida",
+   "nome": "Trouxinha de panqueca colorida",
+   "categoria": "Muffins e lanches",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 25,
+    "unidade": "trouxinhas",
+    "peso_g": 31
+   },
+   "tempo_min": 30,
+   "situacao": "Não informada",
+   "componentes": [
+    {
+     "nome": "Ingredientes",
+     "ingredientes": [
+      {
+       "nome": "Farinha de trigo 2 xic",
+       "qtd": 330.0,
+       "un": "g"
+      },
+      {
+       "nome": "Leite 2 xic",
+       "qtd": 300.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Amido de milho 2 colheres(sopa)",
+       "qtd": 18.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal 1 colher sobremesa",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Manteiga derretida 1 colher de sopa",
+       "qtd": 15.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Ovo",
+       "qtd": 1.0,
+       "un": "un"
+      },
+      {
+       "nome": "Beterraba cozida",
+       "qtd": 50.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cenoura cozida",
+       "qtd": 50,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Bata os ingredientes no liquidificador até obter uma massa lisa divida em duas partes e acrescente em uma a beterraba e na outra a cenoura",
+      "E volte a bater no liquidificador.",
+      "Coloque na frigideira e faça discos finos.",
+      "Recheie e amarre com cebolinha."
+     ]
+    },
+    {
+     "titulo": "Cebolinha",
+     "passos": [
+      "Coloque água para ferver e uma tigela com água fria",
+      "Coloque a cebolinha na água fervente e deixe por 30 segundos, apos esse tempo retire e coloque na água fria para parar o cozimento"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [
+    "A quantidade de cenoura estava corrompida na planilha (data); lida como 50 g, igual à beterraba.",
+    "O recheio não é especificado na ficha."
+   ],
+   "fonte": "FichaTecnica_Trouxinha de panquecas II.xlsx"
+  },
+  {
+   "id": "bolo-de-limao-com-cream-cheese",
+   "nome": "Bolo de limão com cream cheese",
+   "categoria": "Bolos",
+   "dieta": [
+    "Vegetariano"
+   ],
+   "base": {
+    "tipo": "receita",
+    "qtd": 1,
+    "unidade": "bolo inglês",
+    "peso_g": null
+   },
+   "tempo_min": null,
+   "situacao": "Não informada",
+   "componentes": [
+    {
+     "nome": "Massa",
+     "ingredientes": [
+      {
+       "nome": "Ovo (1)",
+       "qtd": 40.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar mascavo",
+       "qtd": 75.0,
+       "un": "g"
+      },
+      {
+       "nome": "Baunilha",
+       "qtd": 5.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Açúcar demerara",
+       "qtd": 50.0,
+       "un": "g"
+      },
+      {
+       "nome": "Manteiga",
+       "qtd": 100.0,
+       "un": "g"
+      },
+      {
+       "nome": "Iogurte grego(1/4 xic)",
+       "qtd": 60.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 120.0,
+       "un": "g"
+      },
+      {
+       "nome": "Suco de limão(1/4 xic suco)",
+       "qtd": 60.0,
+       "un": "mL"
+      },
+      {
+       "nome": "Raspas de limão",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Fermento em pó",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Bicarbonato",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Sal",
+       "qtd": 3.0,
+       "un": "g"
+      }
+     ]
+    },
+    {
+     "nome": "Recheio",
+     "ingredientes": [
+      {
+       "nome": "Ovo(1)",
+       "qtd": 40.0,
+       "un": "g"
+      },
+      {
+       "nome": "Açúcar demerara",
+       "qtd": 50.0,
+       "un": "g"
+      },
+      {
+       "nome": "Raspas de limão",
+       "qtd": 10.0,
+       "un": "g"
+      },
+      {
+       "nome": "Cream cheese",
+       "qtd": 100.0,
+       "un": "g"
+      },
+      {
+       "nome": "Farinha de trigo",
+       "qtd": 24.0,
+       "un": "g"
+      }
+     ]
+    }
+   ],
+   "preparo": [
+    {
+     "titulo": "",
+     "passos": [
+      "Os 4 primeiros ingredientes mexa bem",
+      "Acrescente o restante até o sal mexa bem e vamos pra segunda parte",
+      "Acrescente os 5 ingredientes restantes e mexa bem",
+      "Coloque a primeira parte do bolo até as metade da assadeira de bolo ingles",
+      "Coloque o recheio e cubra com mais massa de bolo",
+      "Leve pra assar forno medio"
+     ]
+    }
+   ],
+   "notas": [],
+   "ajustes": [],
+   "fonte": "FichaTecnica_bolo de limao com cream cheese.xlsx"
+  }
+ ],
+ "pendentes": [
+  {
+   "nome": "Batata bolinha com queijo",
+   "motivo": "O nome de apresentação é de outra receita (pão integral com queijo minas) e o modo de preparo está vazio."
+  },
+  {
+   "nome": "Bolinho de mandioca sem glúten e vegano",
+   "motivo": "O modo de preparo foi copiado do pão de forma: cita recheio de escarola e farinha de trigo, que não estão na lista."
+  },
+  {
+   "nome": "Bolo artesanal de limão com cobertura (2 arquivos iguais)",
+   "motivo": "O modo de preparo é o do bolo de maçã: cita maçã e leite de soja, que não estão na lista."
+  },
+  {
+   "nome": "Mini cuscuz de legumes (com atum)",
+   "motivo": "O nome cita atum e o preparo cita sardinha e palmito, mas nenhum dos três está na lista de ingredientes."
+  },
+  {
+   "nome": "Mini sanduíche de pão integral com queijo minas e tomate",
+   "motivo": "O nome cita queijo minas, mas a lista traz ricota. O preparo tem uma linha só."
+  },
+  {
+   "nome": "Muffin de queijo, tomate e alecrim",
+   "motivo": "As quantidades parecem trocadas (bicarbonato 80 g; limão e leite com códigos invertidos)."
+  },
+  {
+   "nome": "Torrada com patê de azeitona",
+   "motivo": "O modo de preparo é de um pão de batata-doce, e não da torrada."
+  },
+  {
+   "nome": "Bolo de banana (integral com aveia e maçã)",
+   "motivo": "O preparo é o do muffin de banana: cita uva-passa e claras, que não estão na lista."
+  },
+  {
+   "nome": "Mini hambúrguer de peru e parmesão",
+   "motivo": "A ficha indica 8 unidades, mas o preparo rende 2 hambúrgueres e cita pão sírio, enquanto a lista traz pão de quinoa."
+  },
+  {
+   "nome": "Muffin de legumes",
+   "motivo": "O modo de preparo diz apenas \"ver pasta rosa\"."
+  },
+  {
+   "nome": "Pão de cenoura",
+   "motivo": "É uma \"cópia em conflito\" com duas colunas de quantidades diferentes. Falta confirmar a versão certa."
+  },
+  {
+   "nome": "Pão de linhaça e mel",
+   "motivo": "Não tem ingredientes, e o preparo é o do muffin de banana."
+  },
+  {
+   "nome": "Bolo red velvet",
+   "motivo": "Faltam o tempo e a temperatura de forno. O recheio está em outra planilha."
+  },
+  {
+   "nome": "Bolo nega maluca",
+   "motivo": "O preparo cita claras em neve, mas os ovos não estão na lista."
+  },
+  {
+   "nome": "Mini pão de batata com cream cheese",
+   "motivo": "As quantidades estão incompletas. Foi substituída pela ficha \"Pão de batata com cream cheese\"."
+  }
+ ],
+ "duplicatas": [
+  "Bolinho vegano assado, arroz integral e feijão preto (duplicata com erro)",
+  "Bolo vegano e sem glúten de maçã com canela (1)",
+  "Kibe assado acompanhado de arroz integral com brócolis (1)"
+ ]
+}

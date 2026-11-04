@@ -1,0 +1,325 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Olho na Copa</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Karla:wght@400;500;700&display=swap">
+<style>
+/* Layout: cabeçalho-folha com resumo, faixa de filtros, lista de atos em cartões; tudo numa coluna larga que vira uma só no celular. */
+:root{
+  --bg:#f4f6ee; --surface:#ffffff; --ink:#18291d; --muted:#5b6b5d; --line:#d9e1d1;
+  --forest:#1f4d2e; --lime:#a9c936; --sage:#7f9a7a; --sage-soft:#e6eddf;
+  --ok:#2f7a45; --warn:#b26a00; --bad:#b23a2e; --info:#2d6a8a;
+  --ok-bg:#e3f1e6; --warn-bg:#fbefd9; --bad-bg:#f8e2df; --info-bg:#e0eef5;
+  --f-display:"Jost",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Karla",ui-sans-serif,system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#101812; --surface:#17221a; --ink:#e6eee3; --muted:#9db09f; --line:#2b3a2e;
+  --forest:#9fd17a; --lime:#c3e05a; --sage:#89a585; --sage-soft:#1e2c21;
+  --ok:#7cc98f; --warn:#e5ad55; --bad:#ec8a7f; --info:#86c1de;
+  --ok-bg:#1c3324; --warn-bg:#382b14; --bad-bg:#3a1f1c; --info-bg:#16303c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101812; --surface:#17221a; --ink:#e6eee3; --muted:#9db09f; --line:#2b3a2e;
+  --forest:#9fd17a; --lime:#c3e05a; --sage:#89a585; --sage-soft:#1e2c21;
+  --ok:#7cc98f; --warn:#e5ad55; --bad:#ec8a7f; --info:#86c1de;
+  --ok-bg:#1c3324; --warn-bg:#382b14; --bad-bg:#3a1f1c; --info-bg:#16303c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px;display:grid;gap:20px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+a{color:var(--forest)}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+.head{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+.mark{width:56px;height:56px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+h1{font-size:clamp(30px,5vw,42px);font-weight:700;color:var(--forest);line-height:1.05}
+.lede{max-width:65ch;color:var(--muted);margin:6px 0 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.stat b{display:block;font-family:var(--f-display);font-size:28px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--forest);line-height:1.1}
+.stat span{font-size:13px;color:var(--muted)}
+.notice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.box{background:var(--sage-soft);border-radius:10px;padding:14px 16px;min-width:0}
+.box h2{font-size:17px;margin-bottom:6px;color:var(--forest)}
+.box p,.box ol{margin:0;font-size:14px}
+.box ol{padding-left:18px;display:grid;gap:4px}
+.bars{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.bars h2{font-size:17px;margin-bottom:10px}
+.bar{display:grid;grid-template-columns:minmax(0,190px) 1fr 34px;gap:8px;align-items:center;font-size:13px;padding:2px 0;cursor:pointer;background:none;border:0;color:inherit;font-family:inherit;text-align:left;width:100%}
+.bar .lbl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .trk{height:10px;background:var(--sage-soft);border-radius:5px;overflow:hidden}
+.bar .fil{height:100%;background:var(--sage);border-radius:5px}
+.bar:hover .fil,.bar.on .fil{background:var(--forest)}
+.bar .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.filters{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.filters input[type=search],.filters select{font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);min-width:0}
+.filters input[type=search]{flex:1 1 220px}
+.filters select{flex:0 1 auto;max-width:100%}
+.chk{display:flex;gap:6px;align-items:center;font-size:14px;white-space:nowrap}
+.count{font-size:13px;color:var(--muted);width:100%}
+.list{display:grid;gap:10px}
+.day{font-family:var(--f-display);font-weight:600;font-size:15px;color:var(--muted);margin-top:8px;display:flex;gap:8px;align-items:baseline}
+.day small{font-family:var(--f-body);font-weight:400}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:6px;min-width:0}
+.card.urg{border-left:4px solid var(--warn)}
+.row1{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.org{font-weight:700;font-size:14px}
+.unit{font-size:13px;color:var(--muted)}
+.pill{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.p-D{background:var(--ok-bg);color:var(--ok)}
+.p-I{background:var(--bad-bg);color:var(--bad)}
+.p-C{background:var(--info-bg);color:var(--info)}
+.p-X{background:var(--sage-soft);color:var(--muted)}
+.p-urg{background:var(--warn-bg);color:var(--warn)}
+.p-prazo{background:var(--warn-bg);color:var(--warn)}
+.chip{font-size:12px;padding:2px 8px;border-radius:6px;border:1px solid var(--line);color:var(--ink);white-space:nowrap}
+.loc{font-weight:500}
+.loc.none{color:var(--muted);font-weight:400;font-style:italic}
+.ex{font-size:13.5px;color:var(--muted);margin:0;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted);align-items:center}
+.meta a{font-weight:500}
+.copy{font:inherit;font-size:12px;border:1px solid var(--line);background:none;color:var(--ink);border-radius:6px;padding:1px 7px;cursor:pointer}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:10px;padding:24px;text-align:center;color:var(--muted)}
+footer{font-size:13px;color:var(--muted);display:grid;gap:6px;max-width:75ch}
+.stat{cursor:pointer;text-align:left;font:inherit;color:inherit}
+.stat:hover{border-color:var(--sage)}
+.lk{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.lk:hover{text-decoration-color:currentColor}
+button.pill,button.chip{cursor:pointer;font-family:inherit}
+button.chip{background:none}
+.day .lk{text-decoration:none}
+.follow{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;background:var(--info-bg);color:var(--ink);border-radius:10px;padding:10px 14px;font-size:14px}
+.follow b{color:var(--info)}
+.follow select{font:inherit;font-size:14px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);max-width:100%}
+.btn{font:inherit;font-size:13px;font-weight:700;padding:6px 12px;border-radius:8px;border:1px solid var(--forest);background:var(--forest);color:var(--bg);cursor:pointer}
+.btn.ghost{background:none;color:var(--forest)}
+.active{display:flex;flex-wrap:wrap;gap:6px;width:100%}
+.active button{font:inherit;font-size:12px;border:1px solid var(--forest);color:var(--forest);background:var(--surface);border-radius:999px;padding:2px 10px;cursor:pointer}
+.more{font:inherit;padding:10px 14px;border-radius:8px;border:1px solid var(--forest);background:none;color:var(--forest);font-weight:700;cursor:pointer;justify-self:center}
+@media (max-width:720px){.notice{grid-template-columns:1fr}.bar{grid-template-columns:minmax(0,130px) 1fr 30px}}
+@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--sage)}}
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <svg class="mark" viewBox="0 0 56 56" aria-hidden="true">
+      <circle cx="28" cy="24" r="17" fill="var(--sage-soft)"/>
+      <path d="M11 24c5-8 11-12 17-12s12 4 17 12c-5 8-11 12-17 12s-12-4-17-12z" fill="none" stroke="var(--forest)" stroke-width="2.5"/>
+      <circle cx="28" cy="24" r="6" fill="var(--lime)"/>
+      <circle cx="28" cy="24" r="2.5" fill="var(--forest)"/>
+      <path d="M28 36v14" stroke="var(--forest)" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <div>
+      <div class="eyebrow">Smart EcoVila · Trilha Ga.IA</div>
+      <h1>Olho na Copa</h1>
+      <p class="lede">Podas, remoções, supressões e transplantes de árvores autorizados pela Prefeitura de São Paulo, tirados do Diário Oficial da Cidade todos os dias úteis. <span id="upd"></span></p>
+    </div>
+  </header>
+
+  <section class="stats" id="stats" aria-label="Resumo do período"></section>
+  <section class="follow" id="follow" hidden></section>
+
+  <section class="notice">
+    <div class="box">
+      <h2>Prazo para contestar</h2>
+      <p>Vários atos citam a Lei Municipal 10.919/90: quem discordar pode apresentar recurso fundamentado em até <b>6 dias</b> da publicação, e o serviço só pode ser feito <b>10 dias</b> após a publicação. Alguns atos falam em dias úteis, outros em dias corridos. Confira sempre o texto do ato. O selo laranja nos cartões estima o prazo em dias corridos, o cenário mais curto.</p>
+    </div>
+    <div class="box">
+      <h2>Como usar</h2>
+      <ol>
+        <li>Filtre pela sua subprefeitura ou busque o nome da sua rua. Quase tudo nos cartões é clicável e vira filtro.</li>
+        <li>Clique em “Acompanhar esta subprefeitura” para ver, a cada visita, o que saiu de novo.</li>
+        <li>Anote o número do processo SEI e do documento.</li>
+        <li>Abra o processo no Portal de Processos e leia o ato completo no Diário Oficial.</li>
+        <li>Para contestar, procure o órgão que assinou o ato, citando o número do processo, dentro do prazo.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bars" aria-label="Atos por órgão">
+    <h2>Atos por órgão no período</h2>
+    <div id="bars"></div>
+  </section>
+
+  <section class="filters" id="filters" aria-label="Filtros">
+    <input type="search" id="q" placeholder="Buscar rua, parque, espécie ou nº do processo" aria-label="Buscar">
+    <select id="fOrg" aria-label="Órgão"><option value="">Todos os órgãos</option></select>
+    <select id="fAc" aria-label="Tipo de manejo">
+      <option value="">Todo tipo de manejo</option>
+      <option value="R">Remoção / supressão</option>
+      <option value="P">Poda</option>
+      <option value="T">Transplante</option>
+      <option value="C">Compensação (TCA)</option>
+    </select>
+    <select id="fDc" aria-label="Decisão">
+      <option value="">Toda decisão</option>
+      <option value="D">Deferido / autorizado</option>
+      <option value="C">Comunicado</option>
+      <option value="I">Indeferido</option>
+      <option value="X">Retificação</option>
+    </select>
+    <select id="fAr" aria-label="Local">
+      <option value="">Todo local</option>
+      <option value="E">Calçada / área pública</option>
+      <option value="Q">Parque público</option>
+      <option value="I">Área interna / particular</option>
+      <option value="O">Obra / licenciamento</option>
+    </select>
+    <label class="chk"><input type="checkbox" id="fPz"> Prazo possivelmente aberto</label>
+    <label class="chk"><input type="checkbox" id="fUrg"> Só urgência</label>
+    <div class="active" id="active"></div>
+    <div class="count" id="count" aria-live="polite"></div>
+  </section>
+
+  <section class="list" id="list" aria-label="Atos publicados">
+    <div class="empty">Carregando os atos do Diário Oficial…</div>
+  </section>
+
+  <footer>
+    <p><b>Fonte:</b> Diário Oficial da Cidade de São Paulo (diariooficial.prefeitura.sp.gov.br). A coleta é automática e usa busca por palavras-chave seguida de filtros. Pode haver atos que escaparam da busca ou classificações imperfeitas. O ato publicado no Diário Oficial é sempre a referência.</p>
+    <p><b>Privacidade:</b> nomes de pessoas interessadas foram omitidos dos trechos. Os endereços indicam onde estão as árvores.</p>
+    <p><b>Diário Oficial do Estado (DOE-SP):</b> também é consultado. No período não houve ato de manejo arbóreo na capital.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const SUB={AD:"Cidade Ademar",AF:"Aricanduva/Formosa/Carrão",BT:"Butantã",CL:"Campo Limpo",CS:"Capela do Socorro",CT:"Cidade Tiradentes",CV:"Casa Verde/Cachoeirinha",EM:"Ermelino Matarazzo",FB:"Freguesia/Brasilândia",G:"Guaianases",IP:"Ipiranga",IQ:"Itaquera",IT:"Itaim Paulista",JA:"Jabaquara",JT:"Jaçanã/Tremembé",LA:"Lapa",MB:"M'Boi Mirim",MG:"Vila Maria/Vila Guilherme",MO:"Mooca",MP:"São Miguel Paulista",PA:"Parelheiros",PE:"Penha",PI:"Pinheiros",PJ:"Pirituba/Jaraguá",PR:"Perus/Anhanguera",SA:"Santo Amaro",SB:"Sapopemba",SE:"Sé",SM:"São Mateus",ST:"Santana/Tucuruvi",VM:"Vila Mariana",VP:"Vila Prudente"};
+  const orgName=o=>o==="SVMA"?"Secretaria do Verde e Meio Ambiente":o==="SMSUB"?"Secretaria das Subprefeituras":o.startsWith("SUB-")?"Subprefeitura "+(SUB[o.slice(4)]||o.slice(4)):o;
+  const slug=o=>o.startsWith("SUB-")&&SUB[o.slice(4)]?SUB[o.slice(4)].split("/")[0].normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""):o.toLowerCase();
+  const unitName=u=>/\/AV$/.test(u)?"Unidade de Áreas Verdes":/NAI$/.test(u)?"Núcleo de Avaliação de Árvore em Área Interna":/DGPU-MANEJO/.test(u)?"Equipe Técnica de Manejo (parques)":/TCA$/.test(u)?"Termo de Compromisso Ambiental":u==="G"?"Gabinete do Subprefeito":u==="CPO"?"Coordenadoria de Projetos e Obras":u==="CPDU"?"Planejamento e Desenvolvimento Urbano":/SLP$/.test(u)?"Limpeza Pública / Áreas Verdes":u;
+  const AC={R:"Remoção/supressão",P:"Poda",T:"Transplante",C:"Compensação (TCA)",X:"Retificação"};
+  const DC={D:"Deferido",I:"Indeferido",C:"Comunicado",X:"Retificação"};
+  const AR={E:"Calçada / área pública",Q:"Parque público",I:"Área interna / particular",O:"Obra / licenciamento"};
+  const MES=["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+  const WD=["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
+  const $=id=>document.getElementById(id);
+  let R=[],meta={},shown=60,fDate="",onlyNew=false;
+  const today=new Date(); today.setHours(0,0,0,0);
+  const pd=s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+  const fmt=d=>d.getDate()+" "+MES[d.getMonth()];
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const store={get(){try{return JSON.parse(localStorage.getItem("onc-follow")||"null")}catch(_){return null}},set(v){try{localStorage.setItem("onc-follow",JSON.stringify(v))}catch(_){}}};
+
+  function parse(txt){
+    txt.split(/\r?\n/).forEach(l=>{
+      if(!l.trim())return;
+      if(l.startsWith("#")){const f=l.slice(1).trim().split("¦"); if(f[0]==="atualizado"){meta.upd=f[1];meta.de=f[3];meta.ate=f[4];} return;}
+      const f=l.split("¦"); if(f.length<14)return;
+      const r={doc:f[0],data:f[1],org:f[2],un:f[3],proc:f[4],tipo:f[5],ac:f[6],dc:f[7],urg:f[8]==="1",ar:f[9],loc:f[10]?f[10].split(" ; "):[],q:f[11]?+f[11]:null,rc:f[12]?+f[12]:null,x:f[13],url:f[14]||""};
+      r.dt=pd(r.data);
+      r.prazo=null;
+      if((r.dc==="D"||r.dc==="C")&&/[RPT]/.test(r.ac)&&r.ar!=="O"){const p=new Date(r.dt);p.setDate(p.getDate()+(r.rc||6));if(p>=today)r.prazo=p;}
+      r.hay=(r.loc.join(" ")+" "+r.x+" "+r.proc+" "+r.doc+" "+orgName(r.org)).toLowerCase();
+      R.push(r);
+    });
+    R.sort((a,b)=>b.dt-a.dt||a.org.localeCompare(b.org));
+  }
+
+  function set(k,v){ // aplica um filtro vindo de um clique
+    if(k==="all"){["q","fOrg","fAc","fDc","fAr"].forEach(i=>$(i).value="");$("fPz").checked=false;$("fUrg").checked=false;fDate="";onlyNew=false;}
+    else if(k==="org")$("fOrg").value=$("fOrg").value===v?"":v;
+    else if(k==="ac")$("fAc").value=$("fAc").value===v?"":v;
+    else if(k==="dc")$("fDc").value=$("fDc").value===v?"":v;
+    else if(k==="ar")$("fAr").value=$("fAr").value===v?"":v;
+    else if(k==="urg")$("fUrg").checked=!$("fUrg").checked;
+    else if(k==="pz")$("fPz").checked=!$("fPz").checked;
+    else if(k==="date")fDate=fDate===v?"":v;
+    else if(k==="q")$("q").value=v;
+    shown=60; render();
+    $("filters").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+  }
+
+  function stats(){
+    const n=R.length, rem=R.filter(r=>r.ac.includes("R")&&r.dc==="D").length, ind=R.filter(r=>r.dc==="I").length, urg=R.filter(r=>r.urg).length, pz=R.filter(r=>r.prazo).length;
+    const it=[[n,"atos de manejo arbóreo","all",""],[rem,"remoções ou supressões autorizadas","rem",""],[ind,"pedidos indeferidos","dc","I"],[urg,"autorizações de urgência","urg",""],[pz,"com prazo de recurso possivelmente aberto","pz",""]];
+    $("stats").innerHTML=it.map(([v,l,k,x])=>`<button class="stat" type="button" data-k="${k}" data-v="${x}" title="Ver na lista"><b>${v}</b><span>${l}</span></button>`).join("");
+    $("stats").querySelectorAll(".stat").forEach(b=>b.addEventListener("click",()=>{ if(b.dataset.k==="rem"){set("all");$("fAc").value="R";$("fDc").value="D";render();} else {if(b.dataset.k!=="all")set("all"); set(b.dataset.k,b.dataset.v);} }));
+    if(meta.upd){$("upd").textContent=`Atualizado em ${fmt(pd(meta.upd))} de ${pd(meta.upd).getFullYear()}. Atos publicados desde ${fmt(pd(meta.de))}.`;}
+    const c={};R.forEach(r=>c[r.org]=(c[r.org]||0)+1);
+    const top=Object.entries(c).sort((a,b)=>b[1]-a[1]); const mx=top[0]?top[0][1]:1;
+    $("bars").innerHTML=top.slice(0,12).map(([o,v])=>`<button class="bar" data-org="${o}" title="Ver atos de ${esc(orgName(o))}"><span class="lbl">${esc(orgName(o).replace("Subprefeitura ",""))}</span><span class="trk"><span class="fil" style="width:${(v/mx*100).toFixed(1)}%"></span></span><span class="n">${v}</span></button>`).join("");
+    $("bars").querySelectorAll(".bar").forEach(b=>b.addEventListener("click",()=>set("org",b.dataset.org)));
+    const sel=$("fOrg"); Object.keys(SUB).map(k=>"SUB-"+k).concat(["SVMA"]).sort((a,b)=>orgName(a).localeCompare(orgName(b),"pt")).forEach(o=>{const op=document.createElement("option");op.value=o;op.textContent=orgName(o)+` (${c[o]||0})`;sel.appendChild(op);});
+  }
+
+  function follow(){
+    const box=$("follow"), f=store.get(), o=$("fOrg").value;
+    if(f&&f.org){
+      const novos=R.filter(r=>r.org===f.org&&r.data>f.seen);
+      box.hidden=false;
+      box.innerHTML=`<span>Você acompanha a <b>${esc(orgName(f.org))}</b>. ${novos.length?`<b>${novos.length} ato${novos.length>1?"s":""} novo${novos.length>1?"s":""}</b> desde sua última visita (${fmt(pd(f.seen))}).`:`Nenhum ato novo desde sua última visita (${fmt(pd(f.seen))}).`}</span>
+        ${novos.length?`<button class="btn" id="seeNew" type="button">Ver novos</button>`:""}
+        <button class="btn ghost" id="seeAll" type="button">Ver todos dela</button>
+        <button class="btn ghost" id="markSeen" type="button">Marcar como visto</button>
+        <button class="btn ghost" id="unfollow" type="button">Deixar de acompanhar</button>`;
+      const b1=$("seeNew"); if(b1)b1.onclick=()=>{set("all");$("fOrg").value=f.org;onlyNew=true;render();};
+      $("seeAll").onclick=()=>{set("all");set("org",f.org);};
+      $("markSeen").onclick=()=>{store.set({org:f.org,seen:meta.ate||meta.upd});onlyNew=false;follow();render();};
+      $("unfollow").onclick=()=>{try{localStorage.removeItem("onc-follow")}catch(_){} follow();};
+    } else if(o){
+      box.hidden=false;
+      box.innerHTML=`<span>Quer saber, a cada visita, o que saiu de novo na <b>${esc(orgName(o))}</b>?</span><button class="btn" id="doFollow" type="button">Acompanhar esta subprefeitura</button><span>Link direto para ela: acrescente <b>#${slug(o)}</b> ao final do endereço desta página.</span>`;
+      $("doFollow").onclick=()=>{store.set({org:o,seen:meta.ate||meta.upd});follow();};
+    } else {
+      box.hidden=false;
+      const opts=Object.keys(SUB).map(k=>"SUB-"+k).sort((a,b)=>orgName(a).localeCompare(orgName(b),"pt")).map(x=>`<option value="${x}">${esc(orgName(x).replace("Subprefeitura ",""))}</option>`).join("");
+      box.innerHTML=`<span><b>Acompanhe a sua subprefeitura.</b> A cada visita, a página mostra o que saiu de novo nela.</span><select id="pickFollow" aria-label="Escolha a subprefeitura"><option value="">Escolha…</option>${opts}</select><button class="btn" id="doFollow2" type="button">Acompanhar</button>`;
+      $("doFollow2").onclick=()=>{const v=$("pickFollow").value; if(!v){$("pickFollow").focus();return;} store.set({org:v,seen:meta.ate||meta.upd}); $("fOrg").value=v; shown=60; render();};
+    }
+  }
+
+  function card(r){
+    const pills=[`<button class="pill p-${r.dc}" data-k="dc" data-v="${r.dc}" title="Ver todos: ${DC[r.dc]}">${DC[r.dc]}</button>`];
+    if(r.urg)pills.push(`<button class="pill p-urg" data-k="urg" title="Ver todas as urgências">Urgência</button>`);
+    if(r.prazo){const d=Math.round((r.prazo-today)/864e5);pills.push(`<button class="pill p-prazo" data-k="pz" title="Estimativa em dias corridos a partir da publicação. Clique para ver todos com prazo aberto.">Recurso até ${fmt(r.prazo)}${d===0?" (hoje)":` (${d} dia${d>1?"s":""})`}</button>`);}
+    const chips=r.ac.split("").filter(a=>AC[a]&&a!=="X").map(a=>`<button class="chip" data-k="ac" data-v="${a}" title="Ver todos: ${AC[a]}">${AC[a]}</button>`).join("");
+    const procDigits=r.proc.replace(/\D/g,"");
+    const locs=r.loc.length?r.loc.map(l=>`<button class="lk" data-k="q" data-v="${esc(l.replace(/,?\s*(n[º°o]s?\.?\s*)?\d.*$/i,""))}" title="Ver outros atos nesta via">${esc(l)}</button>`).join(" · "):"Endereço não identificado no trecho, veja o ato";
+    const docLink=r.url?`<a href="https://diariooficial.prefeitura.sp.gov.br/md_epubli_visualizar.php?${esc(r.url)}" target="_blank" rel="noopener">Ver no Diário Oficial (doc. ${esc(r.doc)})</a>`:`<span>Documento DOC nº ${esc(r.doc)} <button class="copy" data-c="${esc(r.doc)}" type="button">copiar</button></span>`;
+    return `<article class="card${r.urg?" urg":""}">
+      <div class="row1"><button class="lk org" data-k="org" data-v="${r.org}" title="Ver todos os atos deste órgão">${esc(orgName(r.org))}</button><span class="unit">· ${esc(unitName(r.un))}</span></div>
+      <div class="row1">${pills.join("")}${chips}<button class="chip" data-k="ar" data-v="${r.ar}" title="Ver todos neste tipo de local">${AR[r.ar]||""}</button>${r.q?`<span class="chip">${r.q} árvore${r.q>1?"s":""} citada${r.q>1?"s":""}</span>`:""}</div>
+      <div class="loc${r.loc.length?"":" none"}">${locs}</div>
+      <p class="ex">${esc(r.x)}</p>
+      <div class="meta"><span>${esc(r.tipo)}</span>
+        <a href="http://processos.prefeitura.sp.gov.br/Forms/ConsultarProcessos.aspx?numeroprocesso=${procDigits}" target="_blank" rel="noopener">Processo SEI ${esc(r.proc)}</a>
+        ${docLink}
+      </div>
+    </article>`;
+  }
+
+  function render(){
+    const q=$("q").value.trim().toLowerCase(), o=$("fOrg").value, a=$("fAc").value, d=$("fDc").value, ar=$("fAr").value, pz=$("fPz").checked, u=$("fUrg").checked;
+    const fol=store.get();
+    document.querySelectorAll(".bar").forEach(b=>b.classList.toggle("on",b.dataset.org===o));
+    const F=R.filter(r=>(!q||r.hay.includes(q))&&(!o||r.org===o)&&(!a||r.ac.includes(a))&&(!d||r.dc===d)&&(!ar||r.ar===ar)&&(!pz||r.prazo)&&(!u||r.urg)&&(!fDate||r.data===fDate)&&(!onlyNew||(fol&&r.data>fol.seen)));
+    const act=[]; if(q)act.push(["q",`Busca: “${q}”`]); if(o)act.push(["org",orgName(o)]); if(a)act.push(["ac",AC[a]]); if(d)act.push(["dc",DC[d]]); if(ar)act.push(["ar",AR[ar]]); if(pz)act.push(["pz","Prazo aberto"]); if(u)act.push(["urg","Urgência"]); if(fDate)act.push(["date","Dia "+fmt(pd(fDate))]); if(onlyNew)act.push(["new","Só novos"]);
+    $("active").innerHTML=act.map(([k,l])=>`<button type="button" data-x="${k}" title="Remover filtro">${esc(l)} ✕</button>`).join("")+(act.length>1?`<button type="button" data-x="all">Limpar tudo</button>`:"");
+    $("count").textContent=`${F.length} ato${F.length===1?"":"s"} encontrado${F.length===1?"":"s"}`;
+    follow();
+    try{ const s=o&&o.startsWith("SUB-")?"#"+slug(o):""; if(location.hash!==s) history.replaceState(null,"",s||location.pathname+location.search); }catch(_){}
+    if(!F.length){$("list").innerHTML=`<div class="empty">Nenhum ato com esses filtros. Tente remover algum filtro acima.</div>`;return;}
+    let html="",last="";
+    F.slice(0,shown).forEach(r=>{ if(r.data!==last){last=r.data;const n=F.filter(x=>x.data===r.data).length;html+=`<h3 class="day"><button class="lk" data-k="date" data-v="${r.data}" title="Ver só este dia">${WD[r.dt.getDay()]}, ${fmt(r.dt)}</button> <small>${n} ato${n>1?"s":""}</small></h3>`;} html+=card(r); });
+    if(F.length>shown)html+=`<button class="more" id="more" type="button">Mostrar mais ${Math.min(60,F.length-shown)} de ${F.length-shown}</button>`;
+    $("list").innerHTML=html;
+    const m=$("more"); if(m)m.addEventListener("click",()=>{shown+=60;render();});
+  }
+
+  $("active").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const k=b.dataset.x;
+    if(k==="all")return set("all"); if(k==="q")$("q").value=""; if(k==="org")$("fOrg").value=""; if(k==="ac")$("fAc").value=""; if(k==="dc")$("fDc").value=""; if(k==="ar")$("fAr").value=""; if(k==="pz")$("fPz").checked=false; if(k==="urg")$("fUrg").checked=false; if(k==="date")fDate=""; if(k==="new")onlyNew=false; shown=60; render();});
+  $("list").addEventListener("click",e=>{
+    const c=e.target.closest(".copy"); if(c){const t=c.dataset.c;const done=()=>{c.textContent="copiado";setTimeout(()=>c.textContent="copiar",1500)};try{navigator.clipboard.writeText(t).then(done,()=>{c.textContent=t})}catch(_){c.textContent=t}return;}
+    const b=e.target.closest("[data-k]"); if(b){ if(b.dataset.k==="q")set("q",b.dataset.v.toLowerCase()); else set(b.dataset.k,b.dataset.v); }
+  });
+  ["q","fOrg","fAc","fDc","fAr","fPz","fUrg"].forEach(id=>$(id).addEventListener(id==="q"?"input":"change",()=>{shown=60;render();}));
+  function fromHash(){const h=decodeURIComponent(location.hash.slice(1)).toLowerCase(); if(!h)return; const o=Object.keys(SUB).map(k=>"SUB-"+k).find(x=>slug(x)===h); if(o){$("fOrg").value=o;}}
+  window.addEventListener("hashchange",()=>{fromHash();render();});
+
+  fetch("registros.txt").then(r=>{if(!r.ok)throw new Error(r.status);return r.text()}).then(t=>{parse(t);stats();fromHash();render();}).catch(()=>{$("list").innerHTML=`<div class="empty">Não foi possível carregar os registros agora. Recarregue a página em alguns instantes.</div>`;});
+})();
+</script>
+
+</body></html>

@@ -1,0 +1,384 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Receitas da Smart EcoVila</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Karla:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: uma "bancada" — catálogo em grade com filtros hexagonais; a ficha abre como página própria, ingredientes à esquerda e preparo à direita. */
+:root{
+  --bg:#EEF4EA; --surface:#FFFFFF; --surface-2:#F5F9F2; --ink:#16301F; --ink-2:#465C4C; --muted:#6F8473;
+  --line:#D5E2D0; --forest:#1B4332; --green:#2E7D3E; --lime:#A6C71B; --lime-ink:#5A7400; --sage:#7E8C70;
+  --stem:#8B6B4A; --chip:#E3EEDC; --on-forest:#EAF3E4; --on-forest-2:#B9D3AE;
+  --ok-bg:#E1F0DA; --ok-ink:#25602F; --warn-bg:#FBF1D6; --warn-ink:#7A5A00; --plate:#FFFFFF;
+  --logo-l:block; --logo-d:none;
+  --display:"Jost","Century Gothic","Futura",system-ui,sans-serif;
+  --body:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --hex:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1E15; --surface:#15281C; --surface-2:#1A2F22; --ink:#E5EFE0; --ink-2:#B6C8B5; --muted:#8CA390;
+    --line:#2A4433; --forest:#0A1810; --green:#7CC36A; --lime:#B9D93A; --lime-ink:#C9E35A; --sage:#A9B79B;
+    --stem:#C9A27C; --chip:#21382A; --on-forest:#E5EFE0; --on-forest-2:#9DBB93;
+    --ok-bg:#1F3A26; --ok-ink:#9FD98F; --warn-bg:#3A3217; --warn-ink:#F0D98A; --plate:#F3F7EF;
+    --logo-l:none; --logo-d:block; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1E15; --surface:#15281C; --surface-2:#1A2F22; --ink:#E5EFE0; --ink-2:#B6C8B5; --muted:#8CA390;
+  --line:#2A4433; --forest:#0A1810; --green:#7CC36A; --lime:#B9D93A; --lime-ink:#C9E35A; --sage:#A9B79B;
+  --stem:#C9A27C; --chip:#21382A; --on-forest:#E5EFE0; --on-forest-2:#9DBB93;
+  --ok-bg:#1F3A26; --ok-ink:#9FD98F; --warn-bg:#3A3217; --warn-ink:#F0D98A; --plate:#F3F7EF;
+  --logo-l:none; --logo-d:block; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));-webkit-font-smoothing:antialiased}
+.wrap{max-width:1160px;margin:0 auto;padding-block:18px 56px}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;line-height:1.12}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+
+/* Cabeçalho de marcas */
+.brandbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.logo-sev{height:64px;width:auto}
+.logo-sev.l{display:var(--logo-l)} .logo-sev.d{display:var(--logo-d)}
+.by{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;text-align:right}
+.by img{height:50px;width:auto;background:var(--plate);border-radius:10px;padding:3px 6px}
+
+/* Abertura */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:28px;align-items:end;padding-block:30px 22px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime-ink);font-weight:700;margin-bottom:10px}
+.intro h1{font-size:clamp(34px,5.4vw,56px);font-weight:300;color:var(--green);letter-spacing:-.01em}
+.intro h1 b{font-weight:500}
+.intro p{color:var(--ink-2);max-width:60ch;margin:12px 0 0}
+.search{position:relative}
+.search input{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:13px 18px 13px 44px;font-size:16px}
+.search input:focus{border-color:var(--green)}
+.search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2}
+.search label{display:block;font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px 4px}
+
+/* Filtros */
+.filters{display:grid;gap:14px;padding-block:6px 20px}
+.cats{display:flex;gap:10px;flex-wrap:wrap}
+.cat{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:6px 14px 6px 6px;cursor:pointer;text-align:left}
+.cat .hx{width:40px;height:36px;clip-path:var(--hex);background:var(--chip);display:grid;place-items:center;flex:none}
+.cat .hx img{width:34px;height:auto}
+.cat b{display:block;font-size:14px;font-weight:700;line-height:1.2}
+.cat span{font-size:12px;color:var(--muted)}
+.cat[aria-pressed="true"]{border-color:var(--green);background:var(--chip);box-shadow:inset 0 0 0 1px var(--green)}
+.cat[aria-pressed="true"] .hx{background:var(--lime)}
+.row2{display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center}
+.lbl{font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.diet{border:1px solid var(--line);background:transparent;border-radius:999px;padding:6px 13px;font-size:14px;cursor:pointer;color:var(--ink-2)}
+.diet[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--surface)}
+.switch{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-2);cursor:pointer;margin-left:auto}
+.switch input{width:18px;height:18px;accent-color:var(--green)}
+.count{font-size:14px;color:var(--muted);padding-block:2px 12px}
+
+/* Cartões */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{display:grid;grid-template-rows:auto 1fr auto;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--green);transform:translateY(-2px)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.card .hx{width:46px;height:41px;clip-path:var(--hex);background:var(--chip);display:grid;place-items:center;flex:none}
+.card .hx img{width:40px}
+.card h3{font-size:19px;font-weight:500;color:var(--ink);line-height:1.2}
+.card .meta{font-size:13px;color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--chip);color:var(--ink-2);letter-spacing:.02em}
+.tag.carne{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.st{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.st.ok{background:var(--ok-bg);color:var(--ok-ink)}
+.st.an{background:var(--warn-bg);color:var(--warn-ink)}
+.st.ni{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+.org{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--lime-ink)}
+.org i{width:11px;height:12px;background:var(--lime);clip-path:var(--hex);display:inline-block}
+.empty{grid-column:1/-1;background:var(--surface);border:1px dashed var(--line);border-radius:16px;padding:28px;text-align:center;color:var(--ink-2)}
+.empty button{margin-top:10px}
+
+details.pend{margin-top:34px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+details.pend summary{cursor:pointer;padding:16px 20px;font-weight:700;list-style:none;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+details.pend summary::-webkit-details-marker{display:none}
+details.pend summary::before{content:"+";font-family:var(--display);color:var(--green);font-size:20px;width:14px}
+details.pend[open] summary::before{content:"–"}
+details.pend summary span{font-weight:400;color:var(--muted);font-size:14px}
+.pend-body{padding:0 20px 20px;display:grid;gap:10px}
+.pend-body p{margin:0;color:var(--ink-2);font-size:14px;max-width:70ch}
+.pend-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin:0;padding:0;list-style:none}
+.pend-list li{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px}
+.pend-list b{display:block;font-size:14px}
+.pend-list span{color:var(--ink-2)}
+
+/* Ficha */
+.back{display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:var(--green);font-weight:700;cursor:pointer;padding:6px 0;font-size:15px}
+.rhead{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center;padding-block:14px 22px;border-bottom:1px solid var(--line)}
+.rhead .hx{width:84px;height:74px;clip-path:var(--hex);background:var(--chip);display:grid;place-items:center}
+.rhead .hx img{width:70px}
+.rhead h1{font-size:clamp(28px,4vw,42px);font-weight:400;color:var(--ink)}
+.rhead .sub{display:flex;gap:8px 14px;flex-wrap:wrap;align-items:center;margin-top:10px;color:var(--muted);font-size:14px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;padding-block:18px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.fact .k{font-size:11.5px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.fact .v{font-family:var(--display);font-size:20px;color:var(--ink)}
+.orgbox{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:center;background:var(--forest);color:var(--on-forest);border-radius:16px;padding:16px 18px;margin-bottom:18px}
+.orgbox .hx{width:58px;height:52px;clip-path:var(--hex);background:var(--on-forest);display:grid;place-items:center}
+.orgbox .hx img{width:50px}
+.orgbox b{font-family:var(--display);font-weight:500;font-size:20px;color:var(--lime)}
+.orgbox p{margin:2px 0 0;font-size:14px;color:var(--on-forest-2)}
+.cols{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:24px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.panel h2{font-size:22px;font-weight:500;color:var(--green);margin-bottom:12px}
+.sticky{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+.scaler{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:14px}
+.scaler .t{font-size:14px;color:var(--ink-2)}
+.scaler .t b{color:var(--ink);font-variant-numeric:tabular-nums}
+.stepper{display:inline-flex;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.stepper button{border:0;background:transparent;width:36px;height:36px;cursor:pointer;font-size:18px;color:var(--green)}
+.stepper button:hover{background:var(--chip)}
+.stepper output{min-width:40px;display:grid;place-items:center;font-weight:700;font-variant-numeric:tabular-nums}
+.mults{display:inline-flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.mults button{border:0;background:transparent;border-radius:999px;padding:5px 11px;cursor:pointer;font-weight:700;font-size:14px;color:var(--ink-2)}
+.mults button[aria-pressed="true"]{background:var(--green);color:var(--surface)}
+.comp + .comp{margin-top:16px}
+.comp h3{font-family:var(--body);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lime-ink);margin-bottom:6px;display:flex;justify-content:space-between;gap:8px}
+.comp h3 span{color:var(--muted);letter-spacing:.02em;text-transform:none;font-weight:600}
+ul.ings{list-style:none;margin:0;padding:0}
+ul.ings li{border-bottom:1px dashed var(--line)}
+ul.ings li:last-child{border-bottom:0}
+ul.ings label{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:7px 0;cursor:pointer}
+ul.ings input{accent-color:var(--green);width:16px;height:16px;transform:translateY(2px)}
+ul.ings .q{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;text-align:right}
+ul.ings input:checked ~ span{color:var(--muted);text-decoration:line-through}
+.leaf{display:inline-block;width:10px;height:11px;background:var(--lime);clip-path:var(--hex);margin-left:6px;vertical-align:0}
+.plate{margin-bottom:16px}
+.plate .bar{display:flex;height:34px;border-radius:10px;overflow:hidden;gap:2px;background:var(--line)}
+.plate .bar i{display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:700;color:var(--forest);overflow:hidden;white-space:nowrap;font-variant-numeric:tabular-nums}
+.plate .leg{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:13px;color:var(--ink-2)}
+.plate .leg span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-right:6px;vertical-align:-1px}
+.steps h3{font-size:18px;font-weight:500;color:var(--ink);margin:18px 0 8px}
+.steps h3:first-child{margin-top:0}
+.steps ol{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:10px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;max-width:68ch}
+.steps li::before{content:counter(s);width:26px;height:24px;clip-path:var(--hex);background:var(--chip);color:var(--green);font-weight:700;font-size:12.5px;display:grid;place-items:center;margin-top:1px}
+.notes{margin-top:18px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--ink-2)}
+.notes b{color:var(--ink)}
+.notes ul{margin:6px 0 0;padding-left:18px}
+details.rev{margin-top:14px;font-size:14px;color:var(--ink-2)}
+details.rev summary{cursor:pointer;color:var(--muted);font-weight:600}
+details.rev ul{margin:8px 0 0;padding-left:18px}
+details.rev p{margin:8px 0 0}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+.loading{padding:60px 0;text-align:center;color:var(--muted)}
+
+@media (max-width:860px){
+  .intro{grid-template-columns:1fr}
+  .cols{grid-template-columns:1fr}
+  .sticky{position:static}
+  .switch{margin-left:0}
+}
+@media (max-width:520px){
+  .logo-sev{height:50px}
+  .by{text-align:left}
+  .by img{height:42px}
+  .rhead{grid-template-columns:1fr}
+  .rhead .hx{width:62px;height:55px}
+  .rhead .hx img{width:52px}
+  .cat{flex:1 1 calc(50% - 10px)}
+  .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="brandbar">
+    <a href="#" aria-label="Receitas da Smart EcoVila: início"><img class="logo-sev l" src="img/smart-ecovila.png" alt="Smart EcoVila"><img class="logo-sev d" src="img/smart-ecovila-escuro.png" alt="Smart EcoVila"></a>
+    <div class="by"><span>Fichas técnicas<br>desenvolvidas por</span><img src="img/santa-food.png" alt="Santa Food"></div>
+  </header>
+  <main id="app"><p class="loading">Carregando receitas…</p></main>
+  <footer>
+    <span>Módulo Receitas · Smart EcoVila × Santa Food</span>
+    <span id="lote"></span>
+  </footer>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const app=$('#app');
+const ICON={'Refeições':'comer','Pães':'cozinhar','Bolos':'cozinhar','Muffins e lanches':'cozinhar','Molhos e acompanhamentos':'cozinhar'};
+const CAT_ORDER=['Refeições','Pães','Bolos','Muffins e lanches','Molhos e acompanhamentos'];
+const DIETS=['Vegano','Vegetariano','Sem glúten','Sem lactose','Contém carne'];
+const PLATE=['#A6C71B','#7CBF6B','#D9C27A','#9DC9B0','#C9A27C'];
+let DB=null;
+const st={q:'',cat:null,diets:new Set(),aprovadas:false};
+let ui={n:1,m:1,checked:new Set()};
+try{const s=JSON.parse(localStorage.getItem('sev-receitas-filtros')||'null'); if(s){st.cat=s.cat||null; st.aprovadas=!!s.aprovadas; (s.diets||[]).forEach(d=>st.diets.add(d));}}catch(e){}
+function saveF(){try{localStorage.setItem('sev-receitas-filtros',JSON.stringify({cat:st.cat,aprovadas:st.aprovadas,diets:[...st.diets]}))}catch(e){}}
+
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const nf=(v,d)=>v.toLocaleString('pt-BR',{maximumFractionDigits:d,minimumFractionDigits:0});
+function fq(q,u){
+  if(q==null) return u||'';
+  if(u==='g'||u==='kg'){let g=u==='kg'?q*1000:q; if(g>=1000) return nf(g/1000,2)+' kg'; return nf(g,g<10?1:0)+' g';}
+  if(u==='mL'){if(q>=1000) return nf(q/1000,2)+' L'; return nf(q,q<10?1:0)+' mL';}
+  if(u==='un'){const r=Math.round(q*2)/2; const w=Math.floor(r); const h=r-w?'½':''; return (w?w:'')+(h?h:'')+(w||h?'':'0')+(r<=1&&!h?' unidade':' unid.');}
+  return nf(q,2)+(u?' '+u:'');
+}
+function grams(name){const m=String(name).match(/(\d+)\s*g\b/i); return m?+m[1]:null;}
+function cleanComp(name){return String(name).replace(/\s*\d+\s*g\b/i,'').trim();}
+function stClass(s){return s==='Aprovada'?'ok':s==='Em análise'?'an':'ni';}
+function stLabel(s){return s==='Não informada'?'Situação não informada':s;}
+function yieldTxt(r,mult){const b=r.base; if(b.tipo==='porcao') return '1 porção de '+b.peso_g+' g';
+  if(b.qtd==null) return b.peso_g?('unidades de '+b.peso_g+' g (quantidade não informada)'):'rendimento não informado';
+  const q=b.qtd*(mult||1); return nf(q,1)+' '+b.unidade+(b.peso_g?' de '+b.peso_g+' g':'');}
+
+function matches(r){
+  if(st.cat && r.categoria!==st.cat) return false;
+  for(const d of st.diets){ if(d==='Vegetariano'){ if(!r.dieta.includes('Vegetariano')&&!r.dieta.includes('Vegano')) return false;} else if(!r.dieta.includes(d)) return false; }
+  if(st.aprovadas && r.situacao!=='Aprovada') return false;
+  if(st.q){const q=norm(st.q); const hay=norm(r.nome+' '+r.categoria+' '+r.componentes.map(c=>c.nome+' '+c.ingredientes.map(i=>i.nome).join(' ')).join(' '));
+    if(!q.split(/\s+/).every(t=>hay.includes(t))) return false;}
+  return true;
+}
+
+function renderList(){
+  const R=DB.receitas, list=R.filter(matches);
+  const cats=CAT_ORDER.filter(c=>R.some(r=>r.categoria===c));
+  app.innerHTML=`
+  <section class="intro">
+    <div>
+      <div class="eyebrow">Módulo Receitas · ecohabitantes</div>
+      <h1>Receitas da <b>Smart EcoVila</b></h1>
+      <p>As fichas técnicas da Santa Food, feitas para cozinhar em casa com ingredientes orgânicos e agroecológicos da produção familiar regenerativa. Ajuste as porções e siga o preparo passo a passo.</p>
+    </div>
+    <div class="search"><label for="q">Buscar</label>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Receita ou ingrediente" value="${esc(st.q)}" autocomplete="off"></div>
+  </section>
+  <section class="filters" aria-label="Filtros">
+    <div class="cats" role="group" aria-label="Categorias">
+      <button class="cat" data-cat="" aria-pressed="${!st.cat}"><span class="hx"><img src="img/produzir.png" alt=""></span><span><b>Todas</b><span>${R.length} receitas</span></span></button>
+      ${cats.map(c=>`<button class="cat" data-cat="${esc(c)}" aria-pressed="${st.cat===c}"><span class="hx"><img src="img/${ICON[c]}.png" alt=""></span><span><b>${esc(c)}</b><span>${(n=>n+(n===1?' receita':' receitas'))(R.filter(r=>r.categoria===c).length)}</span></span></button>`).join('')}
+    </div>
+    <div class="row2"><span class="lbl">Alimentação</span>
+      ${DIETS.map(d=>`<button class="diet" data-diet="${esc(d)}" aria-pressed="${st.diets.has(d)}">${esc(d)}</button>`).join('')}
+      <label class="switch"><input type="checkbox" id="aprov" ${st.aprovadas?'checked':''}> Só fichas aprovadas</label>
+    </div>
+  </section>
+  <div class="count num" aria-live="polite">${list.length} de ${R.length} receitas</div>
+  <section class="grid">${list.length?list.map(card).join(''):`<div class="empty">Nenhuma receita com esses filtros.<br><button class="diet" id="limpar">Limpar filtros</button></div>`}</section>
+  ${pendHTML()}`;
+  const q=$('#q'); q.addEventListener('input',e=>{st.q=e.target.value; refreshGrid();});
+  app.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{st.cat=b.dataset.cat||null; saveF(); renderList();});
+  app.querySelectorAll('.diet[data-diet]').forEach(b=>b.onclick=()=>{const d=b.dataset.diet; st.diets.has(d)?st.diets.delete(d):st.diets.add(d); saveF(); renderList();});
+  $('#aprov').onchange=e=>{st.aprovadas=e.target.checked; saveF(); renderList();};
+  const l=$('#limpar'); if(l) l.onclick=()=>{st.q='';st.cat=null;st.diets.clear();st.aprovadas=false;saveF();renderList();};
+}
+function refreshGrid(){
+  const R=DB.receitas, list=R.filter(matches);
+  app.querySelector('.count').textContent=`${list.length} de ${R.length} receitas`;
+  app.querySelector('.grid').innerHTML=list.length?list.map(card).join(''):`<div class="empty">Nenhuma receita encontrada para “${esc(st.q)}”.</div>`;
+}
+function card(r){
+  const tags=r.dieta.map(d=>`<span class="tag ${d==='Contém carne'?'carne':''}">${esc(d)}</span>`).join('');
+  return `<a class="card" href="#${r.id}">
+    <div class="card-top"><span class="hx"><img src="img/${ICON[r.categoria]}.png" alt=""></span><span class="st ${stClass(r.situacao)}">${esc(stLabel(r.situacao))}</span></div>
+    <div><h3>${esc(r.nome)}</h3><div class="meta">${esc(r.categoria)} · ${esc(yieldTxt(r))}${r.tempo_min?' · '+r.tempo_min+' min':''}</div></div>
+    <div class="tags">${tags}${r.organico?'<span class="org"><i></i>Orgânicos na ficha</span>':''}</div>
+  </a>`;
+}
+function pendHTML(){
+  const P=DB.pendentes||[];
+  if(!P.length) return '';
+  return `<details class="pend"><summary>Fichas em revisão <span>${P.length} fichas deste lote ficaram de fora por inconsistências; ${DB.duplicatas.length} duplicatas foram descartadas</span></summary>
+  <div class="pend-body"><p>Estas fichas entram no módulo assim que forem corrigidas na planilha original. O motivo de cada uma está abaixo.</p>
+  <ul class="pend-list">${P.map(p=>`<li><b>${esc(p.nome)}</b><span>${esc(p.motivo)}</span></li>`).join('')}</ul>
+  <p>Duplicatas descartadas: ${DB.duplicatas.map(esc).join('; ')}.</p></div></details>`;
+}
+
+function orgSet(r){
+  const s=new Set(); if(!r.organico) return s;
+  if(r.organico.tipo==='percentual'){ r.organico.itens.forEach(n=>s.add(norm(n))); }
+  else { (r.organico.texto.match(/\*[^,*]+/g)||[]).forEach(t=>s.add(norm(t.replace('*','').replace(/^\s*e\s+/,'').trim()))); }
+  return s;
+}
+function isOrg(set,r,name){
+  const n=norm(name);
+  if(r.organico&&r.organico.tipo==='percentual') return set.has(n);
+  for(const t of set){const w=t.split(/[\s(]+/)[0]; if(w.length>3 && n.split(/[\s(]+/)[0].startsWith(w.slice(0,5))) return true;}
+  return false;
+}
+
+function renderRecipe(r){
+  const isP=r.base.tipo==='porcao';
+  const factor=isP?ui.n:ui.m;
+  const oset=orgSet(r);
+  const plate=isP?r.componentes.map(c=>({n:cleanComp(c.nome),g:grams(c.nome)})).filter(x=>x.g):[];
+  const tot=plate.reduce((a,b)=>a+b.g,0);
+  const comps=r.componentes.map((c,ci)=>{
+    const g=grams(c.nome);
+    return `<div class="comp"><h3>${esc(cleanComp(c.nome)||'Ingredientes')}${isP&&g?`<span>${g} g por porção</span>`:''}</h3><ul class="ings">${
+      c.ingredientes.map((i,ii)=>{const id=`i${ci}-${ii}`; const q=i.qtd==null?null:i.qtd*factor;
+        return `<li><label for="${id}"><input type="checkbox" id="${id}" ${ui.checked.has(id)?'checked':''}><span>${esc(i.nome)}${isOrg(oset,r,i.nome)?'<i class="leaf" title="Orgânico segundo a ficha"></i>':''}</span><span class="q">${esc(fq(q,i.un))}</span></label></li>`}).join('')
+    }</ul></div>`;}).join('');
+  const steps=r.preparo.map(p=>`${p.titulo?`<h3>${esc(p.titulo)}</h3>`:''}<ol>${p.passos.map(s=>`<li><span>${esc(s)}</span></li>`).join('')}</ol>`).join('');
+  const scaler=isP?`<div class="scaler"><span class="t">A ficha é calculada <b>por porção</b> (${r.base.peso_g} g).<br>Cozinhar para <b>${ui.n} ${ui.n>1?'porções':'porção'}</b></span>
+      <span class="stepper"><button id="menos" aria-label="Menos uma porção">−</button><output id="nout">${ui.n}</output><button id="mais" aria-label="Mais uma porção">+</button></span></div>`
+    :`<div class="scaler"><span class="t">Rende <b>${esc(yieldTxt(r,ui.m))}</b></span>
+      <span class="mults" role="group" aria-label="Multiplicar receita">${[0.5,1,2,3].map(m=>`<button data-m="${m}" aria-pressed="${ui.m===m}">${m===0.5?'½':m}×</button>`).join('')}</span></div>`;
+  const org=r.organico?(r.organico.tipo==='percentual'
+     ?`<div class="orgbox"><span class="hx"><img src="img/produzir.png" alt=""></span><div><b>${nf(r.organico.pct,0)}% orgânico em peso</b><p>Cálculo da própria ficha técnica, considerando: ${r.organico.itens.map(esc).join(', ')}. Ingredientes marcados com <i class="leaf"></i> na lista.</p></div></div>`
+     :`<div class="orgbox"><span class="hx"><img src="img/produzir.png" alt=""></span><div><b>Ingredientes orgânicos no rótulo</b><p>No rótulo da ficha, os itens com * são orgânicos: ${esc(r.organico.texto)}</p></div></div>`):'';
+  app.innerHTML=`
+   <button class="back" id="voltar">← Todas as receitas</button>
+   <section class="rhead"><span class="hx"><img src="img/${ICON[r.categoria]}.png" alt=""></span>
+     <div><h1>${esc(r.nome)}</h1>
+       <div class="sub"><span>${esc(r.categoria)}</span><span class="st ${stClass(r.situacao)}">${esc(stLabel(r.situacao))}</span><span class="tags">${r.dieta.map(d=>`<span class="tag ${d==='Contém carne'?'carne':''}">${esc(d)}</span>`).join('')}</span></div></div></section>
+   <section class="facts">
+     <div class="fact"><div class="k">Rendimento da ficha</div><div class="v num">${esc(yieldTxt(r))}</div></div>
+     ${r.tempo_min?`<div class="fact"><div class="k">Tempo</div><div class="v num">${r.tempo_min} min</div></div>`:''}
+     <div class="fact"><div class="k">Ingredientes</div><div class="v num">${r.componentes.reduce((a,c)=>a+c.ingredientes.length,0)}</div></div>
+     ${isP?`<div class="fact"><div class="k">Preparos</div><div class="v num">${r.componentes.length} componentes</div></div>`:''}
+   </section>
+   ${org}
+   <section class="cols">
+     <div class="panel sticky"><h2>Ingredientes</h2>${scaler}${comps}</div>
+     <div class="panel">
+       ${plate.length>1?`<div class="plate"><h2>Montagem do prato</h2><div class="bar">${plate.map((p,i)=>`<i style="width:${p.g/tot*100}%;background:${PLATE[i%PLATE.length]}" title="${esc(p.n)}: ${p.g} g">${p.g} g</i>`).join('')}</div>
+         <div class="leg">${plate.map((p,i)=>`<span style="--c:${PLATE[i%PLATE.length]}">${esc(p.n)}</span>`).join('')}</div></div>`:''}
+       <h2>Modo de preparo</h2><div class="steps">${steps}</div>
+       ${r.notas.length?`<div class="notes"><b>Notas da ficha</b><ul>${r.notas.map(n=>`<li>${esc(n)}</li>`).join('')}</ul></div>`:''}
+       <details class="rev"><summary>Sobre esta ficha</summary>
+         <p>Arquivo de origem: ${esc(r.fonte)}</p>
+         ${r.ajustes.length?`<p>Ajustes feitos na revisão:</p><ul>${r.ajustes.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>`:'<p>Nenhum ajuste além de grafia e padronização de unidades.</p>'}
+       </details>
+     </div>
+   </section>`;
+  $('#voltar').onclick=()=>{location.hash='';};
+  if(isP){ $('#menos').onclick=()=>{if(ui.n>1){ui.n--;renderRecipe(r);}}; $('#mais').onclick=()=>{if(ui.n<50){ui.n++;renderRecipe(r);}}; }
+  else app.querySelectorAll('.mults button').forEach(b=>b.onclick=()=>{ui.m=+b.dataset.m;renderRecipe(r);});
+  app.querySelectorAll('ul.ings input').forEach(c=>c.onchange=()=>{c.checked?ui.checked.add(c.id):ui.checked.delete(c.id);});
+}
+
+let current=null;
+function route(){
+  if(!DB) return;
+  const id=location.hash.slice(1);
+  const r=DB.receitas.find(x=>x.id===id);
+  if(r){ if(current!==id){ui={n:1,m:1,checked:new Set()}; current=id; window.scrollTo(0,0);} renderRecipe(r); document.title=r.nome+' · Receitas da Smart EcoVila'; }
+  else { const was=current; current=null; renderList(); document.title='Receitas da Smart EcoVila'; if(was) window.scrollTo(0,0); }
+}
+window.addEventListener('hashchange',route);
+fetch('recipes.json',{cache:'no-cache'}).then(r=>{if(!r.ok) throw new Error(r.status); return r.json();}).then(d=>{
+  DB=d; DB.receitas.sort((a,b)=>CAT_ORDER.indexOf(a.categoria)-CAT_ORDER.indexOf(b.categoria)||a.nome.localeCompare(b.nome,'pt-BR'));
+  $('#lote').textContent=`Lote: ${d.lote} · atualizado em ${d.versao.split('-').reverse().join('/')}`;
+  route();
+}).catch(()=>{app.innerHTML='<p class="loading">Não foi possível carregar as receitas. Recarregue a página.</p>';});
+})();
+</script>
+
+</body></html>
