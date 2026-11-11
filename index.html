@@ -316,7 +316,10 @@
         <div class="quick-replies">
           <button class="chip-btn" onclick="sendQuickReply('O que é a Smart EcoVila?')">🌐 Smart EcoVila</button>
           <button class="chip-btn" onclick="sendQuickReply('Como funcionam as 6 etapas?')">🌿 As 6 Etapas</button>
-          <button class="chip-btn" onclick="sendQuickReply('O que é a base IDG?')">💡 O que é o IDG?</button>
+          <button class="chip-btn" onclick="sendQuickReply('Por onde eu começo?')">🧭 Por onde começo?</button>
+          <button class="chip-btn" onclick="sendQuickReply('Quero usar um simulador')">🧮 Simuladores</button>
+          <button class="chip-btn" onclick="sendQuickReply('O que é o IDG?')">💡 O que é o IDG?</button>
+          <button class="chip-btn" onclick="sendQuickReply('Quero falar com a equipe')">💬 Falar com a equipe</button>
         </div>
       </div>
     </div>
@@ -346,14 +349,14 @@
     const WHATSAPP_LINK = 'https://wa.me/5511912821391';
 
     // Nomes que aparecem no chat no lugar do endereço comprido dos simuladores.
-    // Reconhece pelo nome do arquivo/pasta, então continua valendo se o endereço
+    // Reconhece pelo nome do arquivo, então continua valendo se o endereço
     // mudar (ex.: migração para a conta da Santa Food).
     const ROTULOS_LINKS = [
       { teste: /\/condominios\.html(?:[?#].*)?$/i, rotulo: 'Simulador para condomínios' },
       { teste: /\/diagnostico-esg\.html(?:[?#].*)?$/i, rotulo: 'Diagnóstico ESG' },
       { teste: /\/eventos\.html(?:[?#].*)?$/i, rotulo: 'Calculadora de eventos' },
-      { teste: /\/receitas\/?(?:[?#].*)?$/i, rotulo: 'Receitas da Smart EcoVila' },
-      { teste: /\/olho(?:%20|-|\+)na(?:%20|-|\+)copa\/?(?:[?#].*)?$/i, rotulo: 'Olho na Copa' },
+      { teste: /\/receitas\/?(?:index\.html)?(?:[?#].*)?$/i, rotulo: 'Receitas da Smart EcoVila' },
+      { teste: /\/olho%20na%20copa\/?(?:index\.html)?(?:[?#].*)?$/i, rotulo: 'Olho na Copa' },
     ];
 
     // Mesmo limite do backend (MAX_CARACTERES_MENSAGEM no main.py)
@@ -409,6 +412,9 @@
       const messageText = (textOverride || inputEl.value).trim();
 
       if (!messageText) return;
+
+      // Remove as opções sugeridas da resposta anterior: ficam só as mais recentes.
+      document.querySelectorAll('.quick-replies.ctx').forEach(el => el.remove());
 
       appendMessage(messageText, 'user-message');
       if (!textOverride) {
@@ -523,12 +529,63 @@
       if (ultimo < text.length) appendText(container, text.slice(ultimo));
     }
 
+    // ---- Botões sugeridos que aparecem junto de algumas respostas da Ga.IA ----
+    const OPCOES_SIMULADORES = [
+      { nome: 'Condomínios', rotulo: '🏢 Condomínios', msg: 'Quero o simulador de condomínios' },
+      { nome: 'ESG', rotulo: '📊 ESG', msg: 'Quero o diagnóstico ESG' },
+      { nome: 'Eventos', rotulo: '🎪 Eventos', msg: 'Quero a calculadora de eventos' },
+      { nome: 'Receitas', rotulo: '🍲 Receitas', msg: 'Quero ver as receitas' },
+      { nome: 'Olho na Copa', rotulo: '🌳 Olho na Copa', msg: 'Quero ver o Olho na Copa' },
+    ];
+
+    const OPCOES_ETAPAS = [
+      { nome: 'Produzir', rotulo: '🌱 Produzir' },
+      { nome: 'Cozinhar', rotulo: '🍳 Cozinhar' },
+      { nome: 'Comer', rotulo: '🥗 Comer' },
+      { nome: 'Compostar', rotulo: '♻️ Compostar' },
+      { nome: 'Servir', rotulo: '🤝 Servir' },
+      { nome: 'Doar', rotulo: '💚 Doar' },
+    ];
+
+    // Decide quais botões mostrar a partir do texto da resposta.
+    // Devolve uma lista de { rotulo, msg } (vazia se não houver sugestão).
+    function opcoesParaResposta(texto) {
+      const minusculo = texto.toLowerCase();
+      // Quando ela pergunta para qual finalidade é o simulador, cita as opções.
+      if (minusculo.includes('olho na copa')) {
+        const citados = OPCOES_SIMULADORES.filter(o => minusculo.includes(o.nome.toLowerCase()));
+        if (citados.length >= 3) return citados;
+      }
+      // Quando ela apresenta as etapas, cita quase todas.
+      const etapas = OPCOES_ETAPAS.filter(o => new RegExp('\\b' + o.nome + '\\b').test(texto));
+      if (etapas.length >= 4) {
+        return etapas.map(o => ({ rotulo: o.rotulo, msg: 'Quero saber mais sobre a etapa ' + o.nome }));
+      }
+      return [];
+    }
+
+    function adicionarChipsDeContexto(container, texto) {
+      const opcoes = opcoesParaResposta(texto);
+      if (opcoes.length === 0) return;
+      const caixa = document.createElement('div');
+      caixa.className = 'quick-replies ctx';
+      opcoes.forEach(o => {
+        const b = document.createElement('button');
+        b.className = 'chip-btn';
+        b.textContent = o.rotulo;
+        b.addEventListener('click', () => sendQuickReply(o.msg));
+        caixa.appendChild(b);
+      });
+      container.appendChild(caixa);
+    }
+
     function appendMessage(text, className) {
       const messagesContainer = document.getElementById('chat-messages');
       const msgDiv = document.createElement('div');
       msgDiv.className = `message ${className}`;
       if (className === 'bot-message') {
         appendWithLinks(msgDiv, text);
+        adicionarChipsDeContexto(msgDiv, text);
       } else {
         msgDiv.innerText = text;
       }
