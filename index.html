@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Widget Ga.IA</title>
   <style>
+    /* ---------- Cores da Ga.IA ---------- */
+    :root {
+      --gaia-verde: #1e6b35;
+      --gaia-verde-hover: #185a2c;
+      --gaia-lima: #5a9032;
+      --gaia-acento: #a5b64c;
+      --gaia-cinza-hex: #cfd8c5;
+      --gaia-fundo: #f1f4eb;
+      --gaia-superficie: #fbfcf7;
+      --gaia-borda: #dfe4d6;
+      --gaia-texto: #1c281e;
+      --gaia-texto-suave: #4f5a50;
+    }
+
     /* Botão Flutuante (Balaozinho no Canto Inferior Direito) */
     .gaia-widget-button {
       position: fixed;
@@ -13,7 +27,7 @@
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background-color: #2e7d32;
+      background-color: var(--gaia-verde);
       color: #ffffff;
       border: none;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -21,13 +35,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
       z-index: 9999;
       transition: transform 0.2s ease;
     }
+    .gaia-widget-button:hover { transform: scale(1.08); }
+    .gaia-widget-button svg { width: 26px; height: 26px; }
 
-    .gaia-widget-button:hover {
-      transform: scale(1.08);
+    /* Hexágono (usado no logo, no avatar e nas etapas) */
+    .hex {
+      clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
     /* Janela do Chat (Inicia Escondida) */
@@ -35,212 +55,479 @@
       position: fixed;
       bottom: 90px;
       right: 20px;
-      width: 360px;
-      height: 520px;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-      display: none; 
+      width: 380px;
+      height: min(640px, calc(100vh - 110px));
+      background: var(--gaia-fundo);
+      border-radius: 18px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+      display: none;
       flex-direction: column;
       overflow: hidden;
       z-index: 9998;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--gaia-texto);
+    }
+    .chat-container.open { display: flex; }
+    .chat-container * { box-sizing: border-box; }
+
+    /* Faixa verde no topo */
+    .chat-container::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gaia-verde), var(--gaia-acento));
+      z-index: 5;
     }
 
-    /* Mostra a janela quando o botão é clicado */
-    .chat-container.open {
-      display: flex;
-    }
-
+    /* ---------- Cabeçalho ---------- */
     .chat-header {
-      background-color: #2e7d32;
-      color: #ffffff;
-      padding: 14px 16px;
+      background-color: var(--gaia-superficie);
+      padding: 16px 12px 12px 16px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--gaia-borda);
     }
-
-    .chat-header-info h3 {
-      margin: 0;
-      font-size: 16px;
+    .chat-header .hex.logo {
+      width: 40px; height: 36px;
+      background: var(--gaia-verde);
     }
-
+    .chat-header .hex.logo svg { width: 18px; height: 18px; }
+    .chat-header-info { flex: 1; min-width: 0; }
+    .chat-header-info h3 { margin: 0; font-size: 17px; font-weight: 800; }
     .chat-header-info p {
-      margin: 2px 0 0 0;
-      font-size: 11px;
-      opacity: 0.9;
+      margin: 1px 0 0 0;
+      font-size: 11.5px;
+      color: var(--gaia-texto-suave);
+      line-height: 1.3;
+      text-wrap: balance;
     }
-
-    .close-btn {
+    .header-btn {
+      width: 38px; height: 38px;
+      display: flex; align-items: center; justify-content: center;
       background: none;
-      border: none;
-      color: white;
-      font-size: 20px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      color: var(--gaia-texto);
       cursor: pointer;
-      line-height: 1;
+      flex-shrink: 0;
     }
+    .header-btn.history { border-color: var(--gaia-borda); background: #fff; }
+    .header-btn:hover { background: var(--gaia-fundo); }
+    .header-btn svg { width: 20px; height: 20px; }
 
+    /* ---------- Mensagens ---------- */
     .chat-messages {
       flex: 1;
-      padding: 14px;
+      padding: 16px 14px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      background-color: #f9f9f9;
+      gap: 12px;
+      position: relative; /* para calcular a posição das mensagens ao rolar */
+      scrollbar-width: thin;
+      scrollbar-color: var(--gaia-cinza-hex) transparent;
+    }
+    .chat-messages::-webkit-scrollbar { width: 6px; }
+    .chat-messages::-webkit-scrollbar-track { background: transparent; }
+    .chat-messages::-webkit-scrollbar-thumb { background: var(--gaia-cinza-hex); border-radius: 3px; }
+    .hist-lista { scrollbar-width: thin; scrollbar-color: var(--gaia-cinza-hex) transparent; }
+
+    .bot-row {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      max-width: 100%;
+    }
+    .bot-row .hex.avatar {
+      width: 22px; height: 19px;
+      background: var(--gaia-verde);
+      margin-top: 2px;
+    }
+    .bot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+      max-width: calc(100% - 30px);
     }
 
     .message {
-      max-width: 85%;
       padding: 10px 14px;
-      border-radius: 12px;
-      font-size: 13px;
-      line-height: 1.4;
+      border-radius: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
     }
-
     .bot-message {
-      background-color: #e8f5e9;
-      color: #1b5e20;
-      align-self: flex-start;
-      border-bottom-left-radius: 2px;
+      background-color: var(--gaia-superficie);
+      border: 1px solid var(--gaia-borda);
+      color: var(--gaia-texto);
+      border-top-left-radius: 4px;
     }
-
     .user-message {
-      background-color: #2e7d32;
+      background-color: var(--gaia-verde);
       color: #ffffff;
       align-self: flex-end;
-      border-bottom-right-radius: 2px;
+      max-width: 85%;
+      border-bottom-right-radius: 4px;
     }
 
     /* Links clicáveis dentro das respostas da Ga.IA */
     .bot-message a {
-      color: #1b5e20;
+      color: var(--gaia-verde);
       font-weight: 600;
       text-decoration: underline;
       overflow-wrap: anywhere;
     }
+    .bot-message a:hover { color: var(--gaia-lima); }
 
-    .bot-message a:hover {
-      color: #2e7d32;
-    }
-
-    /* Chips / Botões de Atalho */
+    /* Botões de atalho (pílulas) */
     .quick-replies {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       margin-top: 8px;
     }
-
     .chip-btn {
       background-color: #ffffff;
-      color: #2e7d32;
-      border: 1px solid #a5d6a7;
-      border-radius: 14px;
-      padding: 5px 10px;
-      font-size: 11px;
+      color: var(--gaia-texto);
+      border: 1px solid var(--gaia-borda);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12.5px;
       font-weight: 600;
+      font-family: inherit;
+      line-height: 1.3;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
     }
-
     .chip-btn:hover {
-      background-color: #2e7d32;
-      color: #ffffff;
-      border-color: #2e7d32;
+      border-color: var(--gaia-verde);
+      color: var(--gaia-verde);
     }
 
     /* Indicador "digitando..." */
-    .typing {
-      display: inline-flex;
-      gap: 4px;
-      align-items: center;
-    }
-
+    .typing { display: inline-flex; gap: 4px; align-items: center; padding: 4px 0; }
     .typing span {
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       border-radius: 50%;
-      background-color: #2e7d32;
+      background-color: var(--gaia-verde);
       opacity: 0.4;
       animation: gaia-blink 1.2s infinite ease-in-out;
     }
-
     .typing span:nth-child(2) { animation-delay: 0.2s; }
     .typing span:nth-child(3) { animation-delay: 0.4s; }
-
     @keyframes gaia-blink {
       0%, 80%, 100% { opacity: 0.4; transform: translateY(0); }
       40% { opacity: 1; transform: translateY(-3px); }
     }
 
+    /* ---------- Etapas (fileira de hexágonos) ---------- */
+    .etapas-area {
+      border-top: 1px solid var(--gaia-borda);
+      padding: 10px 10px 10px;
+    }
+    .etapas-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 2px;
+    }
+    .etapa-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: none;
+      padding: 2px 0;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--gaia-texto);
+      font-size: 10.5px;
+      font-weight: 600;
+      border-radius: 8px;
+    }
+    .etapa-btn .hex {
+      width: 26px; height: 23px;
+      background: var(--gaia-cinza-hex);
+      transition: transform 0.15s ease;
+    }
+    .etapa-btn:hover .hex { transform: scale(1.12); }
+    .etapa-btn.confirmada .hex { background: var(--gaia-verde); }
+    .etapa-btn.declarada .hex { background: var(--gaia-lima); }
+    .etapa-btn:focus-visible { outline: 2px solid var(--gaia-verde); }
+
+    .etapas-status {
+      font-size: 11.5px;
+      color: var(--gaia-texto-suave);
+      margin: 8px 2px 0;
+    }
+    .etapas-status strong { color: var(--gaia-texto); font-weight: 600; }
+    .etapas-status.com-botao {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .legenda-toggle {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gaia-verde);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .legenda-toggle:hover { color: var(--gaia-lima); }
+    .etapas-legenda {
+      display: none;
+      flex-wrap: wrap;
+      gap: 4px 14px;
+      margin: 6px 2px 0;
+      font-size: 10.5px;
+      color: var(--gaia-texto-suave);
+    }
+    .etapas-legenda.visible { display: flex; }
+    .etapas-legenda span { display: inline-flex; align-items: center; gap: 5px; }
+    .etapas-legenda .hex { width: 10px; height: 9px; }
+    .leg-conf { background: var(--gaia-verde); }
+    .leg-decl { background: var(--gaia-lima); }
+    .leg-nao  { background: var(--gaia-cinza-hex); clip-path: circle(50%) !important; }
+
+    /* ---------- Campo de digitar ---------- */
     .chat-input-area {
       display: flex;
-      padding: 10px;
-      border-top: 1px solid #e0e0e0;
-      gap: 6px;
-      background: #fff;
+      align-items: center;
+      padding: 10px 12px 12px;
+      border-top: 1px solid var(--gaia-borda);
+      gap: 8px;
+      background: var(--gaia-fundo);
     }
-
     .chat-input-area input {
       flex: 1;
-      border: 1px solid #ccc;
-      border-radius: 18px;
-      padding: 8px 14px;
+      min-width: 0;
+      border: 1px solid var(--gaia-borda);
+      background: #fff;
+      border-radius: 999px;
+      padding: 11px 16px;
       outline: none;
-      font-size: 13px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--gaia-texto);
     }
-
-    .chat-input-area button {
-      background-color: #2e7d32;
+    .chat-input-area input:focus { border-color: var(--gaia-verde); }
+    .send-btn {
+      width: 42px; height: 42px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background-color: var(--gaia-verde);
       color: #ffffff;
       border: none;
-      border-radius: 18px;
-      padding: 8px 14px;
       cursor: pointer;
-      font-weight: bold;
-      font-size: 13px;
+      display: flex; align-items: center; justify-content: center;
     }
+    .send-btn:hover { background-color: var(--gaia-verde-hover); }
+    .send-btn svg { width: 20px; height: 20px; }
 
     /* Bloqueado enquanto a Ga.IA responde */
-    .chat-input-area input:disabled {
-      background-color: #f1f1f1;
-      cursor: not-allowed;
-    }
-
-    .chat-input-area button:disabled,
-    .chip-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .chip-btn:disabled:hover {
-      background-color: #ffffff;
-      color: #2e7d32;
-      border-color: #a5d6a7;
-    }
+    .chat-input-area input:disabled { background-color: #f4f5f1; cursor: not-allowed; }
+    .send-btn:disabled,
+    .chip-btn:disabled,
+    .hist-item:disabled,
+    .btn-primario:disabled { opacity: 0.5; cursor: not-allowed; }
+    .chip-btn:disabled:hover { border-color: var(--gaia-borda); color: var(--gaia-texto); }
 
     /* Contador de caracteres */
     .char-counter {
       font-size: 10px;
       color: #888;
       text-align: right;
-      padding: 0 16px 6px;
-      background: #fff;
+      padding: 4px 18px 0;
       display: none;
     }
-
     .char-counter.visible { display: block; }
     .char-counter.limit { color: #c62828; }
+
+    /* ---------- Fundo escurecido (painel e gaveta) ---------- */
+    .gaia-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(28, 40, 30, 0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 10;
+    }
+    .gaia-overlay.visible { opacity: 1; pointer-events: auto; }
+
+    /* Botões grandes (painel e gaveta) */
+    .btn-primario, .btn-secundario {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .btn-primario { background: var(--gaia-verde); color: #fff; border: 1px solid var(--gaia-verde); }
+    .btn-primario:hover { background: var(--gaia-verde-hover); }
+    .btn-secundario { background: #fff; color: var(--gaia-verde); border: 1px solid var(--gaia-verde); }
+    .btn-secundario:hover { background: var(--gaia-fundo); }
+
+    /* ---------- Painel da etapa (sobe de baixo) ---------- */
+    .etapa-sheet {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      background: var(--gaia-superficie);
+      border-top: 3px solid var(--gaia-acento);
+      border-radius: 18px 18px 0 0;
+      padding: 18px 16px 14px;
+      transform: translateY(105%);
+      transition: transform 0.25s ease;
+      z-index: 11;
+    }
+    .etapa-sheet.open { transform: translateY(0); }
+    .sheet-titulo { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .sheet-titulo .hex { width: 40px; height: 35px; background: var(--gaia-verde); }
+    .sheet-titulo .hex.declarada { background: var(--gaia-lima); }
+    .sheet-titulo h4 { margin: 0; font-size: 20px; font-weight: 800; }
+    .sheet-desc { font-size: 14px; line-height: 1.5; margin: 0 0 14px; }
+    .sheet-botoes { display: flex; flex-direction: column; gap: 10px; }
+    .sheet-nota { font-size: 11px; color: var(--gaia-texto-suave); margin: 12px 0 0; line-height: 1.4; }
+
+    /* ---------- Gaveta "Suas conversas" ---------- */
+    .hist-drawer {
+      position: absolute;
+      top: 0; bottom: 0; left: 0;
+      width: 82%;
+      background: var(--gaia-superficie);
+      border-right: 1px solid var(--gaia-borda);
+      padding: 18px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(-105%);
+      transition: transform 0.25s ease;
+      z-index: 11;
+    }
+    .hist-drawer.open { transform: translateX(0); }
+    .hist-drawer h4 { margin: 0 0 12px; font-size: 17px; font-weight: 800; }
+    .hist-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--gaia-texto-suave);
+      margin: 18px 0 8px;
+    }
+    .hist-lista { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+    .hist-item {
+      text-align: left;
+      background: #fff;
+      border: 1px solid var(--gaia-borda);
+      border-radius: 10px;
+      padding: 11px 12px;
+      font-size: 13px;
+      font-family: inherit;
+      color: var(--gaia-texto);
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .hist-item:hover { border-color: var(--gaia-verde); }
+    .hist-item.atual { border-color: var(--gaia-verde); box-shadow: inset 3px 0 0 var(--gaia-verde); }
+    .hist-row { display: flex; gap: 6px; align-items: stretch; }
+    .hist-row .hist-item { flex: 1; min-width: 0; }
+    .hist-del {
+      width: 38px;
+      flex-shrink: 0;
+      background: #fff;
+      border: 1px solid var(--gaia-borda);
+      border-radius: 10px;
+      color: var(--gaia-texto-suave);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hist-del:hover { color: #b3261e; border-color: #e8b4b0; background: #fdf3f2; }
+    .hist-del svg { width: 16px; height: 16px; }
+    .hist-del:disabled { opacity: 0.5; cursor: not-allowed; }
+    .hist-confirma {
+      background: #fdf3f2;
+      border: 1px solid #e8b4b0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 12.5px;
+      color: var(--gaia-texto);
+    }
+    .hist-confirma p { margin: 0 0 8px; }
+    .hist-confirma-botoes { display: flex; gap: 6px; }
+    .btn-apagar, .btn-cancelar {
+      flex: 1;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .btn-apagar { background: #b3261e; color: #fff; border: 1px solid #b3261e; }
+    .btn-apagar:hover { background: #8f1e18; }
+    .btn-cancelar { background: #fff; color: var(--gaia-texto); border: 1px solid var(--gaia-borda); }
+    .hist-apagar-tudo {
+      align-self: flex-start;
+      background: none;
+      border: none;
+      padding: 10px 2px 2px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      color: #b3261e;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: pointer;
+    }
+    .hist-apagar-tudo:disabled { opacity: 0.5; cursor: not-allowed; }
+    #hist-apagar-area { display: flex; flex-direction: column; }
+    .hist-vazio { font-size: 12.5px; color: var(--gaia-texto-suave); }
+    .hist-login {
+      background: var(--gaia-fundo);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--gaia-texto-suave);
+    }
+    .hist-login p { margin: 0 0 10px; }
+
+    /* ---------- Computador com tela baixa (notebook, janela pequena) ---------- */
+    @media (min-width: 481px) and (max-height: 700px) {
+      .chat-container { bottom: 86px; height: calc(100vh - 100px); }
+      .chat-header { padding: 12px 10px 8px 14px; }
+      .chat-header .hex.logo { width: 34px; height: 30px; }
+      .chat-messages { padding: 12px 12px; gap: 10px; }
+      .etapas-area { padding: 6px 10px 8px; }
+      .etapa-btn { gap: 2px; }
+      .etapa-btn .hex { width: 22px; height: 19px; }
+      .etapas-status { margin-top: 5px; }
+      .etapas-legenda { margin-top: 4px; }
+      .chat-input-area { padding: 8px 12px 10px; }
+      .chat-input-area input { padding: 9px 14px; }
+      .send-btn { width: 38px; height: 38px; }
+    }
 
     /* ---------- Celular ---------- */
     @media (max-width: 480px) {
       .chat-container {
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        top: 0; left: 0; right: 0; bottom: 0;
         width: 100%;
         height: 100%;
         height: 100dvh;
@@ -249,104 +536,171 @@
 
       /* Com o chat aberto em tela cheia, o botão flutuante sai da frente
          (o X do cabeçalho fecha o chat). */
-      body.gaia-open .gaia-widget-button {
-        display: none;
-      }
+      body.gaia-open .gaia-widget-button { display: none; }
 
-      .chat-header {
-        padding: 16px;
-        padding-top: max(16px, env(safe-area-inset-top));
-      }
+      .chat-header { padding-top: max(16px, env(safe-area-inset-top)); }
+      .message { font-size: 15px; }
+      .chip-btn { font-size: 14px; padding: 10px 16px; }
+      .etapa-btn { font-size: 11px; }
 
-      .close-btn {
-        font-size: 24px;
-        padding: 4px 8px;
-      }
-
-      .message {
-        font-size: 15px;
-        max-width: 88%;
-      }
-
-      .chip-btn {
-        font-size: 13px;
-        padding: 8px 12px;
-      }
-
-      .chat-input-area {
-        padding: 10px;
-        padding-bottom: max(10px, env(safe-area-inset-bottom));
-      }
+      .chat-input-area { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
 
       /* 16px evita o zoom automático do iPhone ao tocar no campo */
-      .chat-input-area input {
-        font-size: 16px;
-        padding: 10px 14px;
-      }
+      .chat-input-area input { font-size: 16px; }
 
-      .chat-input-area button {
-        font-size: 15px;
-        padding: 10px 16px;
-      }
+      .etapa-sheet { padding-bottom: max(14px, env(safe-area-inset-bottom)); }
     }
   </style>
 </head>
 <body>
 
   <!-- Botão Flutuante (Balaozinho no canto) -->
-  <button class="gaia-widget-button" onclick="toggleChat()" id="widget-toggle-btn">
-    🌱
-  </button>
+  <button class="gaia-widget-button" onclick="toggleChat()" id="widget-toggle-btn" aria-label="Abrir a Ga.IA"></button>
 
   <!-- Janela do Chat -->
-  <div class="chat-container" id="chat-container">
+  <div class="chat-container" id="chat-container" role="dialog" aria-label="Ga.IA, Guiadora Virtual">
     <div class="chat-header">
-      <div class="chat-header-info">
-        <h3>Ga.IA | Guiadora Virtual 🌱</h3>
-        <p>Santa Food & Smart EcoVila</p>
+      <div class="hex logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19l7-7"/></svg>
       </div>
-      <button class="close-btn" onclick="toggleChat()">✕</button>
+      <div class="chat-header-info">
+        <h3>Ga.IA</h3>
+        <p>Guiadora Virtual · Smart EcoVila</p>
+      </div>
+      <button class="header-btn history" onclick="abrirHistorico()" aria-label="Suas conversas" title="Suas conversas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      </button>
+      <button class="header-btn" onclick="toggleChat()" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
 
-    <div class="chat-messages" id="chat-messages">
-      <!-- Mensagem Inicial -->
-      <div class="message bot-message">
-        Olá! 🌱 Eu sou a Ga.IA, sua guiadora na Trilha da Jornada 100% Consciência Tranquila da Santa Food e da Smart EcoVila. Como posso te inspirar ou ajudar hoje?
+    <div class="chat-messages" id="chat-messages"></div>
 
-        <div class="quick-replies">
-          <button class="chip-btn" onclick="sendQuickReply('O que é a Smart EcoVila?')">🌐 Smart EcoVila</button>
-          <button class="chip-btn" onclick="sendQuickReply('Como funcionam as 6 etapas?')">🌿 As 6 Etapas</button>
-          <button class="chip-btn" onclick="sendQuickReply('Por onde eu começo?')">🧭 Por onde começo?</button>
-          <button class="chip-btn" onclick="sendQuickReply('Quero usar um simulador')">🧮 Simuladores</button>
-          <button class="chip-btn" onclick="sendQuickReply('O que é o IDG?')">💡 O que é o IDG?</button>
-          <button class="chip-btn" onclick="sendQuickReply('Quero falar com a equipe')">💬 Falar com a equipe</button>
-        </div>
+    <!-- Etapas da jornada -->
+    <div class="etapas-area">
+      <div class="etapas-row" id="etapas-row"></div>
+      <div class="etapas-status" id="etapas-status"></div>
+      <div class="etapas-legenda" id="etapas-legenda">
+        <span><i class="hex leg-conf"></i>Confirmada por pedido</span>
+        <span><i class="hex leg-decl"></i>Você já faz</span>
+        <span><i class="hex leg-nao"></i>Para conhecer</span>
       </div>
     </div>
 
     <div class="char-counter" id="char-counter"></div>
     <div class="chat-input-area">
       <input type="text" id="chat-input" placeholder="Digite sua mensagem..." maxlength="500" onkeypress="handleKeyPress(event)" oninput="updateCounter()">
-      <button id="send-btn" onclick="sendMessage()">Enviar</button>
+      <button id="send-btn" class="send-btn" onclick="sendMessage()" aria-label="Enviar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+      </button>
+    </div>
+
+    <!-- Fundo escurecido -->
+    <div class="gaia-overlay" id="gaia-overlay" onclick="fecharPaineis()"></div>
+
+    <!-- Painel da etapa -->
+    <div class="etapa-sheet" id="etapa-sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-nome">
+      <div class="sheet-titulo">
+        <div class="hex" id="sheet-hex"></div>
+        <h4 id="sheet-nome"></h4>
+      </div>
+      <p class="sheet-desc" id="sheet-desc"></p>
+      <div class="sheet-botoes">
+        <button class="btn-primario" id="sheet-faco" onclick="marcarFacoIsso()">Faço isso</button>
+        <button class="btn-secundario" id="sheet-conhecer" onclick="queroConhecer()">Quero conhecer</button>
+      </div>
+      <p class="sheet-nota">A etapa passa a aparecer como confirmada quando houver um pedido dela no site.</p>
+    </div>
+
+    <!-- Gaveta "Suas conversas" -->
+    <div class="hist-drawer" id="hist-drawer" role="dialog" aria-modal="true" aria-label="Suas conversas">
+      <h4>Suas conversas</h4>
+      <button class="btn-primario" id="nova-conversa" onclick="novaConversa()">Nova conversa</button>
+      <div class="hist-label">RECENTES</div>
+      <div class="hist-lista" id="hist-lista"></div>
+      <div id="hist-apagar-area"></div>
+      <div class="hist-login" id="hist-login">
+        <p>Para ver estas conversas em outro aparelho, entre com seu WhatsApp ou e-mail. Sem senha.</p>
+        <button class="btn-secundario" onclick="entrar()">Entrar</button>
+      </div>
     </div>
   </div>
 
   <script>
-    let sessionId = null;
-    try {
-      sessionId = localStorage.getItem('gaia_session_id');
-    } catch (e) { /* alguns navegadores bloqueiam localStorage em arquivo local */ }
-    if (!sessionId) {
-      sessionId = 'sessao_' + Math.random().toString(36).substring(2, 11);
-      try { localStorage.setItem('gaia_session_id', sessionId); } catch (e) {}
-    }
+    // ================= CONFIGURAÇÃO =================
 
     // URL do seu backend no Render
     const RENDER_URL = 'https://ga-ia-santafood.onrender.com/chat';
 
+    // Rotas extras do mesmo backend: título resumido da conversa e apagar histórico
+    const TITULO_URL = RENDER_URL.replace(/\/chat$/, '/titulo');
+    const APAGAR_URL = RENDER_URL.replace(/\/chat$/, '/apagar');
+
     // WhatsApp oficial (+55 11 91282-1391). Usado para transformar o número
     // que a Ga.IA cita nas respostas em um link que abre a conversa.
     const WHATSAPP_LINK = 'https://wa.me/5511912821391';
+
+    // Página de pedidos do site. Se ficar vazio, o botão "Meus pedidos"
+    // manda a pergunta para a Ga.IA.
+    const PEDIDOS_URL = '';
+
+    // Página de login (WhatsApp ou e-mail). Enquanto estiver vazio, o quadro
+    // "Entrar" da gaveta de conversas fica escondido.
+    const LOGIN_URL = '';
+
+    // Mesmo limite do backend (MAX_CARACTERES_MENSAGEM no main.py)
+    const MAX_CARACTERES = 500;
+
+    // As 6 etapas da jornada e o texto do painel de cada uma.
+    const ETAPAS = [
+      // Textos baseados no conhecimento.txt (campo "Para quem é" de cada etapa)
+      { nome: 'Produzir',  desc: 'Para agricultoras e agricultores urbanos e microprodutores comunitários. O trabalho do pequeno produtor ganha conexão direta com consumidores e cozinheiras.' },
+      { nome: 'Cozinhar',  desc: 'Para cozinheiras empreendedoras, as Santinhas, e mulheres chefes de família que transformam ingredientes em renda e afeto.' },
+      { nome: 'Comer',     desc: 'Para consumidores conscientes e famílias urbanas que se preocupam com saúde e sustentabilidade. Comer vira um jeito de apoiar a produção local.' },
+      { nome: 'Compostar', desc: 'Para quem cuida dos resíduos da cozinha ou da horta. A compostagem devolve os restos ao solo e faz parte do ciclo da vida.' },
+      { nome: 'Servir',    desc: 'Para gestores públicos, executivos ESG e patrocinadores de impacto que querem levar transformações locais para uma escala maior.' },
+      { nome: 'Doar',      desc: 'Para restaurantes, mercados, ONGs e cidadãos solidários. Doar o que sobra vira um gesto regenerativo e de conexão com a comunidade.' },
+    ];
+
+    // ================= ARMAZENAMENTO =================
+    function lerJSON(chave, padrao) {
+      try {
+        const v = localStorage.getItem(chave);
+        return v ? JSON.parse(v) : padrao;
+      } catch (e) { return padrao; } // alguns navegadores bloqueiam localStorage em arquivo local
+    }
+    function salvarJSON(chave, valor) {
+      try { localStorage.setItem(chave, JSON.stringify(valor)); } catch (e) {}
+    }
+    function novoSessionId() {
+      return 'sessao_' + Math.random().toString(36).substring(2, 11);
+    }
+
+    let sessionId = null;
+    try { sessionId = localStorage.getItem('gaia_session_id'); } catch (e) {}
+    if (!sessionId) {
+      sessionId = novoSessionId();
+      try { localStorage.setItem('gaia_session_id', sessionId); } catch (e) {}
+    }
+    function trocarSessao(id) {
+      sessionId = id;
+      try { localStorage.setItem('gaia_session_id', sessionId); } catch (e) {}
+    }
+
+    // Etapas que a pessoa disse que faz (botão "Faço isso")
+    let etapasDeclaradas = lerJSON('gaia_etapas_declaradas', []);
+    // Etapas confirmadas por pedido: vêm do site (window.GAIA_ETAPAS_CONFIRMADAS)
+    // ou do backend (campo "etapas_confirmadas" na resposta do /chat).
+    let etapasConfirmadas = Array.isArray(window.GAIA_ETAPAS_CONFIRMADAS)
+      ? window.GAIA_ETAPAS_CONFIRMADAS
+      : lerJSON('gaia_etapas_confirmadas', []);
+
+    // Se a pessoa escondeu a legenda das cores, continua escondida
+    let legendaOculta = lerJSON('gaia_legenda_oculta', false);
+
+    // Histórico de conversas guardado neste aparelho
+    let conversas = lerJSON('gaia_conversas', []);
 
     // Nomes que aparecem no chat no lugar do endereço comprido dos simuladores.
     // Reconhece pelo nome do arquivo, então continua valendo se o endereço
@@ -359,11 +713,13 @@
       { teste: /\/olho%20na%20copa\/?(?:index\.html)?(?:[?#].*)?$/i, rotulo: 'Olho na Copa' },
     ];
 
-    // Mesmo limite do backend (MAX_CARACTERES_MENSAGEM no main.py)
-    const MAX_CARACTERES = 500;
-
     let aguardandoResposta = false;
+    let etapaAberta = null;
 
+    const ICONE_FOLHA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19l7-7"/></svg>';
+    const ICONE_FECHAR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+    // ================= ABRIR / FECHAR =================
     function toggleChat() {
       const chatContainer = document.getElementById('chat-container');
       const toggleBtn = document.getElementById('widget-toggle-btn');
@@ -372,7 +728,13 @@
       const aberto = chatContainer.classList.contains('open');
 
       document.body.classList.toggle('gaia-open', aberto);
-      toggleBtn.innerText = aberto ? '✕' : '🌱';
+      toggleBtn.innerHTML = aberto ? ICONE_FECHAR : ICONE_FOLHA;
+      toggleBtn.setAttribute('aria-label', aberto ? 'Fechar a Ga.IA' : 'Abrir a Ga.IA');
+      if (!aberto) fecharPaineis();
+      else {
+        // Ao abrir, mostra a mensagem mais recente
+        rolarParaUltima();
+      }
 
       // No computador já deixa o cursor no campo; no celular não, para o
       // teclado não cobrir a mensagem de boas-vindas.
@@ -387,7 +749,9 @@
       inputEl.disabled = bloqueado;
       inputEl.placeholder = bloqueado ? 'Ga.IA está respondendo...' : 'Digite sua mensagem...';
       document.getElementById('send-btn').disabled = bloqueado;
-      document.querySelectorAll('.chip-btn').forEach(b => b.disabled = bloqueado);
+      // Também trava a troca de conversa, para a resposta não cair na conversa errada
+      document.querySelectorAll('.chip-btn, .hist-item, .hist-del, .hist-apagar-tudo, .btn-apagar, #nova-conversa, #sheet-conhecer')
+        .forEach(b => b.disabled = bloqueado);
     }
 
     function updateCounter() {
@@ -405,6 +769,7 @@
       }
     }
 
+    // ================= ENVIAR MENSAGEM =================
     async function sendMessage(textOverride = null) {
       if (aguardandoResposta) return;
 
@@ -431,7 +796,10 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             message: messageText.slice(0, MAX_CARACTERES),
-            session_id: sessionId
+            session_id: sessionId,
+            // Reserva: se o banco (Supabase) falhar, o backend usa este
+            // histórico para a Ga.IA não perder o contexto da conversa.
+            history: historicoParaEnviar()
           })
         });
 
@@ -444,40 +812,98 @@
 
         typingEl.remove();
 
+        // Se o backend passar a mandar as etapas confirmadas por pedido, os
+        // hexágonos atualizam sozinhos.
+        if (Array.isArray(data.etapas_confirmadas)) {
+          etapasConfirmadas = data.etapas_confirmadas;
+          salvarJSON('gaia_etapas_confirmadas', etapasConfirmadas);
+          renderEtapas();
+        }
+
         if (response.ok && data.reply) {
           appendMessage(data.reply, 'bot-message');
         } else {
           console.error('Erro do servidor:', response.status, data);
-          if (response.status === 502) {
-            appendMessage('Estou com muita procura agora 🌱 Pode tentar de novo em alguns instantes?', 'bot-message');
+          if (response.status === 502 || response.status === 503) {
+            // 503 = nenhum modelo de IA respondeu; o backend manda a mensagem em "detail".
+            const aviso = typeof data.detail === 'string' && data.detail
+              ? data.detail
+              : 'Estou com muita procura agora 🌱 Pode tentar de novo em alguns instantes?';
+            appendMessage(aviso, 'bot-message', { salvar: false });
           } else if (response.status === 413) {
-            appendMessage(`Sua mensagem ficou um pouco longa 😅 Pode resumir em até ${MAX_CARACTERES} caracteres?`, 'bot-message');
+            appendMessage(`Sua mensagem ficou um pouco longa 😅 Pode resumir em até ${MAX_CARACTERES} caracteres?`, 'bot-message', { salvar: false });
           } else {
-            appendMessage('Ops, tive um problema ao responder. Tente novamente!', 'bot-message');
+            appendMessage('Ops, tive um problema ao responder. Tente novamente!', 'bot-message', { salvar: false });
           }
         }
       } catch (err) {
         typingEl.remove();
         console.error(err);
-        appendMessage('Serviço temporariamente indisponível. Tente novamente mais tarde.', 'bot-message');
+        appendMessage('Serviço temporariamente indisponível. Tente novamente mais tarde.', 'bot-message', { salvar: false });
       } finally {
         setBloqueado(false);
         if (window.innerWidth > 480) inputEl.focus();
       }
     }
 
-    function showTyping() {
-      const messagesContainer = document.getElementById('chat-messages');
-      const msgDiv = document.createElement('div');
-      msgDiv.className = 'message bot-message';
-      msgDiv.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
-      messagesContainer.appendChild(msgDiv);
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-      return msgDiv;
+    // Últimas 10 mensagens da conversa atual, sem a pergunta que acabou de
+    // ser enviada (ela já vai no campo "message").
+    function historicoParaEnviar() {
+      const c = conversas.find(x => x.id === sessionId);
+      if (!c || !c.msgs) return [];
+      return c.msgs.slice(0, -1).slice(-10).map(m => ({
+        role: m.q === 'bot' ? 'assistant' : 'user',
+        content: m.t.slice(0, 2000)
+      }));
     }
 
     function sendQuickReply(text) {
       sendMessage(text);
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === 'Enter') {
+        sendMessage();
+      }
+    }
+
+    // ================= DESENHAR MENSAGENS =================
+    function criarLinhaBot() {
+      const row = document.createElement('div');
+      row.className = 'bot-row';
+      const av = document.createElement('div');
+      av.className = 'hex avatar';
+      av.setAttribute('aria-hidden', 'true');
+      const col = document.createElement('div');
+      col.className = 'bot-col';
+      row.appendChild(av);
+      row.appendChild(col);
+      return { row, col };
+    }
+
+    function showTyping() {
+      const messagesContainer = document.getElementById('chat-messages');
+      const { row, col } = criarLinhaBot();
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'message bot-message';
+      msgDiv.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+      col.appendChild(msgDiv);
+      messagesContainer.appendChild(row);
+      rolarParaUltima();
+      return row;
+    }
+
+    // Rola até a mensagem mais recente. Se ela for mais alta que a área
+    // visível (ex.: boas-vindas com muitos botões ou resposta longa), mostra
+    // o começo dela em vez do fim, para a pessoa ler desde o início.
+    function rolarParaUltima() {
+      const msgs = document.getElementById('chat-messages');
+      const ultima = msgs.lastElementChild;
+      if (ultima && ultima.offsetHeight > msgs.clientHeight - 24) {
+        msgs.scrollTop = ultima.offsetTop - 12;
+      } else {
+        msgs.scrollTop = msgs.scrollHeight;
+      }
     }
 
     // Adiciona texto preservando as quebras de linha (igual ao antigo innerText).
@@ -531,20 +957,11 @@
 
     // ---- Botões sugeridos que aparecem junto de algumas respostas da Ga.IA ----
     const OPCOES_SIMULADORES = [
-      { nome: 'Condomínios', rotulo: '🏢 Condomínios', msg: 'Quero o simulador de condomínios' },
-      { nome: 'ESG', rotulo: '📊 ESG', msg: 'Quero o diagnóstico ESG' },
-      { nome: 'Eventos', rotulo: '🎪 Eventos', msg: 'Quero a calculadora de eventos' },
-      { nome: 'Receitas', rotulo: '🍲 Receitas', msg: 'Quero ver as receitas' },
-      { nome: 'Olho na Copa', rotulo: '🌳 Olho na Copa', msg: 'Quero ver o Olho na Copa' },
-    ];
-
-    const OPCOES_ETAPAS = [
-      { nome: 'Produzir', rotulo: '🌱 Produzir' },
-      { nome: 'Cozinhar', rotulo: '🍳 Cozinhar' },
-      { nome: 'Comer', rotulo: '🥗 Comer' },
-      { nome: 'Compostar', rotulo: '♻️ Compostar' },
-      { nome: 'Servir', rotulo: '🤝 Servir' },
-      { nome: 'Doar', rotulo: '💚 Doar' },
+      { nome: 'Condomínios', rotulo: 'Condomínios', msg: 'Quero o simulador de condomínios' },
+      { nome: 'ESG', rotulo: 'ESG', msg: 'Quero o diagnóstico ESG' },
+      { nome: 'Eventos', rotulo: 'Eventos', msg: 'Quero a calculadora de eventos' },
+      { nome: 'Receitas', rotulo: 'Receitas', msg: 'Quero ver as receitas' },
+      { nome: 'Olho na Copa', rotulo: 'Olho na Copa', msg: 'Quero ver o Olho na Copa' },
     ];
 
     // Decide quais botões mostrar a partir do texto da resposta.
@@ -557,47 +974,527 @@
         if (citados.length >= 3) return citados;
       }
       // Quando ela apresenta as etapas, cita quase todas.
-      const etapas = OPCOES_ETAPAS.filter(o => new RegExp('\\b' + o.nome + '\\b').test(texto));
+      const etapas = ETAPAS.filter(o => new RegExp('\\b' + o.nome + '\\b').test(texto));
       if (etapas.length >= 4) {
-        return etapas.map(o => ({ rotulo: o.rotulo, msg: 'Quero saber mais sobre a etapa ' + o.nome }));
+        return etapas.map(o => ({ rotulo: o.nome, msg: 'Quero saber mais sobre a etapa ' + o.nome }));
       }
       return [];
+    }
+
+    // Cria a caixa de botões em pílula. "ctx" = some na próxima mensagem.
+    function criarChips(opcoes, ctx) {
+      const caixa = document.createElement('div');
+      caixa.className = 'quick-replies' + (ctx ? ' ctx' : '');
+      opcoes.forEach(o => {
+        const b = document.createElement('button');
+        b.className = 'chip-btn';
+        b.textContent = o.rotulo;
+        b.disabled = aguardandoResposta;
+        b.addEventListener('click', o.acao || (() => sendQuickReply(o.msg)));
+        caixa.appendChild(b);
+      });
+      return caixa;
     }
 
     function adicionarChipsDeContexto(container, texto) {
       const opcoes = opcoesParaResposta(texto);
       if (opcoes.length === 0) return;
-      const caixa = document.createElement('div');
-      caixa.className = 'quick-replies ctx';
-      opcoes.forEach(o => {
-        const b = document.createElement('button');
-        b.className = 'chip-btn';
-        b.textContent = o.rotulo;
-        b.addEventListener('click', () => sendQuickReply(o.msg));
-        caixa.appendChild(b);
-      });
-      container.appendChild(caixa);
+      container.appendChild(criarChips(opcoes, true));
     }
 
-    function appendMessage(text, className) {
+    // opcoes: { salvar: guarda no histórico (padrão sim), chips: botões de contexto (padrão sim) }
+    function appendMessage(text, className, opcoes = {}) {
+      const salvar = opcoes.salvar !== false;
+      const comChips = opcoes.chips !== false;
       const messagesContainer = document.getElementById('chat-messages');
       const msgDiv = document.createElement('div');
       msgDiv.className = `message ${className}`;
+
       if (className === 'bot-message') {
+        const { row, col } = criarLinhaBot();
         appendWithLinks(msgDiv, text);
-        adicionarChipsDeContexto(msgDiv, text);
+        col.appendChild(msgDiv);
+        if (comChips) adicionarChipsDeContexto(col, text);
+        messagesContainer.appendChild(row);
+        if (salvar) registrarNaConversa(text, 'bot');
       } else {
         msgDiv.innerText = text;
+        messagesContainer.appendChild(msgDiv);
+        if (salvar) registrarNaConversa(text, 'user');
       }
-      messagesContainer.appendChild(msgDiv);
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      rolarParaUltima();
+      return msgDiv;
     }
 
-    function handleKeyPress(event) {
-      if (event.key === 'Enter') {
-        sendMessage();
+    // Mensagem só da tela (não vai para o backend nem para o histórico)
+    function appendBotLocal(text, chips) {
+      const messagesContainer = document.getElementById('chat-messages');
+      const { row, col } = criarLinhaBot();
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'message bot-message';
+      appendWithLinks(msgDiv, text);
+      col.appendChild(msgDiv);
+      if (chips && chips.length) col.appendChild(criarChips(chips, true));
+      messagesContainer.appendChild(row);
+      rolarParaUltima();
+    }
+
+    // ================= BOAS-VINDAS =================
+    function listar(nomes) {
+      if (nomes.length <= 1) return nomes.join('');
+      return nomes.slice(0, -1).join(', ') + ' e ' + nomes[nomes.length - 1];
+    }
+
+    function meusPedidos() {
+      if (PEDIDOS_URL) window.open(PEDIDOS_URL, '_blank', 'noopener');
+      else sendQuickReply('Meus pedidos');
+    }
+
+    function renderBoasVindas() {
+      const confirmadas = ETAPAS.map(e => e.nome).filter(n => etapasConfirmadas.includes(n));
+      const declaradas = ETAPAS.map(e => e.nome).filter(n => etapasDeclaradas.includes(n) && !confirmadas.includes(n));
+      const todas = confirmadas.concat(declaradas);
+
+      let texto;
+      const chips = [];
+
+      if (todas.length === 0) {
+        texto = 'Oi! Cada hexágono é uma etapa da jornada. Toque em um para conhecer, ou me conte o que você faz hoje.';
+      } else {
+        const partes = [];
+        if (confirmadas.length) {
+          partes.push(`que você já pediu produtos da${confirmadas.length > 1 ? 's etapas' : ' etapa'} ${listar(confirmadas)}`);
+        }
+        if (declaradas.length) {
+          partes.push(`que você já faz a${declaradas.length > 1 ? 's etapas' : ' etapa'} ${listar(declaradas)}`);
+        }
+        texto = `Vi ${partes.join(', e ')}. Quer dar o próximo passo?`;
+        chips.push({
+          rotulo: '👣 Qual meu próximo passo?',
+          msg: `Já participo da${todas.length > 1 ? 's etapas' : ' etapa'} ${listar(todas)}. Qual o meu próximo passo?`
+        });
+      }
+
+      // Perguntas rápidas (as mesmas da versão anterior do widget)
+      chips.push(
+        { rotulo: '🌐 Smart EcoVila', msg: 'O que é a Smart EcoVila?' },
+        { rotulo: '🌿 As 6 Etapas', msg: 'Como funcionam as 6 etapas?' },
+        { rotulo: '🧭 Por onde começo?', msg: 'Por onde eu começo?' },
+        { rotulo: '🧮 Simuladores', msg: 'Quero usar um simulador' },
+        { rotulo: '💡 O que é o IDG?', msg: 'O que é o IDG?' },
+        { rotulo: '💬 Falar com a equipe', msg: 'Quero falar com a equipe' },
+        { rotulo: '📦 Meus pedidos', acao: meusPedidos }
+      );
+
+      const messagesContainer = document.getElementById('chat-messages');
+      const { row, col } = criarLinhaBot();
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'message bot-message';
+      msgDiv.textContent = texto;
+      col.appendChild(msgDiv);
+      const caixa = criarChips(chips, false);
+      col.appendChild(caixa);
+      row.id = 'gaia-boas-vindas';
+      messagesContainer.appendChild(row);
+    }
+
+    // ================= ETAPAS =================
+    function estadoDaEtapa(nome) {
+      if (etapasConfirmadas.includes(nome)) return 'confirmada';
+      if (etapasDeclaradas.includes(nome)) return 'declarada';
+      return '';
+    }
+
+    function renderEtapas() {
+      const row = document.getElementById('etapas-row');
+      row.innerHTML = '';
+      ETAPAS.forEach(e => {
+        const estado = estadoDaEtapa(e.nome);
+        const b = document.createElement('button');
+        b.className = 'etapa-btn' + (estado ? ' ' + estado : '');
+        b.innerHTML = '<span class="hex" aria-hidden="true"></span>';
+        b.appendChild(document.createTextNode(e.nome));
+        const desc = estado === 'confirmada' ? 'confirmada por pedido'
+                   : estado === 'declarada' ? 'você já faz' : 'para conhecer';
+        b.setAttribute('aria-label', `Etapa ${e.nome}: ${desc}`);
+        b.addEventListener('click', () => abrirEtapa(e.nome));
+        row.appendChild(b);
+      });
+
+      const minhas = ETAPAS.map(e => e.nome).filter(n => estadoDaEtapa(n));
+      const status = document.getElementById('etapas-status');
+      const legenda = document.getElementById('etapas-legenda');
+      if (minhas.length === 0) {
+        status.classList.remove('com-botao');
+        status.textContent = 'Você ainda não escolheu uma etapa. Sem pressa.';
+        legenda.classList.remove('visible');
+      } else {
+        status.innerHTML = '';
+        status.classList.add('com-botao');
+        const s = document.createElement('strong');
+        s.textContent = 'Suas etapas: ' + listar(minhas);
+        status.appendChild(s);
+
+        // Botão para mostrar/ocultar a legenda das cores
+        const toggle = document.createElement('button');
+        toggle.className = 'legenda-toggle';
+        toggle.textContent = legendaOculta ? 'Ver legenda' : 'Ocultar legenda';
+        toggle.setAttribute('aria-expanded', String(!legendaOculta));
+        toggle.setAttribute('aria-controls', 'etapas-legenda');
+        toggle.addEventListener('click', () => {
+          legendaOculta = !legendaOculta;
+          salvarJSON('gaia_legenda_oculta', legendaOculta);
+          renderEtapas();
+        });
+        status.appendChild(toggle);
+
+        legenda.classList.toggle('visible', !legendaOculta);
       }
     }
+
+    function abrirEtapa(nome) {
+      const etapa = ETAPAS.find(e => e.nome === nome);
+      if (!etapa) return;
+      etapaAberta = nome;
+      const estado = estadoDaEtapa(nome);
+
+      document.getElementById('sheet-nome').textContent = etapa.nome;
+      document.getElementById('sheet-desc').textContent = etapa.desc;
+      document.getElementById('sheet-hex').className = 'hex' + (estado === 'declarada' ? ' declarada' : '');
+
+      const faco = document.getElementById('sheet-faco');
+      if (estado === 'confirmada') {
+        faco.textContent = '✓ Confirmada por pedido';
+        faco.disabled = true;
+      } else if (estado === 'declarada') {
+        faco.textContent = 'Desmarcar';
+        faco.disabled = false;
+      } else {
+        faco.textContent = 'Faço isso';
+        faco.disabled = false;
+      }
+      document.getElementById('sheet-conhecer').disabled = aguardandoResposta;
+
+      fecharHistorico(true);
+      document.getElementById('gaia-overlay').classList.add('visible');
+      document.getElementById('etapa-sheet').classList.add('open');
+      faco.disabled ? document.getElementById('sheet-conhecer').focus() : faco.focus();
+    }
+
+    function fecharEtapa() {
+      document.getElementById('etapa-sheet').classList.remove('open');
+      etapaAberta = null;
+    }
+
+    function marcarFacoIsso() {
+      const nome = etapaAberta;
+      if (!nome) return;
+      const jaDeclarada = etapasDeclaradas.includes(nome);
+      etapasDeclaradas = jaDeclarada
+        ? etapasDeclaradas.filter(n => n !== nome)
+        : etapasDeclaradas.concat(nome);
+      salvarJSON('gaia_etapas_declaradas', etapasDeclaradas);
+      renderEtapas();
+      fecharPaineis();
+
+      if (!jaDeclarada) {
+        document.querySelectorAll('.quick-replies.ctx').forEach(el => el.remove());
+        appendBotLocal(`Anotei que você faz a etapa ${nome} 🌱`, [
+          { rotulo: 'Qual o próximo passo?', msg: `Eu já faço a etapa ${nome}. Qual o próximo passo?` }
+        ]);
+      }
+    }
+
+    function queroConhecer() {
+      const nome = etapaAberta;
+      if (!nome || aguardandoResposta) return;
+      fecharPaineis();
+      sendQuickReply('Quero saber mais sobre a etapa ' + nome);
+    }
+
+    // ================= HISTÓRICO DE CONVERSAS =================
+
+    // Título provisório pelo assunto (usado até a IA mandar um título melhor,
+    // ou se o backend ainda não tiver a rota /titulo).
+    const TEMAS = [
+      { re: /simulador.*condom|condom[ií]nio/i, titulo: 'Simulador para condomínios' },
+      { re: /diagn[oó]stico esg|\besg\b/i, titulo: 'Diagnóstico ESG' },
+      { re: /calculadora de eventos|\beventos?\b/i, titulo: 'Calculadora de eventos' },
+      { re: /olho na copa/i, titulo: 'Olho na Copa' },
+      { re: /receita/i, titulo: 'Receitas da Smart EcoVila' },
+      { re: /simulador/i, titulo: 'Simuladores' },
+      { re: /\bidg\b|inner development/i, titulo: 'O que é o IDG' },
+      { re: /etapa (produzir|cozinhar|comer|compostar|servir|doar)/i, titulo: m => 'Etapa ' + m[1][0].toUpperCase() + m[1].slice(1).toLowerCase() },
+      { re: /6 etapas|seis etapas/i, titulo: 'As 6 etapas da jornada' },
+      { re: /pr[oó]ximo passo/i, titulo: 'Próximo passo na jornada' },
+      { re: /por onde (eu )?come[cç]/i, titulo: 'Por onde começar' },
+      { re: /smart ?ecovila/i, titulo: 'Sobre a Smart EcoVila' },
+      { re: /pedido/i, titulo: 'Meus pedidos' },
+      { re: /equipe|contato|whatsapp|atendimento/i, titulo: 'Falar com a equipe' },
+      { re: /compost/i, titulo: 'Compostagem' },
+      { re: /doa[cçr]/i, titulo: 'Doações' },
+    ];
+
+    function temaDoTexto(texto) {
+      for (const t of TEMAS) {
+        const m = texto.match(t.re);
+        if (m) return typeof t.titulo === 'function' ? t.titulo(m) : t.titulo;
+      }
+      return null;
+    }
+
+    function tituloLocal(c) {
+      const usuario = c.msgs.filter(m => m.q === 'user').map(m => m.t);
+      const bot = c.msgs.filter(m => m.q === 'bot').map(m => m.t);
+      // 1º: assunto nas mensagens da pessoa; 2º: na primeira resposta da Ga.IA
+      for (const t of usuario) { const tema = temaDoTexto(t); if (tema) return tema; }
+      if (bot[0]) { const tema = temaDoTexto(bot[0]); if (tema) return tema; }
+      // 3º: primeira mensagem com pelo menos 3 palavras (ignora "sim", "faço"...)
+      const frase = usuario.find(t => t.trim().split(/\s+/).length >= 3);
+      if (frase) {
+        const limpa = frase.trim().replace(/[?!.]+$/, '');
+        const curta = limpa.length > 40 ? limpa.slice(0, 39).trimEnd() + '…' : limpa;
+        return curta[0].toUpperCase() + curta.slice(1);
+      }
+      const d = new Date(c.criada || c.em || Date.now());
+      return 'Conversa de ' + d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
+    }
+
+    // Pede à IA um título de 2 a 5 palavras. Roda na 1ª e na 3ª resposta
+    // (na 3ª a conversa já tem mais contexto). Se falhar, fica o título local.
+    async function gerarTituloIA(c) {
+      try {
+        const textoBoasVindas = document.querySelector('#gaia-boas-vindas .bot-message');
+        const resp = await fetch(TITULO_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contexto: textoBoasVindas ? textoBoasVindas.textContent : null,
+            mensagens: c.msgs.slice(0, 6).map(m => ({
+              role: m.q === 'bot' ? 'assistant' : 'user',
+              content: m.t.slice(0, 400)
+            }))
+          })
+        });
+        if (!resp.ok) return;
+        const data = await resp.json();
+        const titulo = (data.titulo || '').trim();
+        if (!titulo) return;
+        const atual = conversas.find(x => x.id === c.id);
+        if (!atual) return; // apagada enquanto esperava
+        atual.titulo = titulo.length > 48 ? titulo.slice(0, 47) + '…' : titulo;
+        atual.tituloIA = true;
+        salvarJSON('gaia_conversas', conversas);
+        if (document.getElementById('hist-drawer').classList.contains('open')) renderHistorico();
+      } catch (e) { /* sem rota /titulo ainda: mantém o título local */ }
+    }
+
+    function registrarNaConversa(texto, quem) {
+      let c = conversas.find(c => c.id === sessionId);
+      if (!c) {
+        if (quem !== 'user') return;
+        c = { id: sessionId, titulo: '', msgs: [], criada: Date.now() };
+      } else {
+        conversas = conversas.filter(x => x !== c);
+      }
+      c.msgs.push({ q: quem, t: texto });
+      c.msgs = c.msgs.slice(-80);
+      c.em = Date.now();
+      if (!c.tituloIA) c.titulo = tituloLocal(c);
+      conversas.unshift(c);
+      conversas = conversas.slice(0, 15);
+      salvarJSON('gaia_conversas', conversas);
+
+      if (quem === 'bot') {
+        const respostas = c.msgs.filter(m => m.q === 'bot').length;
+        if (respostas === 1 || respostas === 3) gerarTituloIA(c);
+      }
+    }
+
+    // ---- Apagar ----
+    let confirmandoApagar = null; // id da conversa, 'tudo' ou null
+
+    function apagarNoServidor(id) {
+      // Apaga também do banco (Supabase). Se falhar, já sumiu deste aparelho.
+      fetch(APAGAR_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ session_id: id })
+      }).catch(() => {});
+    }
+
+    function apagarConversa(id) {
+      if (aguardandoResposta) return;
+      conversas = conversas.filter(c => c.id !== id);
+      salvarJSON('gaia_conversas', conversas);
+      apagarNoServidor(id);
+      confirmandoApagar = null;
+      if (id === sessionId) {
+        trocarSessao(novoSessionId());
+        limparMensagens();
+        renderBoasVindas();
+      }
+      renderHistorico();
+    }
+
+    function apagarTudo() {
+      if (aguardandoResposta) return;
+      const ids = conversas.map(c => c.id);
+      if (!ids.includes(sessionId)) ids.push(sessionId);
+      ids.forEach(apagarNoServidor);
+      conversas = [];
+      salvarJSON('gaia_conversas', conversas);
+      confirmandoApagar = null;
+      trocarSessao(novoSessionId());
+      limparMensagens();
+      renderBoasVindas();
+      renderHistorico();
+    }
+
+    function criarConfirmacao(pergunta, aoApagar) {
+      const box = document.createElement('div');
+      box.className = 'hist-confirma';
+      const p = document.createElement('p');
+      p.textContent = pergunta;
+      const botoes = document.createElement('div');
+      botoes.className = 'hist-confirma-botoes';
+      const sim = document.createElement('button');
+      sim.className = 'btn-apagar';
+      sim.textContent = 'Apagar';
+      sim.disabled = aguardandoResposta;
+      sim.addEventListener('click', aoApagar);
+      const nao = document.createElement('button');
+      nao.className = 'btn-cancelar';
+      nao.textContent = 'Cancelar';
+      nao.addEventListener('click', () => { confirmandoApagar = null; renderHistorico(); });
+      botoes.appendChild(sim);
+      botoes.appendChild(nao);
+      box.appendChild(p);
+      box.appendChild(botoes);
+      setTimeout(() => nao.focus(), 0);
+      return box;
+    }
+
+    const ICONE_LIXEIRA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>';
+
+    function renderHistorico() {
+      const lista = document.getElementById('hist-lista');
+      const area = document.getElementById('hist-apagar-area');
+      lista.innerHTML = '';
+      area.innerHTML = '';
+
+      if (conversas.length === 0) {
+        const v = document.createElement('div');
+        v.className = 'hist-vazio';
+        v.textContent = 'Suas conversas aparecem aqui.';
+        lista.appendChild(v);
+        return;
+      }
+
+      conversas.forEach(c => {
+        if (confirmandoApagar === c.id) {
+          lista.appendChild(criarConfirmacao(`Apagar "${c.titulo}"?`, () => apagarConversa(c.id)));
+          return;
+        }
+        const row = document.createElement('div');
+        row.className = 'hist-row';
+
+        const b = document.createElement('button');
+        b.className = 'hist-item' + (c.id === sessionId ? ' atual' : '');
+        b.textContent = c.titulo;
+        b.title = c.titulo;
+        b.disabled = aguardandoResposta;
+        b.addEventListener('click', () => abrirConversa(c.id));
+
+        const del = document.createElement('button');
+        del.className = 'hist-del';
+        del.innerHTML = ICONE_LIXEIRA;
+        del.setAttribute('aria-label', `Apagar a conversa "${c.titulo}"`);
+        del.title = 'Apagar conversa';
+        del.disabled = aguardandoResposta;
+        del.addEventListener('click', () => { confirmandoApagar = c.id; renderHistorico(); });
+
+        row.appendChild(b);
+        row.appendChild(del);
+        lista.appendChild(row);
+      });
+
+      if (confirmandoApagar === 'tudo') {
+        area.appendChild(criarConfirmacao('Apagar todas as conversas? Isso não pode ser desfeito.', apagarTudo));
+      } else {
+        const tudo = document.createElement('button');
+        tudo.className = 'hist-apagar-tudo';
+        tudo.textContent = 'Apagar todo o histórico';
+        tudo.disabled = aguardandoResposta;
+        tudo.addEventListener('click', () => { confirmandoApagar = 'tudo'; renderHistorico(); });
+        area.appendChild(tudo);
+      }
+    }
+
+    function limparMensagens() {
+      document.getElementById('chat-messages').innerHTML = '';
+    }
+
+    function abrirConversa(id) {
+      if (aguardandoResposta) return;
+      const c = conversas.find(x => x.id === id);
+      if (!c) return;
+      trocarSessao(id);
+      limparMensagens();
+      renderBoasVindas();
+      c.msgs.forEach((m, i) => {
+        const ultima = i === c.msgs.length - 1;
+        appendMessage(m.t, m.q === 'bot' ? 'bot-message' : 'user-message', { salvar: false, chips: ultima });
+      });
+      fecharPaineis();
+    }
+
+    function novaConversa() {
+      if (aguardandoResposta) return;
+      trocarSessao(novoSessionId());
+      limparMensagens();
+      renderBoasVindas();
+      fecharPaineis();
+      if (window.innerWidth > 480) document.getElementById('chat-input').focus();
+    }
+
+    function abrirHistorico() {
+      confirmandoApagar = null;
+      renderHistorico();
+      fecharEtapa();
+      document.getElementById('gaia-overlay').classList.add('visible');
+      document.getElementById('hist-drawer').classList.add('open');
+    }
+
+    function fecharHistorico(manterOverlay) {
+      document.getElementById('hist-drawer').classList.remove('open');
+      if (!manterOverlay) document.getElementById('gaia-overlay').classList.remove('visible');
+    }
+
+    function fecharPaineis() {
+      fecharEtapa();
+      fecharHistorico();
+    }
+
+    function entrar() {
+      if (LOGIN_URL) window.open(LOGIN_URL, '_blank', 'noopener');
+    }
+
+    // Esc fecha o painel/gaveta aberto
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') fecharPaineis();
+    });
+
+    // ================= INÍCIO =================
+    document.getElementById('widget-toggle-btn').innerHTML = ICONE_FOLHA;
+    if (!LOGIN_URL) document.getElementById('hist-login').style.display = 'none';
+    renderEtapas();
+    // Atualiza títulos antigos que eram só a primeira mensagem
+    conversas.forEach(c => { if (!c.tituloIA && c.msgs) c.titulo = tituloLocal(c); });
+    salvarJSON('gaia_conversas', conversas);
+    // Se a conversa atual já tem mensagens guardadas, mostra de novo
+    if (conversas.some(c => c.id === sessionId)) abrirConversa(sessionId);
+    else renderBoasVindas();
   </script>
 </body>
 </html>
