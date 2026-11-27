@@ -251,13 +251,15 @@
       border-radius: 8px;
     }
     .etapa-btn .hex {
-      width: 26px; height: 23px;
+      width: 34px; height: 30px;
       background: var(--gaia-cinza-hex);
+      color: var(--gaia-verde);
       transition: transform 0.15s ease;
     }
+    .etapa-btn .hex svg { width: 19px; height: 19px; }
     .etapa-btn:hover .hex { transform: scale(1.12); }
-    .etapa-btn.confirmada .hex { background: var(--gaia-verde); }
-    .etapa-btn.declarada .hex { background: var(--gaia-lima); }
+    .etapa-btn.confirmada .hex { background: var(--gaia-verde); color: #fff; }
+    .etapa-btn.declarada .hex { background: var(--gaia-lima); color: #fff; }
     .etapa-btn:focus-visible { outline: 2px solid var(--gaia-verde); }
 
     .etapas-status {
@@ -337,6 +339,46 @@
     .send-btn:hover { background-color: var(--gaia-verde-hover); }
     .send-btn svg { width: 20px; height: 20px; }
 
+    /* Microfone (fala vira texto) */
+    .mic-btn {
+      width: 42px; height: 42px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--gaia-verde);
+      border: 1px solid var(--gaia-borda);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .mic-btn[hidden] { display: none; }
+    .mic-btn:hover { border-color: var(--gaia-verde); }
+    .mic-btn svg { width: 20px; height: 20px; }
+    .mic-btn.ouvindo { background: #b3261e; border-color: #b3261e; color: #fff; }
+    .mic-btn.ouvindo::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #b3261e;
+      animation: gaia-pulso 1.4s infinite ease-out;
+    }
+    @keyframes gaia-pulso {
+      0% { opacity: 0.7; transform: scale(0.95); }
+      100% { opacity: 0; transform: scale(1.3); }
+    }
+    .mic-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .mic-aviso {
+      display: none;
+      font-size: 11.5px;
+      color: var(--gaia-texto-suave);
+      padding: 6px 16px 0;
+    }
+    .mic-aviso.visible { display: block; }
+    @media (prefers-reduced-motion: reduce) {
+      .mic-btn.ouvindo::after { animation: none; }
+    }
+
     /* Bloqueado enquanto a Ga.IA responde */
     .chat-input-area input:disabled { background-color: #f4f5f1; cursor: not-allowed; }
     .send-btn:disabled,
@@ -397,7 +439,8 @@
     }
     .etapa-sheet.open { transform: translateY(0); }
     .sheet-titulo { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-    .sheet-titulo .hex { width: 40px; height: 35px; background: var(--gaia-verde); }
+    .sheet-titulo .hex { width: 44px; height: 38px; background: var(--gaia-verde); color: #fff; }
+    .sheet-titulo .hex svg { width: 24px; height: 24px; }
     .sheet-titulo .hex.declarada { background: var(--gaia-lima); }
     .sheet-titulo h4 { margin: 0; font-size: 20px; font-weight: 800; }
     .sheet-desc { font-size: 14px; line-height: 1.5; margin: 0 0 14px; }
@@ -516,12 +559,13 @@
       .chat-messages { padding: 12px 12px; gap: 10px; }
       .etapas-area { padding: 6px 10px 8px; }
       .etapa-btn { gap: 2px; }
-      .etapa-btn .hex { width: 22px; height: 19px; }
+      .etapa-btn .hex { width: 28px; height: 25px; }
+      .etapa-btn .hex svg { width: 16px; height: 16px; }
       .etapas-status { margin-top: 5px; }
       .etapas-legenda { margin-top: 4px; }
       .chat-input-area { padding: 8px 12px 10px; }
       .chat-input-area input { padding: 9px 14px; }
-      .send-btn { width: 38px; height: 38px; }
+      .send-btn, .mic-btn { width: 38px; height: 38px; }
     }
 
     /* ---------- Celular ---------- */
@@ -589,8 +633,12 @@
     </div>
 
     <div class="char-counter" id="char-counter"></div>
+    <div class="mic-aviso" id="mic-aviso" role="status" aria-live="polite"></div>
     <div class="chat-input-area">
       <input type="text" id="chat-input" placeholder="Digite sua mensagem..." maxlength="500" onkeypress="handleKeyPress(event)" oninput="updateCounter()">
+      <button id="mic-btn" class="mic-btn" type="button" onclick="alternarMicrofone()" aria-label="Falar em vez de digitar" aria-pressed="false" title="Falar" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0"/><path d="M12 17.5V21"/></svg>
+      </button>
       <button id="send-btn" class="send-btn" onclick="sendMessage()" aria-label="Enviar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
       </button>
@@ -653,15 +701,28 @@
     const MAX_CARACTERES = 500;
 
     // As 6 etapas da jornada e o texto do painel de cada uma.
+    // Ordem oficial da jornada: Produzir, Cozinhar, Comer, Servir, Doar, Compostar.
+    // "icone" = desenho em SVG (mesmos símbolos dos ícones da Smart EcoVila),
+    // desenhado com a cor do texto, para funcionar no hexágono cinza e no verde.
     const ETAPAS = [
       // Textos baseados no conhecimento.txt (campo "Para quem é" de cada etapa)
-      { nome: 'Produzir',  desc: 'Para agricultoras e agricultores urbanos e microprodutores comunitários. O trabalho do pequeno produtor ganha conexão direta com consumidores e cozinheiras.' },
-      { nome: 'Cozinhar',  desc: 'Para cozinheiras empreendedoras, as Santinhas, e mulheres chefes de família que transformam ingredientes em renda e afeto.' },
-      { nome: 'Comer',     desc: 'Para consumidores conscientes e famílias urbanas que se preocupam com saúde e sustentabilidade. Comer vira um jeito de apoiar a produção local.' },
-      { nome: 'Compostar', desc: 'Para quem cuida dos resíduos da cozinha ou da horta. A compostagem devolve os restos ao solo e faz parte do ciclo da vida.' },
-      { nome: 'Servir',    desc: 'Para gestores públicos, executivos ESG e patrocinadores de impacto que querem levar transformações locais para uma escala maior.' },
-      { nome: 'Doar',      desc: 'Para restaurantes, mercados, ONGs e cidadãos solidários. Doar o que sobra vira um gesto regenerativo e de conexão com a comunidade.' },
+      { nome: 'Produzir',  desc: 'Para agricultoras e agricultores urbanos e microprodutores comunitários. O trabalho do pequeno produtor ganha conexão direta com consumidores e cozinheiras.',
+        icone: '<path d="M12 12V6"/><path d="M12 8.5c-2.3 0-3.5-1.2-3.5-3.3 2.3 0 3.5 1.2 3.5 3.3z"/><path d="M12 7.8c0-2.1 1.2-3.3 3.5-3.3 0 2.1-1.2 3.3-3.5 3.3z"/><path d="M3 14.5h3.2l3 1.4h3.9a1.3 1.3 0 0 1 0 2.6H9.8"/><path d="M13.6 17.6l4.6-2.2a1.3 1.3 0 0 1 1.3 2.3L14 20.5H3"/>' },
+      { nome: 'Cozinhar',  desc: 'Para cozinheiras empreendedoras, as Santinhas, e mulheres chefes de família que transformam ingredientes em renda e afeto.',
+        icone: '<path d="M4.5 13h9.5a4.75 4.75 0 0 1-9.5 0z"/><path d="M14 13V5.5a2 2 0 0 1 4 0V7"/><path d="M7.5 10.5c0-2.1 1.3-3.5 3.8-3.5 0 2.1-1.3 3.5-3.8 3.5z"/>' },
+      { nome: 'Comer',     desc: 'Para consumidores conscientes e famílias urbanas que se preocupam com saúde e sustentabilidade. Comer vira um jeito de apoiar a produção local.',
+        icone: '<path d="M4 12h16a8 8 0 0 1-16 0z"/><path d="M12 12c0-3 1.7-4.8 4.8-4.8 0 3-1.7 4.8-4.8 4.8z"/><path d="M12 12c-2.5 0-3.9-1.4-3.9-3.9 2.5 0 3.9 1.4 3.9 3.9z"/><circle cx="9" cy="4.5" r=".6" fill="currentColor"/>' },
+      { nome: 'Servir',    desc: 'Para gestores públicos, executivos ESG e patrocinadores de impacto que querem levar transformações locais para uma escala maior.',
+        icone: '<circle cx="12" cy="15" r="6.5"/><path d="M6.4 12.6c1.6.4 2.6 0 3.4 1.4.8 1.5 2.4 1 2.8 2.7"/><path d="M15.4 10.2c-.6 1.4.3 2.6 2.4 2.6"/><path d="M12 8.5V4.8"/><path d="M12 6.5c-2 0-3.1-1-3.1-2.9 2 0 3.1 1 3.1 2.9z"/><path d="M12 5.9c0-1.8 1-2.8 3.1-2.8 0 1.8-1 2.8-3.1 2.8z"/>' },
+      { nome: 'Doar',      desc: 'Para restaurantes, mercados, ONGs e cidadãos solidários. Doar o que sobra vira um gesto regenerativo e de conexão com a comunidade.',
+        icone: '<path d="M12 20s-7.5-4.6-7.5-10A4 4 0 0 1 12 7.6 4 4 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/><path d="M9.6 15.4c0-2.1 1.4-3.5 4.2-3.5 0 2.1-1.4 3.5-4.2 3.5z"/>' },
+      { nome: 'Compostar', desc: 'Para quem cuida dos resíduos da cozinha ou da horta. A compostagem devolve os restos ao solo e faz parte do ciclo da vida.',
+        icone: '<path d="M3 11.5h13l-2.6 5H5.6z"/><path d="M16 11.5l3.5-2.2H21"/><circle cx="9.5" cy="19.3" r="1.9"/><path d="M9.5 16.5v.9"/><path d="M9.5 11.5V6.5"/><path d="M9.5 8.6c-2 0-3-1-3-2.9 2 0 3 1 3 2.9z"/><path d="M9.5 8c0-1.8 1-2.8 3-2.8 0 1.8-1 2.8-3 2.8z"/>' },
     ];
+
+    function svgIcone(etapa) {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + etapa.icone + '</svg>';
+    }
 
     // ================= ARMAZENAMENTO =================
     function lerJSON(chave, padrao) {
@@ -706,10 +767,10 @@
     // Reconhece pelo nome do arquivo, então continua valendo se o endereço
     // mudar (ex.: migração para a conta da Santa Food).
     const ROTULOS_LINKS = [
-      { teste: /\/condominios\.html(?:[?#].*)?$/i, rotulo: 'Simulador para condomínios' },
-      { teste: /\/diagnostico-esg\.html(?:[?#].*)?$/i, rotulo: 'Diagnóstico ESG' },
-      { teste: /\/eventos\.html(?:[?#].*)?$/i, rotulo: 'Calculadora de eventos' },
-      { teste: /\/receitas\/?(?:index\.html)?(?:[?#].*)?$/i, rotulo: 'Receitas da Smart EcoVila' },
+      { teste: /\/condominios\.html(?:[?#].*)?$/i, rotulo: 'Smart EcoVila Condomínios' },
+      { teste: /\/diagnostico-esg\.html(?:[?#].*)?$/i, rotulo: 'Diagnóstico ESG para empresas e municípios' },
+      { teste: /\/eventos\.html(?:[?#].*)?$/i, rotulo: 'Calculadora de eventos Smart EcoVila' },
+      { teste: /\/receitas\/?(?:index\.html)?(?:[?#].*)?$/i, rotulo: 'Receitas Smart EcoVila' },
       { teste: /\/olho%20na%20copa\/?(?:index\.html)?(?:[?#].*)?$/i, rotulo: 'Olho na Copa' },
     ];
 
@@ -730,7 +791,7 @@
       document.body.classList.toggle('gaia-open', aberto);
       toggleBtn.innerHTML = aberto ? ICONE_FECHAR : ICONE_FOLHA;
       toggleBtn.setAttribute('aria-label', aberto ? 'Fechar a Ga.IA' : 'Abrir a Ga.IA');
-      if (!aberto) fecharPaineis();
+      if (!aberto) { fecharPaineis(); pararMicrofone(); }
       else {
         // Ao abrir, mostra a mensagem mais recente
         rolarParaUltima();
@@ -743,12 +804,103 @@
       }
     }
 
+    // ================= MICROFONE (fala vira texto) =================
+    // Usa o reconhecimento de voz do próprio navegador (Chrome, Edge, Safari).
+    // No Firefox não existe: o botão fica escondido. Só funciona em HTTPS.
+    const ReconhecimentoVoz = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const AVISO_OUVINDO = 'Ouvindo... pode falar.';
+    let reconhecimento = null;
+    let ouvindo = false;
+    let avisoMicTimer = null;
+
+    function avisoMic(texto) {
+      const el = document.getElementById('mic-aviso');
+      el.textContent = texto;
+      el.classList.toggle('visible', !!texto);
+      clearTimeout(avisoMicTimer);
+      // O aviso de "ouvindo" fica até o fim; os de erro somem sozinhos.
+      if (texto && texto !== AVISO_OUVINDO) avisoMicTimer = setTimeout(() => avisoMic(''), 5000);
+    }
+
+    function atualizarMic() {
+      const btn = document.getElementById('mic-btn');
+      btn.classList.toggle('ouvindo', ouvindo);
+      btn.setAttribute('aria-pressed', String(ouvindo));
+      btn.setAttribute('aria-label', ouvindo ? 'Parar de ouvir' : 'Falar em vez de digitar');
+      btn.title = ouvindo ? 'Parar' : 'Falar';
+    }
+
+    // Para na hora e descarta o que ainda não chegou (usado ao enviar,
+    // fechar o chat ou trocar de conversa).
+    function pararMicrofone() {
+      const rec = reconhecimento;
+      if (!rec) return;
+      reconhecimento = null; // a partir daqui, resultados atrasados são ignorados
+      ouvindo = false;
+      atualizarMic();
+      if (document.getElementById('mic-aviso').textContent === AVISO_OUVINDO) avisoMic('');
+      try { rec.abort(); } catch (e) {}
+    }
+
+    function alternarMicrofone() {
+      if (aguardandoResposta || !ReconhecimentoVoz) return;
+      // Segundo toque: termina e mantém o que já foi reconhecido.
+      if (reconhecimento) { try { reconhecimento.stop(); } catch (e) {} return; }
+
+      const input = document.getElementById('chat-input');
+      const base = input.value.trim() ? input.value.trim() + ' ' : '';
+      const rec = new ReconhecimentoVoz();
+      rec.lang = 'pt-BR';
+      rec.interimResults = true;
+      rec.continuous = false;
+      rec.maxAlternatives = 1;
+
+      rec.onstart = () => {
+        if (reconhecimento !== rec) return;
+        ouvindo = true; atualizarMic(); avisoMic(AVISO_OUVINDO);
+      };
+      rec.onresult = (ev) => {
+        if (reconhecimento !== rec) return; // já foi enviado ou cancelado
+        const falado = Array.from(ev.results).map(r => r[0].transcript.trim()).join(' ').trim();
+        input.value = (base + falado).slice(0, MAX_CARACTERES);
+        updateCounter();
+      };
+      rec.onerror = (ev) => {
+        if (ev.error === 'aborted' || reconhecimento !== rec) return;
+        const msgs = {
+          'not-allowed': 'Permita o uso do microfone no navegador para falar com a Ga.IA.',
+          'service-not-allowed': 'Permita o uso do microfone no navegador para falar com a Ga.IA.',
+          'no-speech': 'Não ouvi nada. Toque no microfone e tente de novo.',
+          'audio-capture': 'Não encontrei um microfone neste aparelho.',
+          'network': 'Sem conexão para reconhecer a fala. Tente de novo.',
+        };
+        avisoMic(msgs[ev.error] || 'Não consegui ouvir agora. Você pode digitar.');
+      };
+      rec.onend = () => {
+        if (reconhecimento !== rec) return; // um reconhecimento mais novo já assumiu
+        reconhecimento = null; ouvindo = false; atualizarMic();
+        if (document.getElementById('mic-aviso').textContent === AVISO_OUVINDO) avisoMic('');
+        // No celular não foca, para o teclado não subir por cima da conversa.
+        if (window.innerWidth > 480 && !aguardandoResposta) input.focus();
+      };
+
+      reconhecimento = rec;
+      try {
+        rec.start();
+      } catch (e) {
+        reconhecimento = null;
+        avisoMic('Não consegui ligar o microfone. Você pode digitar.');
+      }
+    }
+
     function setBloqueado(bloqueado) {
       aguardandoResposta = bloqueado;
+      if (bloqueado) pararMicrofone();
       const inputEl = document.getElementById('chat-input');
       inputEl.disabled = bloqueado;
       inputEl.placeholder = bloqueado ? 'Ga.IA está respondendo...' : 'Digite sua mensagem...';
       document.getElementById('send-btn').disabled = bloqueado;
+      document.getElementById('mic-btn').disabled = bloqueado;
       // Também trava a troca de conversa, para a resposta não cair na conversa errada
       document.querySelectorAll('.chip-btn, .hist-item, .hist-del, .hist-apagar-tudo, .btn-apagar, #nova-conversa, #sheet-conhecer')
         .forEach(b => b.disabled = bloqueado);
@@ -772,6 +924,10 @@
     // ================= ENVIAR MENSAGEM =================
     async function sendMessage(textOverride = null) {
       if (aguardandoResposta) return;
+
+      // Se o microfone ainda estiver ligado, desliga antes de ler o campo:
+      // senão um resultado atrasado escreveria de novo no campo já limpo.
+      pararMicrofone();
 
       const inputEl = document.getElementById('chat-input');
       const messageText = (textOverride || inputEl.value).trim();
@@ -957,10 +1113,12 @@
 
     // ---- Botões sugeridos que aparecem junto de algumas respostas da Ga.IA ----
     const OPCOES_SIMULADORES = [
-      { nome: 'Condomínios', rotulo: 'Condomínios', msg: 'Quero o simulador de condomínios' },
-      { nome: 'ESG', rotulo: 'ESG', msg: 'Quero o diagnóstico ESG' },
-      { nome: 'Eventos', rotulo: 'Eventos', msg: 'Quero a calculadora de eventos' },
-      { nome: 'Receitas', rotulo: 'Receitas', msg: 'Quero ver as receitas' },
+      // "nome" serve para reconhecer as opções no texto da Ga.IA; "msg" já usa
+      // o nome oficial do módulo, para ela mandar o link certo.
+      { nome: 'Condomínios', rotulo: 'Condomínios', msg: 'Quero o Smart EcoVila Condomínios' },
+      { nome: 'ESG', rotulo: 'ESG', msg: 'Quero o Diagnóstico ESG para empresas e municípios' },
+      { nome: 'Eventos', rotulo: 'Eventos', msg: 'Quero a Calculadora de eventos Smart EcoVila' },
+      { nome: 'Receitas', rotulo: 'Receitas', msg: 'Quero ver as Receitas Smart EcoVila' },
       { nome: 'Olho na Copa', rotulo: 'Olho na Copa', msg: 'Quero ver o Olho na Copa' },
     ];
 
@@ -1081,7 +1239,7 @@
         { rotulo: '🌿 As 6 Etapas', msg: 'Como funcionam as 6 etapas?' },
         { rotulo: '🧭 Por onde começo?', msg: 'Por onde eu começo?' },
         { rotulo: '🧮 Simuladores', msg: 'Quero usar um simulador' },
-        { rotulo: '💡 O que é o IDG?', msg: 'O que é o IDG?' },
+        { rotulo: '🌍 O que são as ODS?', msg: 'O que são as ODS?' },
         { rotulo: '💬 Falar com a equipe', msg: 'Quero falar com a equipe' },
         { rotulo: '📦 Meus pedidos', acao: meusPedidos }
       );
@@ -1112,7 +1270,7 @@
         const estado = estadoDaEtapa(e.nome);
         const b = document.createElement('button');
         b.className = 'etapa-btn' + (estado ? ' ' + estado : '');
-        b.innerHTML = '<span class="hex" aria-hidden="true"></span>';
+        b.innerHTML = '<span class="hex" aria-hidden="true">' + svgIcone(e) + '</span>';
         b.appendChild(document.createTextNode(e.nome));
         const desc = estado === 'confirmada' ? 'confirmada por pedido'
                    : estado === 'declarada' ? 'você já faz' : 'para conhecer';
@@ -1160,7 +1318,9 @@
 
       document.getElementById('sheet-nome').textContent = etapa.nome;
       document.getElementById('sheet-desc').textContent = etapa.desc;
-      document.getElementById('sheet-hex').className = 'hex' + (estado === 'declarada' ? ' declarada' : '');
+      const sheetHex = document.getElementById('sheet-hex');
+      sheetHex.className = 'hex' + (estado === 'declarada' ? ' declarada' : '');
+      sheetHex.innerHTML = svgIcone(etapa);
 
       const faco = document.getElementById('sheet-faco');
       if (estado === 'confirmada') {
@@ -1217,12 +1377,13 @@
     // Título provisório pelo assunto (usado até a IA mandar um título melhor,
     // ou se o backend ainda não tiver a rota /titulo).
     const TEMAS = [
-      { re: /simulador.*condom|condom[ií]nio/i, titulo: 'Simulador para condomínios' },
+      { re: /simulador.*condom|condom[ií]nio/i, titulo: 'Smart EcoVila Condomínios' },
       { re: /diagn[oó]stico esg|\besg\b/i, titulo: 'Diagnóstico ESG' },
       { re: /calculadora de eventos|\beventos?\b/i, titulo: 'Calculadora de eventos' },
       { re: /olho na copa/i, titulo: 'Olho na Copa' },
-      { re: /receita/i, titulo: 'Receitas da Smart EcoVila' },
+      { re: /receita/i, titulo: 'Receitas Smart EcoVila' },
       { re: /simulador/i, titulo: 'Simuladores' },
+      { re: /\bods\b|objetivos de desenvolvimento sustent/i, titulo: 'O que são as ODS' },
       { re: /\bidg\b|inner development/i, titulo: 'O que é o IDG' },
       { re: /etapa (produzir|cozinhar|comer|compostar|servir|doar)/i, titulo: m => 'Etapa ' + m[1][0].toUpperCase() + m[1].slice(1).toLowerCase() },
       { re: /6 etapas|seis etapas/i, titulo: 'As 6 etapas da jornada' },
@@ -1432,6 +1593,7 @@
     }
 
     function limparMensagens() {
+      pararMicrofone();
       document.getElementById('chat-messages').innerHTML = '';
     }
 
@@ -1488,6 +1650,8 @@
     // ================= INÍCIO =================
     document.getElementById('widget-toggle-btn').innerHTML = ICONE_FOLHA;
     if (!LOGIN_URL) document.getElementById('hist-login').style.display = 'none';
+    // Só mostra o microfone onde o navegador sabe transformar fala em texto.
+    if (ReconhecimentoVoz) document.getElementById('mic-btn').hidden = false;
     renderEtapas();
     // Atualiza títulos antigos que eram só a primeira mensagem
     conversas.forEach(c => { if (!c.tituloIA && c.msgs) c.titulo = tituloLocal(c); });
